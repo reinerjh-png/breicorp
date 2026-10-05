@@ -1,0 +1,143 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
+import { getWhatsAppUrl } from "@/config/company";
+
+export function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      question: "¿Qué requisitos necesito para empezar a emitir comprobantes con BREICORP?",
+      answer:
+        "Solo necesitas contar con tu RUC activo y habido en SUNAT, tu Clave SOL y tu Certificado Digital Tributario (si no lo tienes, te orientamos paso a paso para obtener el certificado gratuito emitido por SUNAT). Nuestro equipo te guía en la vinculación en menos de 24 horas hábiles.",
+    },
+    {
+      question: "¿El sistema sigue funcionando si la web oficial de SUNAT tiene caídas o lentitud?",
+      answer:
+        "Sí. BREICORP opera con conexiones de alto rendimiento a través de Operadores de Servicios Electrónicos (OSE) y PSE homologados. Tus ventas se registran de inmediato, se genera el comprobante para el cliente y el envío a SUNAT se sincroniza con colas de contingencia automática sin frenar tu atención en caja.",
+    },
+    {
+      question: "¿Qué impresoras y equipos de cómputo son compatibles?",
+      answer:
+        "BREICORP es 100% compatible con ticketeras térmicas estándar de 80mm y 58mm (conexión USB, red Ethernet o Bluetooth), así como impresoras láser o de inyección de tinta en tamaño A4 y A5. Puedes usarlo en cualquier computadora o laptop con Windows, macOS o Linux, y desde celulares o tablets Android.",
+    },
+    {
+      question: "¿Puedo importar mi lista actual de productos y precios desde Excel?",
+      answer:
+        "Sí, totalmente. Contamos con una plantilla de importación masiva en Excel para que cargues tu inventario inicial, códigos de barra, categorías, unidades de medida y precios en pocos minutos, sin tener que digitar producto por producto.",
+    },
+    {
+      question: "¿Qué pasa con mis comprobantes y datos si decido cambiar de plan o cancelar?",
+      answer:
+        "Toda tu información comercial te pertenece en todo momento. Puedes exportar tus comprobantes electrónicos (archivos XML, CDR de aceptación y PDFs), inventario, clientes y reportes contables a Excel o archivo comprimido cuando lo desees.",
+    },
+    {
+      question: "¿La plataforma incluye la emisión obligatoria de Guías de Remisión Electrónica (GRE)?",
+      answer:
+        "Sí. Puedes emitir Guías de Remisión Remitente (09) y Guías de Remisión Transportista (31) con el código QR y código de barras bidimensional obligatorio para fiscalización en carreteras por parte de la Policía Nacional y la SUNAT.",
+    },
+    {
+      question: "¿Ofrecen capacitación y soporte si mi equipo tiene dudas al usar el sistema?",
+      answer:
+        "Por supuesto. Cada cuenta incluye inducción inicial para tus administradores y cajeros. Además, cuentas con soporte técnico directo en Perú por teléfono, WhatsApp y acceso a videos tutoriales guiados paso a paso.",
+    },
+  ];
+
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  // Generate FAQPage JSON-LD schema
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.answer,
+      },
+    })),
+  };
+
+  return (
+    <section className="py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-4 mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider">
+            <HelpCircle className="w-3.5 h-3.5" />
+            <span>Preguntas Frecuentes</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+            Resolvemos tus dudas antes de empezar
+          </h2>
+          <p className="text-base text-slate-600">
+            Todo lo que necesitas saber sobre compatibilidad, homologación SUNAT y puesta en marcha.
+          </p>
+        </div>
+
+        {/* Accordion list */}
+        <div className="space-y-3">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-200"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(idx)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none focus:bg-slate-50"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-bold text-slate-900 text-base sm:text-lg">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-blue-600" : ""
+                    }`}
+                  />
+                </button>
+
+                {isOpen && (
+                  <div className="px-5 pb-6 sm:px-6 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Need more help banner */}
+        <div className="mt-12 bg-white rounded-2xl p-6 border border-slate-200 text-center space-y-3 shadow-sm">
+          <h4 className="font-bold text-slate-900 text-base">
+            ¿Tienes una pregunta específica sobre tu negocio?
+          </h4>
+          <p className="text-xs text-slate-500 max-w-md mx-auto">
+            Nuestros especialistas comerciales y tributarios atienden tus consultas directamente por WhatsApp sin compromiso.
+          </p>
+          <a
+            href={getWhatsAppUrl("Hola, tengo algunas dudas sobre el funcionamiento de BREICORP para mi negocio.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition-colors shadow-sm"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>Consultar con un especialista ahora</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

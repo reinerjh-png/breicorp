@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* ============================================================
+   BREICORP — Design System
+   
+   Enterprise SaaS visual identity.
+   Navy + Blue technology palette built around the brand.
+   ============================================================ */
+
+@theme {
+  /* ---- Brand Colors (derived from logo-breicorp.webp) ---- */
+  --color-brand-orange: #FF6801;
+  --color-brand-orange-hover: #EA580C;
+  --color-brand-orange-dark: #C2410C;
+  --color-brand-orange-light: #FF8533;
+  --color-brand-orange-subtle: #FFF7ED;
+  --color-brand-orange-border: #FFEDD5;
+  --color-brand-navy: #0B1F33;
+  --color-brand-navy-deep: #061421;
+  --color-brand-blue: #1769E0;
+  --color-brand-blue-light: #3B82F6;
+  --color-brand-cyan: #0EA5C6;
+  --color-brand-green: #16A36A;
+
+  /* ---- Semantic Colors ---- */
+  --color-foreground: #0F172A;
+  --color-foreground-muted: #64748B;
+  --color-foreground-subtle: #94A3B8;
+  --color-background: #F7F9FC;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
+
+  /* ---- Typography ---- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+
+  /* ---- Spacing Scale ---- */
+  --spacing-section: 6rem;
+  --spacing-section-sm: 4rem;
+
+  /* ---- Container ---- */
+  --container-page: 1280px;
+
+  /* ---- Shadows ---- */
+  --shadow-premium: 0 1px 3px 0 rgba(0,0,0,0.04), 0 6px 24px -4px rgba(0,0,0,0.06);
+  --shadow-float: 0 8px 40px -8px rgba(0,0,0,0.1), 0 2px 8px -2px rgba(0,0,0,0.04);
+  --shadow-glow-blue: 0 0 20px rgba(23,105,224,0.15);
+
+  /* ---- Animation ---- */
+  --ease-out-expo: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-expo: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* ---- Radius ---- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+}
+
+/* ============================================================
+   Skip Navigation Link (Accessibility)
+   ============================================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-brand-blue);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: top 200ms ease-out;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: 3px solid var(--color-brand-blue);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Focus Styles (Accessible)
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Container
+   ============================================================ */
+
+.container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ============================================================
+   Eyebrow Label
+   ============================================================ */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-brand-blue);
+}
+
+/* ============================================================
+   Text Gradient
+   ============================================================ */
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   Section Divider
+   ============================================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border) 20%,
+    var(--color-border) 80%,
+    transparent
+  );
+}
+
+/* ============================================================
+   Hero Background Grid
+   ============================================================ */
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================================
+   Subtle Radial Glow
+   ============================================================ */
+
+.bg-radial-glow {
+  background: radial-gradient(
+    60% 60% at 50% 0%,
+    rgba(23,105,224,0.08),
+    transparent 70%
+  );
+}
+
+/* ============================================================
+   Card Hover Effect
+   ============================================================ */
+
+.card-interactive {
+  transition: transform 200ms var(--ease-out-expo), box-shadow 200ms var(--ease-out-expo), border-color 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-float);
+    border-color: rgba(23,105,224,0.2);
+  }
+}
+
+/* ============================================================
+   Viewport Reveal Animation
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms var(--ease-out-expo), transform 600ms var(--ease-out-expo);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-stagger > .reveal:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > .reveal:nth-child(2) { transition-delay: 60ms; }
+.reveal-stagger > .reveal:nth-child(3) { transition-delay: 120ms; }
+.reveal-stagger > .reveal:nth-child(4) { transition-delay: 180ms; }
+.reveal-stagger > .reveal:nth-child(5) { transition-delay: 240ms; }
+.reveal-stagger > .reveal:nth-child(6) { transition-delay: 300ms; }

@@ -1,0 +1,156 @@
+import type { Metadata } from "next";
+import { PageHeader } from "@/components/shared/PageHeader";
+import { ContactForm } from "@/components/shared/ContactForm";
+import { company, getWhatsAppUrl } from "@/config/company";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  ShieldCheck,
+  CheckCircle,
+} from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contacto y Solicitud de Demostración | BREICORP",
+  description:
+    "Comunícate con el equipo de BREICORP. Agenda una demostración personalizada de software empresarial o consulta planes para tu empresa por WhatsApp o formulario.",
+};
+
+export default function ContactoPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ plan?: string }>;
+}) {
+  return (
+    <>
+      <PageHeader
+        badge="Atención Personalizada"
+        title="Agenda una demostración guiada de 15 minutos"
+        description="Te mostramos la plataforma funcionando en vivo con datos y comprobantes específicos para el rubro comercial de tu empresa."
+        breadcrumbs={[{ label: "Contacto" }]}
+      />
+
+      <section className="py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Form Column */}
+            <div className="lg:col-span-7">
+              <ContactForm />
+            </div>
+
+            {/* Direct Channels Column */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+                <h2 className="text-xl font-black text-slate-950">
+                  Canales de Atención Directa
+                </h2>
+
+                <div className="space-y-4 text-xs sm:text-sm">
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-bold text-slate-900">Central Telefónica</div>
+                      <a
+                        href={`tel:${company.phone.replace(/\s+/g, "")}`}
+                        className="text-slate-600 hover:text-blue-600 transition-colors"
+                      >
+                        {company.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MessageCircle className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-bold text-slate-900">WhatsApp Comercial</div>
+                      <a
+                        href={getWhatsAppUrl()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-700 font-semibold hover:underline"
+                      >
+                        Chatear con un asesor en línea →
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-bold text-slate-900">Ventas y Cotizaciones</div>
+                      <a
+                        href={`mailto:${company.salesEmail}`}
+                        className="text-slate-600 hover:text-blue-600"
+                      >
+                        {company.salesEmail}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-bold text-slate-900">Soporte Técnico</div>
+                      <a
+                        href={`mailto:${company.supportEmail}`}
+                        className="text-slate-600 hover:text-blue-600"
+                      >
+                        {company.supportEmail}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-slate-500 shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-bold text-slate-900">Oficina Principal</div>
+                      <p className="text-slate-600">{company.address}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 text-slate-500 shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-bold text-slate-900">Horario de Atención</div>
+                      <p className="text-slate-600">{company.businessHours}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100 bg-slate-50 p-4 rounded-xl text-xs space-y-1">
+                  <div className="font-bold text-slate-900">Datos Fiscales:</div>
+                  <div className="text-slate-600">{company.legalName}</div>
+                  <div className="text-slate-600">RUC: {company.ruc}</div>
+                  <div className="text-slate-600">{company.partidaElectronica}</div>
+                </div>
+              </div>
+
+              {/* What happens next box */}
+              <div className="bg-blue-900 text-white rounded-3xl p-6 border border-blue-800 space-y-3">
+                <div className="font-bold text-sm text-cyan-300">
+                  ¿Qué ocurre tras solicitar una demo?
+                </div>
+                <div className="space-y-2 text-xs text-blue-100">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Te contactamos en menos de 2 horas hábiles.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Configuramos la sesión con el catálogo y comprobantes de tu rubro.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                    <span>Sin presiones de compra ni contratos forzosos.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
