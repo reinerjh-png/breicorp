@@ -13,8 +13,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Zap,
-  Printer,
-  Share2,
 } from "lucide-react";
 
 export function PlatformInteractive() {
@@ -26,24 +24,24 @@ export function PlatformInteractive() {
       title: "Facturación SUNAT",
       shortTitle: "Facturación",
       icon: Receipt,
-      headline: "Emite boletas y facturas electrónicas en 3 segundos sin caídas",
+      headline: "Emite boletas y facturas desde un flujo comercial centralizado",
       description:
-        "Olvídate de multas y retrasos. BREICORP se conecta de forma directa y homologada con SUNAT y OSE, generando el archivo XML firmado, el CDR oficial de aceptación y el formato PDF listo para imprimir o enviar.",
+        "BREICORP organiza la emisión del comprobante, el archivo XML firmado, la consulta del CDR y el formato PDF listo para imprimir o enviar.",
       highlights: [
         "Boletas, facturas, notas de crédito y débito electrónicas",
         "Envío automático del PDF y XML directo al WhatsApp o correo del cliente",
         "Formatos para ticketera térmica (80mm, 58mm) y formato A4 / A5",
-        "Validación automática del RUC y DNI con la base oficial en tiempo real",
-        "Respaldo digital permanente de todos tus comprobantes sin límite",
+        "Consulta de RUC y DNI para completar los datos del comprobante",
+        "Organización digital de los comprobantes y sus archivos asociados",
       ],
-      previewBadge: "Homologación SUNAT OSE Activa",
+      previewBadge: "Flujo de Facturación Electrónica",
       previewData: {
         title: "Emisión de Comprobante Electrónico",
         items: [
           { label: "Documento:", val: "Factura Electrónica F001-0001842" },
           { label: "Receptor:", val: "DISTRIBUIDORA NORTE S.A.C. (RUC 20601928374)" },
           { label: "Total Venta:", val: "S/ 1,450.00 (Incluye IGV 18%)" },
-          { label: "Respuesta OSE:", val: "0 - El comprobante ha sido aceptado" },
+          { label: "Respuesta del proceso:", val: "0 - El comprobante ha sido aceptado" },
         ],
       },
       link: "/facturacion-electronica",
@@ -99,7 +97,7 @@ export function PlatformInteractive() {
           { label: "Número Guía:", val: "T001-0000412 con QR SUNAT" },
           { label: "Motivo Traslado:", val: "Venta con entrega a domicilio" },
           { label: "Vehículo / Chofer:", val: "Camión B4P-912 • Juan C. Pérez" },
-          { label: "Estado Validación:", val: "Autorizada para traslado nacional" },
+          { label: "Estado del documento:", val: "Guía generada para el traslado" },
         ],
       },
       link: "/guias-remision-electronicas",

@@ -7,9 +7,7 @@ import {
   Clock,
   Coins,
   CheckCircle2,
-  TrendingDown,
   ArrowRight,
-  ShieldCheck,
 } from "lucide-react";
 
 export function RoiCalculator() {
@@ -46,7 +44,7 @@ export function RoiCalculator() {
           </h2>
           <p className="text-base sm:text-lg text-slate-300">
             Descubre cuántas horas hombre recupera tu equipo al reemplazar procesos manuales
-            o el lento portal web de SUNAT con la emisión instantánea de BREICORP.
+            o el portal web de SUNAT con un flujo de emisión más ágil en BREICORP.
           </p>
         </div>
 
@@ -189,7 +187,7 @@ export function RoiCalculator() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Planes desde S/ 50/mes con ROI positivo desde la primera semana</span>
+                <span>Compara el ahorro estimado con planes desde S/ 50 al mes</span>
               </div>
             </div>
 

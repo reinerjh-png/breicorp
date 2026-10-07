@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { company, getWhatsAppUrl } from "@/config/company";
+import Link from "next/link";
 import {
-  Send,
-  CheckCircle2,
   AlertCircle,
   Building,
   User,
@@ -15,7 +14,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-export function ContactForm({ planPreselected }: { planPreselected?: string }) {
+export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     companyName: "",
@@ -23,23 +22,18 @@ export function ContactForm({ planPreselected }: { planPreselected?: string }) {
     phone: "",
     email: "",
     sector: "comercio",
-    plan: planPreselected || "negocio",
     message: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError(null);
 
     // Basic Peruvian RUC validation if entered
-    if (formData.ruc && formData.ruc.trim().length !== 11) {
+    if (formData.ruc && !/^\d{11}$/.test(formData.ruc.trim())) {
       setError("El RUC debe tener exactamente 11 dígitos numéricos.");
-      setLoading(false);
       return;
     }
 
@@ -47,72 +41,23 @@ export function ContactForm({ planPreselected }: { planPreselected?: string }) {
     const cleanPhone = formData.phone.replace(/\D/g, "");
     if (cleanPhone.length < 9) {
       setError("Por favor ingresa un número de teléfono o celular válido de 9 dígitos.");
-      setLoading(false);
       return;
     }
 
-    try {
-      // Simulate API submission (or webhook endpoint)
-      await new Promise((resolve) => setTimeout(resolve, 800));
-      setSubmitted(true);
-    } catch {
-      setError("Hubo un error al procesar tu solicitud. Por favor contáctanos por WhatsApp.");
-    } finally {
-      setLoading(false);
-    }
+    const message = [
+      "Hola, quiero solicitar una demostración guiada de BREICORP.",
+      "",
+      `Nombre: ${formData.name}`,
+      `Empresa: ${formData.companyName || "No indicada"}`,
+      `RUC: ${formData.ruc || "No indicado"}`,
+      `Celular: ${formData.phone}`,
+      `Correo: ${formData.email}`,
+      `Giro: ${formData.sector}`,
+      `Necesidad principal: ${formData.message || "Deseo conocer la plataforma"}`,
+    ].join("\n");
+
+    window.open(getWhatsAppUrl(message), "_blank", "noopener,noreferrer");
   };
-
-  if (submitted) {
-    return (
-      <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl text-center space-y-5 animate-in fade-in duration-300">
-        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
-          <CheckCircle2 className="w-10 h-10" />
-        </div>
-
-        <h3 className="text-2xl font-black text-slate-900 tracking-tight">
-          ¡Solicitud recibida con éxito!
-        </h3>
-
-        <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-          Gracias <strong className="text-slate-900">{formData.name}</strong>. Un especialista comercial
-          de BREICORP revisará la información de{" "}
-          <strong className="text-slate-900">{formData.companyName || "tu empresa"}</strong> y te
-          contactará en menos de 2 horas hábiles al {formData.phone}.
-        </p>
-
-        <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href={getWhatsAppUrl(`Hola, acabo de enviar mi formulario desde la web para ${formData.companyName || formData.name}.`)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow transition-colors"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Acelerar atención por WhatsApp</span>
-          </a>
-
-          <button
-            onClick={() => {
-              setSubmitted(false);
-              setFormData({
-                name: "",
-                companyName: "",
-                ruc: "",
-                phone: "",
-                email: "",
-                sector: "comercio",
-                plan: "negocio",
-                message: "",
-              });
-            }}
-            className="text-xs text-slate-500 hover:text-slate-800 underline py-2"
-          >
-            Enviar otra consulta
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl">
@@ -265,22 +210,18 @@ export function ContactForm({ planPreselected }: { planPreselected?: string }) {
         <div className="pt-2">
           <button
             type="submit"
-            disabled={loading}
-            className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600 hover:from-orange-600 hover:via-orange-700 hover:to-amber-700 active:from-orange-700 disabled:opacity-50 text-white font-bold text-sm shadow-lg shadow-orange-500/20 transition-all duration-200"
+            className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-sm shadow-lg shadow-orange-500/20 transition-all duration-200"
           >
-            {loading ? (
-              <span>Procesando solicitud...</span>
-            ) : (
-              <>
-                <span>Solicitar demostración sin compromiso</span>
-                <Send className="w-4 h-4" />
-              </>
-            )}
+            <span>Solicitar demo por WhatsApp</span>
+            <MessageCircle className="w-4 h-4" />
           </button>
         </div>
 
         <p className="text-[11px] text-slate-400 text-center pt-2">
-          Tus datos están protegidos conforme a la Ley N.° 29733 (Ley de Protección de Datos Personales en Perú).
+          Al continuar, se abrirá WhatsApp con estos datos para que tú confirmes el envío. BREICORP no registra este formulario en la web. Consulta nuestra{" "}
+          <Link href={company.legalLinks.privacyPolicy} className="text-blue-600 hover:underline">
+            Política de Privacidad
+          </Link>.
         </p>
       </form>
     </div>

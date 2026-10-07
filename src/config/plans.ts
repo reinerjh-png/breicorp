@@ -25,6 +25,13 @@ export interface Plan {
   ctaHref: string;
 }
 
+export type ComparisonValue = string | boolean;
+
+export interface PlanComparisonRow {
+  feature: string;
+  values: Record<string, ComparisonValue>;
+}
+
 export const plans: Plan[] = [
   {
     id: "emprendedor",
@@ -125,4 +132,33 @@ export const plans: Plan[] = [
     cta: "Hablar con un especialista",
     ctaHref: "/contacto",
   },
+];
+
+/** Comparativa centralizada; sus límites permanecen pendientes de validación final. */
+export const planComparison: PlanComparisonRow[] = [
+  {
+    feature: "Comprobantes electrónicos",
+    values: Object.fromEntries(plans.map((plan) => [plan.id, plan.documents])),
+  },
+  {
+    feature: "Usuarios de acceso",
+    values: Object.fromEntries(plans.map((plan) => [plan.id, plan.users])),
+  },
+  {
+    feature: "Sucursales / Locales",
+    values: Object.fromEntries(plans.map((plan) => [plan.id, plan.locations])),
+  },
+  {
+    feature: "Catálogo de productos",
+    values: Object.fromEntries(plans.map((plan) => [plan.id, plan.products])),
+  },
+  { feature: "Boletas, Facturas y Notas", values: { emprendedor: true, negocio: true, empresa: true, corporativo: true } },
+  { feature: "Envío a WhatsApp del cliente", values: { emprendedor: true, negocio: true, empresa: true, corporativo: true } },
+  { feature: "Control de Kardex e Inventario", values: { emprendedor: false, negocio: true, empresa: true, corporativo: true } },
+  { feature: "Punto de Venta (POS) y Cajas", values: { emprendedor: false, negocio: true, empresa: true, corporativo: true } },
+  { feature: "Guías de Remisión Electrónica GRE", values: { emprendedor: false, negocio: true, empresa: true, corporativo: true } },
+  { feature: "Múltiples listas de precios", values: { emprendedor: false, negocio: false, empresa: true, corporativo: true } },
+  { feature: "Preventa y vendedores en ruta", values: { emprendedor: false, negocio: false, empresa: true, corporativo: true } },
+  { feature: "API e integraciones a medida", values: { emprendedor: false, negocio: false, empresa: false, corporativo: true } },
+  { feature: "Nivel de soporte", values: { emprendedor: "Estándar", negocio: "Prioritario", empresa: "Dedicado", corporativo: "Acuerdo por definir" } },
 ];

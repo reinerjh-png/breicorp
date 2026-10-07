@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import {
@@ -11,32 +9,32 @@ import {
   Share2,
   FileCheck,
   AlertTriangle,
-  ArrowRight,
 } from "lucide-react";
-import { getWhatsAppUrl } from "@/config/company";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Facturación Electrónica SUNAT en Perú | Sistema Homologado OSE",
+export const metadata = createPageMetadata({
+  title: "Facturación Electrónica SUNAT en Perú",
   description:
-    "Emite facturas, boletas de venta, notas de crédito y débito electrónicas conforme a la normativa SUNAT. Sin caídas del portal, con envío por WhatsApp e impresión en ticket.",
+    "Emite facturas, boletas de venta, notas de crédito y débito electrónicas para procesos relacionados con SUNAT, con envío por WhatsApp e impresión en ticket.",
   keywords: [
     "facturación electrónica sunat",
     "sistema facturación electrónica perú",
     "boletas y facturas electrónicas tingo maria",
-    "software ose pse sunat",
+    "software comprobantes electrónicos sunat",
     "emisión comprobantes electrónicos",
   ],
-};
+  path: "/facturacion-electronica",
+});
 
 export default function FacturacionElectronicaPage() {
   const problemsSolved = [
     {
       problem: "Caídas y lentitud constantes en el portal 'Mis Trámites' de SUNAT",
-      solution: "BREICORP procesa a través de OSE de alta capacidad con colas de contingencia.",
+      solution: "BREICORP mantiene el registro comercial y organiza el proceso electrónico del comprobante.",
     },
     {
       problem: "Clientes esperando minutos en caja para recibir su boleta",
-      solution: "Emisión de comprobante en menos de 3 segundos con búsqueda automática de DNI/RUC.",
+      solution: "Flujo de emisión ágil con consulta de datos de DNI/RUC cuando corresponde.",
     },
     {
       problem: "Pérdida de comprobantes y desorden para el contador a fin de mes",
@@ -51,9 +49,9 @@ export default function FacturacionElectronicaPage() {
   return (
     <>
       <PageHeader
-        badge="Homologado SUNAT 2026"
-        title="Facturación Electrónica rápida, segura y sin caídas en Perú"
-        description="Emite boletas de venta, facturas comerciales, notas de crédito y débito con validación OSE inmediata. Envía comprobantes por WhatsApp en formato ticket o A4."
+        badge="Facturación Electrónica en Perú"
+        title="Facturación electrónica ágil y organizada para tu empresa"
+        description="Emite boletas de venta, facturas comerciales, notas de crédito y débito, y comparte los comprobantes por WhatsApp en formato ticket o A4."
         breadcrumbs={[
           { label: "Producto", href: "/producto" },
           { label: "Facturación Electrónica" },

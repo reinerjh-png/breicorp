@@ -1,28 +1,23 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { ContactForm } from "@/components/shared/ContactForm";
-import { company, getWhatsAppUrl } from "@/config/company";
+import { company, createPageMetadata, getWhatsAppUrl } from "@/config/company";
 import {
   Phone,
   Mail,
   MapPin,
   Clock,
   MessageCircle,
-  ShieldCheck,
   CheckCircle,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Contacto y Solicitud de Demostración | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Contacto y Solicitud de Demostración",
   description:
     "Comunícate con el equipo de BREICORP. Agenda una demostración personalizada de software empresarial o consulta planes para tu empresa por WhatsApp o formulario.",
-};
+  path: "/contacto",
+});
 
-export default function ContactoPage({
-  searchParams,
-}: {
-  searchParams?: Promise<{ plan?: string }>;
-}) {
+export default function ContactoPage() {
   return (
     <>
       <PageHeader
@@ -71,7 +66,7 @@ export default function ContactoPage({
                         rel="noopener noreferrer"
                         className="text-emerald-700 font-semibold hover:underline"
                       >
-                        Chatear con un asesor en línea →
+                        Chatear con un asesor por WhatsApp →
                       </a>
                     </div>
                   </div>
@@ -79,25 +74,12 @@ export default function ContactoPage({
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
                     <div>
-                      <div className="font-bold text-slate-900">Ventas y Cotizaciones</div>
+                      <div className="font-bold text-slate-900">Correo de Contacto</div>
                       <a
-                        href={`mailto:${company.salesEmail}`}
+                        href={`mailto:${company.contactEmail}`}
                         className="text-slate-600 hover:text-blue-600"
                       >
-                        {company.salesEmail}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-                    <div>
-                      <div className="font-bold text-slate-900">Soporte Técnico</div>
-                      <a
-                        href={`mailto:${company.supportEmail}`}
-                        className="text-slate-600 hover:text-blue-600"
-                      >
-                        {company.supportEmail}
+                        {company.contactEmail}
                       </a>
                     </div>
                   </div>
@@ -135,7 +117,7 @@ export default function ContactoPage({
                 <div className="space-y-2 text-xs text-blue-100">
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>Te contactamos en menos de 2 horas hábiles.</span>
+                    <span>Coordinamos contigo la fecha y el alcance de la demostración.</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />

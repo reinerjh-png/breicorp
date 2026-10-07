@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { company, getWhatsAppUrl } from "@/config/company";
+import { getWhatsAppUrl } from "@/config/company";
 import { MessageCircle, X, Send, Sparkles } from "lucide-react";
 import Image from "next/image";
 
@@ -32,7 +32,7 @@ export function FloatingWhatsApp() {
                 <h4 className="font-bold text-sm leading-tight">Asesoría BREICORP</h4>
                 <p className="text-[11px] text-emerald-100 flex items-center gap-1 mt-0.5">
                   <span className="inline-block w-1.5 h-1.5 bg-emerald-300 rounded-full animate-pulse"></span>
-                  En línea • Respuesta en minutos
+                  Atención comercial por WhatsApp
                 </p>
               </div>
             </div>

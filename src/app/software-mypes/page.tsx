@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { Store, CheckCircle, ArrowRight, Zap, Coins } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Software de Facturación y Ventas para MYPEs en Perú | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Software de Facturación y Ventas para MYPEs en Perú",
   description:
     "El software más fácil y económico para micro y pequeñas empresas en Perú. Factura electrónicamente a SUNAT, controla tus ventas y clientes desde S/ 50 al mes.",
-};
+  path: "/software-mypes",
+});
 
 export default function SoftwareMypesPage() {
   return (

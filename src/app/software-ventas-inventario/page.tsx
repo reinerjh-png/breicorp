@@ -1,20 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import {
-  Boxes,
-  Store,
-  Layers,
-  BarChart,
   CheckCircle,
-  AlertCircle,
-  TrendingDown,
   ArrowRight,
 } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Software de Ventas e Inventario Kardex en Perú | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Software de Ventas e Inventario Kardex en Perú",
   description:
     "Control de stock multialmacén en tiempo real, Kardex físico y valorizado SUNAT, punto de venta y compras para empresas peruanas.",
   keywords: [
@@ -24,7 +18,8 @@ export const metadata: Metadata = {
     "sistema punto de venta tingo maria",
     "gestion de stock y caja",
   ],
-};
+  path: "/software-ventas-inventario",
+});
 
 export default function SoftwareVentasInventarioPage() {
   const inventoryCapabilities = [

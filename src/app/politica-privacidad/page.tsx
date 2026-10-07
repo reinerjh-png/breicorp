@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { company } from "@/config/company";
+import { company, createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Política de Privacidad y Protección de Datos Personales | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Política de Privacidad y Protección de Datos Personales",
   description:
     "Política de tratamiento de datos personales de BREICORP conforme a la Ley N.° 29733 de Protección de Datos Personales en el Perú.",
-};
+  path: "/politica-privacidad",
+});
 
 export default function PoliticaPrivacidadPage() {
   return (

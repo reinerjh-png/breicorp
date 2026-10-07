@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
+    const isProductionSite = process.env.SITE_ENV === "production";
+
     return [
       {
         source: "/(.*)",
@@ -33,6 +35,14 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=31536000; includeSubDomains",
           },
+          ...(!isProductionSite
+            ? [
+                {
+                  key: "X-Robots-Tag",
+                  value: "noindex, nofollow, noarchive",
+                },
+              ]
+            : []),
         ],
       },
     ];

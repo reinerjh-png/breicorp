@@ -1,11 +1,5 @@
 import {
-  ShieldCheck,
-  Zap,
-  Building2,
-  Clock,
   CheckCircle2,
-  Layers,
-  Sparkles,
 } from "lucide-react";
 import { company } from "@/config/company";
 
@@ -20,18 +14,18 @@ export function SocialProof() {
       description: `Desarrollando software empresarial en Perú desde ${company.foundationYear}.`,
     },
     {
-      value: "100%",
-      label: "Homologado SUNAT",
-      description: "Emisión de comprobantes con OSE y PSE validados.",
+      value: "CPE",
+      label: "Facturación electrónica",
+      description: "Gestión de comprobantes para procesos relacionados con SUNAT.",
     },
     {
-      value: "99.9%",
-      label: "Disponibilidad Cloud",
-      description: "Servidores de alta velocidad con respaldo continuo de datos.",
+      value: "Cloud",
+      label: "Acceso web y móvil",
+      description: "Información comercial disponible para equipos conectados.",
     },
     {
-      value: "< 3 seg",
-      label: "Emisión y envío",
+      value: "Ágil",
+      label: "Emisión y entrega",
       description: "Generación de boleta, factura o guía con envío directo por WhatsApp.",
     },
   ];

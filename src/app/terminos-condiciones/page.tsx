@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/PageHeader";
-import { company } from "@/config/company";
+import { company, createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Términos y Condiciones del Servicio | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Términos y Condiciones del Servicio",
   description:
     "Términos y condiciones para el uso de la plataforma de software empresarial y facturación electrónica de BREICORP E.I.R.L.",
-};
+  path: "/terminos-condiciones",
+});
 
 export default function TerminosCondicionesPage() {
   return (
@@ -30,7 +30,7 @@ export default function TerminosCondicionesPage() {
           <div className="space-y-3">
             <h2 className="text-xl font-bold text-slate-950">2. Descripción del Servicio</h2>
             <p>
-              BREICORP proporciona un software en modalidad Software as a Service (SaaS) en la nube para la emisión de comprobantes de pago electrónicos homologados con la SUNAT, administración de inventarios, punto de venta y reportería financiera y comercial.
+              BREICORP proporciona un software en modalidad Software as a Service (SaaS) en la nube para la gestión y emisión de comprobantes de pago electrónicos, administración de inventarios, punto de venta y reportería financiera y comercial.
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export default function TerminosCondicionesPage() {
           <div className="space-y-3">
             <h2 className="text-xl font-bold text-slate-950">4. Disponibilidad y Mantenimiento</h2>
             <p>
-              BREICORP realiza sus mejores esfuerzos comerciales y técnicos para mantener una disponibilidad superior al 99.9% en sus servicios cloud, notificando con razonable anticipación cualquier ventana de mantenimiento programado fuera de los horarios pico comerciales.
+              BREICORP realiza esfuerzos comerciales y técnicos para mantener la continuidad de sus servicios cloud y comunicar las ventanas de mantenimiento programado cuando corresponda.
             </p>
           </div>
 

@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { ShieldCheck, Lock, Database, Server, UserCheck, FileCheck } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Seguridad, Respaldos y Privacidad de Datos | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Seguridad, Respaldos y Privacidad de Datos",
   description:
     "Conoce cómo protegemos la información financiera y comercial de tu empresa con copias de seguridad automáticas, cifrado TLS 1.3 y estricto cumplimiento legal.",
-};
+  path: "/seguridad",
+});
 
 export default function SeguridadPage() {
   return (
@@ -34,7 +35,7 @@ export default function SeguridadPage() {
               <Lock className="w-8 h-8 text-emerald-600" />
               <h3 className="font-bold text-lg text-slate-900">Cifrado de Comunicaciones</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Toda interacción entre tus cajas de venta, app móvil y nuestros servidores utiliza protocolos seguros HTTPS con certificados TLS 1.3 de grado bancario.
+                La comunicación entre el navegador y la plataforma utiliza conexiones HTTPS cifradas para proteger los datos en tránsito.
               </p>
             </div>
 
@@ -56,7 +57,7 @@ export default function SeguridadPage() {
 
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
               <Server className="w-8 h-8 text-purple-600" />
-              <h3 className="font-bold text-lg text-slate-900">Disponibilidad del 99.9%</h3>
+              <h3 className="font-bold text-lg text-slate-900">Continuidad Operativa</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Arquitectura de servidores en la nube con balanceo de carga para responder rápidamente en tus días de mayor venta comercial (Navidad, Día de la Madre, campañas).
               </p>

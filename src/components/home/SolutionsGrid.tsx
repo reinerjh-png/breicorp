@@ -17,7 +17,7 @@ export function SolutionsGrid() {
       description:
         "Si vienes de emitir en la web de SUNAT con caídas constantes, o llevabas tus cuentas en libretas, BREICORP te permite emitir boletas y facturas en segundos desde S/ 50 al mes.",
       benefits: [
-        "Emisión sin caídas del portal de SUNAT",
+        "Emisión desde un flujo comercial centralizado",
         "Control de tus productos y precios",
         "Reportes sencillos para tu contador",
       ],

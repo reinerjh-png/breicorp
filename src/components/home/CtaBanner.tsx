@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Phone, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
 import { company, getWhatsAppUrl } from "@/config/company";
 
 export function CtaBanner() {

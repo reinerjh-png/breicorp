@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { createPageMetadata } from "@/config/company";
 import {
   Receipt,
   Boxes,
@@ -9,7 +9,6 @@ import {
   Store,
   BarChart3,
   Smartphone,
-  ShieldCheck,
   CheckCircle,
   ArrowRight,
   Database,
@@ -18,11 +17,12 @@ import {
   Lock,
 } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Plataforma de Software Empresarial y ERP Cloud",
   description:
     "Descubre todos los módulos de BREICORP: facturación electrónica SUNAT, control de inventario físico y valorizado, punto de venta multialmacén y reportes gerenciales en tiempo real.",
-};
+  path: "/producto",
+});
 
 export default function ProductPage() {
   const modules = [
@@ -31,12 +31,12 @@ export default function ProductPage() {
       title: "Módulo de Facturación Electrónica SUNAT",
       icon: Receipt,
       description:
-        "Emisión homologada de boletas, facturas, notas de crédito y débito electrónicas conforme a la normativa UBL 2.1 de SUNAT.",
+        "Emisión de boletas, facturas, notas de crédito y débito electrónicas para procesos relacionados con SUNAT.",
       features: [
-        "Conexión con OSE y PSE de alta disponibilidad sin caídas",
+        "Gestión del flujo electrónico de comprobantes y sus estados",
         "Envío de comprobantes por WhatsApp en formato PDF y ticket 80mm/58mm",
         "Validación automática de RUC y DNI con servidores oficiales",
-        "Generación instantánea del XML firmado digitalmente y CDR de aceptación",
+        "Generación de XML firmado y consulta del CDR asociado",
         "Exportación de Registro de Ventas para declaración mensual del contador",
       ],
       link: "/facturacion-electronica",
@@ -63,9 +63,9 @@ export default function ProductPage() {
       title: "Módulo de Guías de Remisión Electrónica (GRE)",
       icon: Truck,
       description:
-        "Generación obligatoria de Guías de Remisión Remitente (09) y Transportista (31) con código QR homologado por SUNAT.",
+        "Gestión de Guías de Remisión Remitente (09) y Transportista (31) con código QR.",
       features: [
-        "Emisión en menos de 1 minuto vinculada a facturas o traslados internos",
+        "Emisión vinculada a facturas o traslados internos",
         "Impresión con código QR y código de barras para fiscalización en ruta",
         "Padrón de choferes (DNI, brevete) y vehículos (placas autorizadas MTC)",
         "Modalidad de transporte privado y transporte público",
@@ -144,7 +144,7 @@ export default function ProductPage() {
               <div
                 key={m.id}
                 id={m.id}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pb-16 border-b border-slate-200 last:border-b-0 last:pb-0 ${
+                className={`scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pb-16 border-b border-slate-200 last:border-b-0 last:pb-0 ${
                   isReversed ? "lg:flex-row-reverse" : ""
                 }`}
               >
@@ -235,7 +235,7 @@ export default function ProductPage() {
             <div className="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2">
               <Cpu className="w-6 h-6 text-emerald-400 mx-auto" />
               <div className="text-sm font-bold">Motor de Timbrado Rápido</div>
-              <div className="text-xs text-slate-400">Firma digital de comprobantes en menos de 500 milisegundos</div>
+              <div className="text-xs text-slate-400">Firma digital integrada en el flujo de comprobantes</div>
             </div>
             <div className="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2">
               <Lock className="w-6 h-6 text-amber-400 mx-auto" />

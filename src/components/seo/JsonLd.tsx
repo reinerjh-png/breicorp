@@ -49,13 +49,8 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
         lowPrice: "50.00",
         highPrice: "150.00",
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "128",
-      },
       featureList: [
-        "Facturación electrónica SUNAT garantizada",
+        "Facturación electrónica para empresas peruanas",
         "Control de inventario físico y valorizado (Kardex)",
         "Guías de remisión electrónicas remitente y transportista",
         "Punto de venta multi-caja y multi-almacén",

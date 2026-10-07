@@ -11,17 +11,17 @@ export function FaqSection() {
     {
       question: "¿Qué requisitos necesito para empezar a emitir comprobantes con BREICORP?",
       answer:
-        "Solo necesitas contar con tu RUC activo y habido en SUNAT, tu Clave SOL y tu Certificado Digital Tributario (si no lo tienes, te orientamos paso a paso para obtener el certificado gratuito emitido por SUNAT). Nuestro equipo te guía en la vinculación en menos de 24 horas hábiles.",
+        "Necesitas contar con tu RUC activo y habido en SUNAT y con las credenciales o certificados que correspondan a tu proceso de emisión. Nuestro equipo puede orientarte durante la configuración inicial.",
     },
     {
       question: "¿El sistema sigue funcionando si la web oficial de SUNAT tiene caídas o lentitud?",
       answer:
-        "Sí. BREICORP opera con conexiones de alto rendimiento a través de Operadores de Servicios Electrónicos (OSE) y PSE homologados. Tus ventas se registran de inmediato, se genera el comprobante para el cliente y el envío a SUNAT se sincroniza con colas de contingencia automática sin frenar tu atención en caja.",
+        "La venta puede registrarse dentro del flujo comercial de BREICORP mientras el comprobante sigue el proceso electrónico correspondiente. El comportamiento exacto ante una indisponibilidad externa depende de la configuración técnica del servicio.",
     },
     {
       question: "¿Qué impresoras y equipos de cómputo son compatibles?",
       answer:
-        "BREICORP es 100% compatible con ticketeras térmicas estándar de 80mm y 58mm (conexión USB, red Ethernet o Bluetooth), así como impresoras láser o de inyección de tinta en tamaño A4 y A5. Puedes usarlo en cualquier computadora o laptop con Windows, macOS o Linux, y desde celulares o tablets Android.",
+        "BREICORP contempla formatos para ticketeras térmicas de 80mm y 58mm, además de documentos A4 y A5. La compatibilidad final depende del modelo, sistema operativo y método de conexión del equipo.",
     },
     {
       question: "¿Puedo importar mi lista actual de productos y precios desde Excel?",
@@ -80,7 +80,7 @@ export function FaqSection() {
             Resolvemos tus dudas antes de empezar
           </h2>
           <p className="text-base text-slate-600">
-            Todo lo que necesitas saber sobre compatibilidad, homologación SUNAT y puesta en marcha.
+            Todo lo que necesitas saber sobre compatibilidad, procesos SUNAT y puesta en marcha.
           </p>
         </div>
 

@@ -1,24 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { company } from "@/config/company";
-import {
-  Building2,
-  ShieldCheck,
-  CheckCircle,
-  MapPin,
-  Clock,
-  Award,
-  Users,
-  ArrowRight,
-} from "lucide-react";
+import { company, createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Sobre BREICORP | Empresa Tecnológica de Software Empresarial en Perú",
+export const metadata = createPageMetadata({
+  title: "Sobre BREICORP: Empresa Tecnológica de Software Empresarial en Perú",
   description:
     "Conoce a BREICORP E.I.R.L., empresa peruana fundada en 2017 dedicada a la digitalización, facturación electrónica y automatización operativa de empresas.",
-};
+  path: "/empresa",
+});
 
 export default function EmpresaPage() {
   const currentYear = new Date().getFullYear();
@@ -83,7 +72,7 @@ export default function EmpresaPage() {
                   <div className="space-y-1">
                     <div className="font-bold text-cyan-400 text-sm">2. Rigor tributario y normativo</div>
                     <p className="text-slate-300">
-                      Cada comprobante cumple con las disposiciones de SUNAT al 100%, protegiendo a nuestros clientes de multas.
+                      Diseñamos los flujos de comprobantes considerando las disposiciones aplicables de SUNAT y la operación de empresas peruanas.
                     </p>
                   </div>
 

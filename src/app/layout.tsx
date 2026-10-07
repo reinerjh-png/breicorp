@@ -4,7 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { siteMetadata, company } from "@/config/company";
+import { siteMetadata, company, robotsPolicy } from "@/config/company";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | BREICORP",
   },
   description:
-    "Software empresarial en la nube para empresas peruanas. Facturación electrónica SUNAT homologada OSE, control de inventario y Kardex, punto de venta y guías de remisión.",
+    "Software empresarial en la nube para empresas peruanas. Facturación electrónica, control de inventario y Kardex, punto de venta y guías de remisión.",
   keywords: [
     "software empresarial peru",
     "facturación electrónica sunat",
@@ -43,24 +43,21 @@ export const metadata: Metadata = {
     siteName: company.companyName,
     locale: siteMetadata.locale,
     type: "website",
+    images: [
+      {
+        url: siteMetadata.ogImage,
+        alt: "BREICORP — Software empresarial para empresas peruanas",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BREICORP | Software Empresarial en Perú",
     description:
       "Plataforma empresarial en la nube: ventas, inventarios, Kardex y facturación electrónica SUNAT.",
+    images: [siteMetadata.ogImage],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: robotsPolicy,
   icons: {
     icon: [
       { url: "/logo-breicorp.webp", type: "image/webp" },

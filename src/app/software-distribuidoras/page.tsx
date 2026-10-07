@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { Truck, CheckCircle, Boxes, QrCode, Smartphone, ArrowRight } from "lucide-react";
+import { Boxes, QrCode, Smartphone } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Software para Distribuidoras y Mayoristas en Perú | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Software para Distribuidoras y Mayoristas en Perú",
   description:
     "Control de preventa, vendedores en ruta, despacho con Guías de Remisión Electrónica con QR SUNAT, multialmacén y listas de precios por volumen.",
-};
+  path: "/software-distribuidoras",
+});
 
 export default function SoftwareDistribuidorasPage() {
   return (

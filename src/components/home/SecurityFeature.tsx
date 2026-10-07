@@ -12,21 +12,21 @@ export function SecurityFeature() {
   const securityPillars = [
     {
       icon: ShieldCheck,
-      title: "Homologación SUNAT Vigente",
+      title: "Procesos de Facturación Electrónica",
       description:
-        "Emisión de comprobantes electrónicos bajo los estándares UBL 2.1 más recientes exigidos por SUNAT a través de operadores OSE/PSE autorizados.",
+        "Gestión de comprobantes electrónicos y sus archivos asociados para procesos relacionados con SUNAT.",
     },
     {
       icon: DatabaseBackup,
       title: "Copias de Respaldo Continuas",
       description:
-        "Tus datos comerciales, catálogos e historial de ventas se respaldan de manera automática en centros de datos con redundancia geográfica.",
+        "La plataforma contempla mecanismos de respaldo para datos comerciales, catálogos e historial de ventas.",
     },
     {
       icon: Lock,
       title: "Cifrado de Extremo a Extremo",
       description:
-        "Todas las comunicaciones entre tu punto de venta, tu navegador y nuestros servidores viajan protegidas con cifrado TLS 1.3 de grado bancario.",
+        "Las comunicaciones entre tu navegador y la plataforma utilizan conexiones HTTPS cifradas.",
     },
     {
       icon: UserCheck,
@@ -36,7 +36,7 @@ export function SecurityFeature() {
     },
     {
       icon: Server,
-      title: "99.9% Disponibilidad Cloud",
+      title: "Continuidad de la Operación",
       description:
         "Arquitectura en la nube diseñada para operar en horas pico sin interrupciones, permitiéndote atender tus cajas con total fluidez.",
     },
@@ -44,7 +44,7 @@ export function SecurityFeature() {
       icon: FileCheck,
       title: "Custodia Digital de Comprobantes",
       description:
-        "Almacenamiento permanente de tus archivos XML y CDR de aceptación durante el plazo legal de fiscalización establecido por ley.",
+        "Organización y consulta de archivos XML y CDR asociados a los comprobantes emitidos.",
     },
   ];
 

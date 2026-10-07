@@ -8,7 +8,6 @@ import {
   Clock,
   BookOpen,
   ArrowUpRight,
-  CheckCircle2,
 } from "lucide-react";
 
 import Image from "next/image";
@@ -202,10 +201,10 @@ export function Footer() {
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-blue-400 shrink-0" />
                 <a
-                  href={`mailto:${company.salesEmail}`}
+                  href={`mailto:${company.contactEmail}`}
                   className="hover:text-white transition-colors"
                 >
-                  {company.salesEmail}
+                  {company.contactEmail}
                 </a>
               </div>
               <div className="flex items-start gap-2.5">

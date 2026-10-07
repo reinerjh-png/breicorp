@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { plans, Plan } from "@/config/plans";
-import { Check, Star, ArrowRight, HelpCircle } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { getWhatsAppUrl } from "@/config/company";
 
-export function PricingSection({ compact = false }: { compact?: boolean }) {
+export function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
 
   return (

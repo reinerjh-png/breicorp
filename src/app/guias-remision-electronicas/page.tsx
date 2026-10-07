@@ -1,23 +1,12 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import {
-  Truck,
-  QrCode,
-  ShieldCheck,
-  CheckCircle,
-  FileText,
-  AlertCircle,
-  Clock,
-  ArrowRight,
-} from "lucide-react";
-import { getWhatsAppUrl } from "@/config/company";
+import { Truck } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Guías de Remisión Electrónica GRE SUNAT en Perú | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Guías de Remisión Electrónica GRE SUNAT en Perú",
   description:
-    "Emite Guías de Remisión Remitente (09) y Transportista (31) con código QR oficial exigido por SUNAT para traslado de mercadería sin multas ni decomisos.",
+    "Gestiona Guías de Remisión Remitente (09) y Transportista (31) con código QR para documentar el traslado de mercadería.",
   keywords: [
     "guias de remision electronicas sunat",
     "guia remitente gre sunat perú",
@@ -25,7 +14,8 @@ export const metadata: Metadata = {
     "emision guias transporte carga",
     "traslado mercaderia sunat obligatorio",
   ],
-};
+  path: "/guias-remision-electronicas",
+});
 
 export default function GuiasRemisionPage() {
   const greFeatures = [
@@ -71,7 +61,7 @@ export default function GuiasRemisionPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-              Cumplimiento Tributario Garantizado
+              Documentación para el traslado
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
               Despacha tus camiones con la tranquilidad de cumplir la norma

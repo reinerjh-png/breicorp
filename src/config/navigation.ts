@@ -31,7 +31,7 @@ export const mainNav: NavItem[] = [
       },
       {
         label: "Caja y reportes",
-        href: "/producto#caja-reportes",
+        href: "/producto#pos",
         description: "Cierres de caja e informes en tiempo real",
       },
       {
@@ -41,7 +41,7 @@ export const mainNav: NavItem[] = [
       },
       {
         label: "App móvil",
-        href: "/producto#app-movil",
+        href: "/producto#movilidad",
         description: "Accede desde cualquier dispositivo",
       },
     ],

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { mainNav, NavItem } from "@/config/navigation";
+import { mainNav } from "@/config/navigation";
 import { company } from "@/config/company";
 import {
   Menu,
@@ -11,9 +11,8 @@ import {
   ChevronDown,
   ArrowRight,
   ShieldCheck,
-  Zap,
   PhoneCall,
-  LogIn,
+  ExternalLink,
 } from "lucide-react";
 
 import Image from "next/image";
@@ -50,7 +49,7 @@ export function Header() {
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-slate-300">
               <ShieldCheck className="w-3.5 h-3.5 text-orange-400" />
-              <span>Facturación SUNAT OSE/PSE 100% Homologada</span>
+              <span>Software para facturación electrónica y procesos SUNAT</span>
             </span>
             <span className="text-slate-600">|</span>
             <span className="text-slate-400">RUC: {company.ruc} ({company.legalName})</span>
@@ -195,16 +194,13 @@ export function Header() {
 
             {/* Desktop Action CTAs */}
             <div className="hidden lg:flex items-center gap-3">
-              <a
-                href={company.appLinks.webApp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition-colors"
-                title="Acceder a la plataforma en la nube"
+              <Link
+                href="/demo"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
               >
-                <LogIn className="w-4 h-4 text-slate-500" />
-                <span>Iniciar sesión</span>
-              </a>
+                <ExternalLink className="w-4 h-4 text-slate-400" />
+                <span>Ver demo</span>
+              </Link>
 
               <Link
                 href="/contacto"
@@ -273,15 +269,14 @@ export function Header() {
               ))}
 
               <div className="pt-4 space-y-2.5">
-                <a
-                  href={company.appLinks.webApp}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/demo"
                   className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-300 text-slate-800 font-bold text-sm hover:bg-slate-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
-                  <LogIn className="w-4 h-4" />
-                  <span>Ingresar a mi cuenta</span>
-                </a>
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Ver demo</span>
+                </Link>
 
                 <Link
                   href="/contacto"

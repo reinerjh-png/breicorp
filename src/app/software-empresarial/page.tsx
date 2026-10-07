@@ -1,22 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import {
-  Layers,
-  Building,
-  ShieldCheck,
   CheckCircle,
-  BarChart,
-  Users,
   ArrowRight,
 } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Software Empresarial en la Nube en Perú | ERP Cloud BREICORP",
+export const metadata = createPageMetadata({
+  title: "Software Empresarial en la Nube en Perú: ERP Cloud",
   description:
     "Centraliza tus operaciones, múltiples locales, ventas, inventario y facturación electrónica con un software empresarial moderno y escalable en Perú.",
-};
+  path: "/software-empresarial",
+});
 
 export default function SoftwareEmpresarialPage() {
   return (
@@ -28,7 +24,7 @@ export default function SoftwareEmpresarialPage() {
         breadcrumbs={[{ label: "Soluciones", href: "/producto" }, { label: "Software Empresarial" }]}
       />
 
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
+      <section id="multilocal" className="scroll-mt-28 py-20 bg-white text-slate-900 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">

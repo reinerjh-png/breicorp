@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { Zap, RefreshCw, Layers, ShieldCheck, ArrowRight } from "lucide-react";
+import { Zap, RefreshCw, Layers } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Automatización de Procesos Empresariales en Perú | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Automatización de Procesos Empresariales en Perú",
   description:
     "Elimina tareas manuales repetitivas, digitación duplicada y errores de stock. Automatiza la facturación, traslados y cobros de tu negocio.",
-};
+  path: "/automatizacion-procesos-empresariales",
+});
 
 export default function AutomatizacionPage() {
   return (

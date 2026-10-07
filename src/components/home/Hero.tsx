@@ -9,13 +9,11 @@ import {
   TrendingUp,
   Receipt,
   Boxes,
-  FileSpreadsheet,
   Check,
   Smartphone,
   Server,
-  Zap,
 } from "lucide-react";
-import { company, getWhatsAppUrl } from "@/config/company";
+import { getWhatsAppUrl } from "@/config/company";
 
 import Image from "next/image";
 
@@ -41,7 +39,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
               </span>
-              <span>SUNAT 2026 Compatible • OSE / PSE Integrado</span>
+              <span>Facturación electrónica para empresas peruanas</span>
             </div>
 
             {/* Main Headline with Corporate Orange Accent */}
@@ -130,7 +128,7 @@ export function Hero() {
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] text-emerald-400 font-medium bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>En línea</span>
+                    <span>Vista demostrativa</span>
                   </div>
                 </div>
 
@@ -167,7 +165,7 @@ export function Hero() {
                     }`}
                   >
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>SUNAT OSE</span>
+                    <span>Comprobantes</span>
                   </button>
                 </div>
 
@@ -210,7 +208,7 @@ export function Hero() {
                       <div className="flex items-center justify-between pt-1">
                         <span className="text-[11px] text-slate-400">Estado SUNAT:</span>
                         <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">
-                          <Check className="w-3 h-3" /> ACEPTADO OSE
+                          <Check className="w-3 h-3" /> CDR RECIBIDO
                         </span>
                       </div>
                     </div>
@@ -283,11 +281,11 @@ export function Hero() {
                       <div className="flex justify-between items-center">
                         <span className="font-semibold text-white">Conexión SUNAT en Vivo</span>
                         <span className="bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded text-[10px] font-bold">
-                          100% OPERATIVO
+                          FLUJO DISPONIBLE
                         </span>
                       </div>
                       <p className="text-slate-400 text-[11px]">
-                        Emisión instantánea de XML firmado, CDR validado y PDF con código QR y Hash oficial.
+                        Generación de XML firmado, consulta de CDR y PDF con código QR para el comprobante.
                       </p>
                     </div>
 

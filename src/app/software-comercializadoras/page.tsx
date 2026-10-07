@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { Store, ShoppingBag, CreditCard, BarChart2, ArrowRight } from "lucide-react";
+import { ShoppingBag, CreditCard, BarChart2 } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
 
-export const metadata: Metadata = {
-  title: "Software para Comercializadoras y Tiendas Retail en Perú | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Software para Comercializadoras y Tiendas Retail en Perú",
   description:
     "Punto de venta POS de alta velocidad para tiendas comerciales, ferreterías, farmacias y minimarkets. Cobros con Yape, lector de código de barras y arqueo de caja.",
-};
+  path: "/software-comercializadoras",
+});
 
 export default function SoftwareComercializadorasPage() {
   return (

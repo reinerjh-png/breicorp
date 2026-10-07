@@ -1,34 +1,19 @@
-import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FaqSection } from "@/components/home/FaqSection";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { plans } from "@/config/plans";
+import { planComparison, plans } from "@/config/plans";
+import { createPageMetadata } from "@/config/company";
 import { Check, X } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Planes y Tarifas Transparentes | BREICORP",
+export const metadata = createPageMetadata({
+  title: "Planes y Tarifas Transparentes",
   description:
     "Compara los planes de BREICORP: Emprendedor, Negocio, Empresa y Corporativo. Facturación electrónica SUNAT, control de inventario y punto de venta sin costos ocultos.",
-};
+  path: "/precios",
+});
 
 export default function PreciosPage() {
-  const comparisonMatrix = [
-    { feature: "Comprobantes electrónicos", emprendedor: "Hasta 100/mes", negocio: "Hasta 500/mes", empresa: "Hasta 2,000/mes", corp: "Ilimitados" },
-    { feature: "Usuarios de acceso", emprendedor: "1 usuario", negocio: "Hasta 3", empresa: "Hasta 10", corp: "Ilimitados" },
-    { feature: "Sucursales / Locales", emprendedor: "1 local", negocio: "Hasta 2", empresa: "Hasta 5", corp: "Ilimitados" },
-    { feature: "Catálogo de productos", emprendedor: "Hasta 100", negocio: "Hasta 500", empresa: "Ilimitados", corp: "Ilimitados" },
-    { feature: "Boletas, Facturas y Notas", emprendedor: true, negocio: true, empresa: true, corp: true },
-    { feature: "Envío a WhatsApp del cliente", emprendedor: true, negocio: true, empresa: true, corp: true },
-    { feature: "Control de Kardex e Inventario", emprendedor: false, negocio: true, empresa: true, corp: true },
-    { feature: "Punto de Venta (POS) y Cajas", emprendedor: false, negocio: true, empresa: true, corp: true },
-    { feature: "Guías de Remisión Electrónica GRE", emprendedor: false, negocio: true, empresa: true, corp: true },
-    { feature: "Múltiples listas de precios", emprendedor: false, negocio: false, empresa: true, corp: true },
-    { feature: "Preventa y vendedores en ruta", emprendedor: false, negocio: false, empresa: true, corp: true },
-    { feature: "API e integraciones a medida", emprendedor: false, negocio: false, empresa: false, corp: true },
-    { feature: "Soporte técnico prioritario", emprendedor: "Estándar", negocio: "Prioritario", empresa: "Dedicado", corp: "24/7 SLA" },
-  ];
-
   return (
     <>
       <PageHeader
@@ -57,64 +42,39 @@ export default function PreciosPage() {
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-100/70 text-slate-900 font-bold">
                   <th className="p-4 sm:p-5">Funcionalidad</th>
-                  <th className="p-4 sm:p-5 text-center">Emprendedor</th>
-                  <th className="p-4 sm:p-5 text-center bg-blue-50/70 text-blue-900">Negocio</th>
-                  <th className="p-4 sm:p-5 text-center">Empresa</th>
-                  <th className="p-4 sm:p-5 text-center">Corporativo</th>
+                  {plans.map((plan) => (
+                    <th
+                      key={plan.id}
+                      className={`p-4 text-center sm:p-5 ${plan.recommended ? "bg-blue-50/70 text-blue-900" : ""}`}
+                    >
+                      {plan.name}
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100">
-                {comparisonMatrix.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50 transition-colors">
+                {planComparison.map((row) => (
+                  <tr key={row.feature} className="hover:bg-slate-50 transition-colors">
                     <td className="p-4 sm:p-5 font-medium text-slate-800">{row.feature}</td>
-                    
-                    <td className="p-4 sm:p-5 text-center text-slate-600">
-                      {typeof row.emprendedor === "boolean" ? (
-                        row.emprendedor ? (
-                          <Check className="w-4 h-4 text-emerald-600 mx-auto" />
-                        ) : (
-                          <X className="w-4 h-4 text-slate-300 mx-auto" />
-                        )
-                      ) : (
-                        row.emprendedor
-                      )}
-                    </td>
-
-                    <td className="p-4 sm:p-5 text-center font-semibold bg-blue-50/30 text-blue-900">
-                      {typeof row.negocio === "boolean" ? (
-                        row.negocio ? (
-                          <Check className="w-4 h-4 text-blue-600 mx-auto" />
-                        ) : (
-                          <X className="w-4 h-4 text-slate-300 mx-auto" />
-                        )
-                      ) : (
-                        row.negocio
-                      )}
-                    </td>
-
-                    <td className="p-4 sm:p-5 text-center text-slate-600">
-                      {typeof row.empresa === "boolean" ? (
-                        row.empresa ? (
-                          <Check className="w-4 h-4 text-emerald-600 mx-auto" />
-                        ) : (
-                          <X className="w-4 h-4 text-slate-300 mx-auto" />
-                        )
-                      ) : (
-                        row.empresa
-                      )}
-                    </td>
-
-                    <td className="p-4 sm:p-5 text-center text-slate-600 font-bold">
-                      {typeof row.corp === "boolean" ? (
-                        row.corp ? (
-                          <Check className="w-4 h-4 text-emerald-600 mx-auto" />
-                        ) : (
-                          <X className="w-4 h-4 text-slate-300 mx-auto" />
-                        )
-                      ) : (
-                        row.corp
-                      )}
-                    </td>
+                    {plans.map((plan) => {
+                      const value = row.values[plan.id];
+                      return (
+                        <td
+                          key={plan.id}
+                          className={`p-4 text-center sm:p-5 ${plan.recommended ? "bg-blue-50/30 font-semibold text-blue-900" : "text-slate-600"}`}
+                        >
+                          {typeof value === "boolean" ? (
+                            value ? (
+                              <Check className="mx-auto h-4 w-4 text-emerald-600" aria-label="Incluido" />
+                            ) : (
+                              <X className="mx-auto h-4 w-4 text-slate-300" aria-label="No incluido" />
+                            )
+                          ) : (
+                            value
+                          )}
+                        </td>
+                      );
+                    })}
                   </tr>
                 ))}
               </tbody>

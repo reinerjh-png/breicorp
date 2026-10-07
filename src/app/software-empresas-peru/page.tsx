@@ -1,21 +1,20 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { company } from "@/config/company";
-import { CheckCircle, ShieldCheck, MapPin, ArrowRight } from "lucide-react";
+import { createPageMetadata } from "@/config/company";
+import { CheckCircle, ShieldCheck, MapPin } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Software para Empresas en Perú | Facturación SUNAT y ERP",
   description:
     "El software empresarial desarrollado en Perú para responder a la normativa tributaria local, moneda en Soles, SIRE SUNAT y realidad operativa nacional.",
-};
+  path: "/software-empresas-peru",
+});
 
 export default function SoftwareEmpresasPeruPage() {
   return (
     <>
       <PageHeader
-        badge="100% Adaptado al Perú"
+        badge="Desarrollado para empresas peruanas"
         title="Software Empresarial adaptado a la legislación y comercio peruano"
         description="A diferencia de softwares extranjeros que no contemplan las exigencias de SUNAT ni los métodos de cobro locales, BREICORP nace en Perú para resolver la realidad del empresario nacional."
         breadcrumbs={[{ label: "Empresas", href: "/software-empresarial" }, { label: "Empresas en Perú" }]}
@@ -28,7 +27,7 @@ export default function SoftwareEmpresasPeruPage() {
               ¿Por qué elegir un software desarrollado en Perú?
             </h2>
             <p className="text-base text-slate-600">
-              Las exigencias de SUNAT cambian constantemente. Un software local te garantiza homologación continua sin sorpresas ni costes de adaptación adicionales.
+              Las exigencias de SUNAT cambian con el tiempo. Un software desarrollado en Perú puede adaptar sus flujos a la normativa y a las prácticas comerciales locales.
             </p>
           </div>
 
