@@ -17,7 +17,13 @@ export const metadata = createPageMetadata({
   path: "/contacto",
 });
 
-export default function ContactoPage() {
+export default async function ContactoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ plan?: string }>;
+}) {
+  const { plan } = await searchParams;
+
   return (
     <>
       <PageHeader
@@ -32,7 +38,7 @@ export default function ContactoPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Form Column */}
             <div className="lg:col-span-7">
-              <ContactForm />
+              <ContactForm planPreselected={plan} />
             </div>
 
             {/* Direct Channels Column */}

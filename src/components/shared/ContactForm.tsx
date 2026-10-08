@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { company, getWhatsAppUrl } from "@/config/company";
+import { plans } from "@/config/plans";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -14,7 +15,9 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-export function ContactForm() {
+export function ContactForm({ planPreselected }: { planPreselected?: string }) {
+  const selectedPlan = plans.find((plan) => plan.id === planPreselected);
+
   const [formData, setFormData] = useState({
     name: "",
     companyName: "",
@@ -53,6 +56,7 @@ export function ContactForm() {
       `Celular: ${formData.phone}`,
       `Correo: ${formData.email}`,
       `Giro: ${formData.sector}`,
+      `Plan de interés: ${selectedPlan?.name ?? "Por definir"}`,
       `Necesidad principal: ${formData.message || "Deseo conocer la plataforma"}`,
     ].join("\n");
 
