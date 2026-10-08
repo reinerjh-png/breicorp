@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { createPageMetadata } from "@/config/company";
@@ -149,7 +149,7 @@ export default function ProductPage() {
                 }`}
               >
                 <div className={`lg:col-span-7 space-y-4 ${isReversed ? "lg:order-2" : ""}`}>
-                  <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-2xl bg-orange-100 text-orange-700 flex items-center justify-center">
                     <Icon className="w-6 h-6" />
                   </div>
 
@@ -173,7 +173,7 @@ export default function ProductPage() {
                   <div className="pt-4">
                     <Link
                       href={m.link}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-slate-800 transition-colors"
                     >
                       <span>{m.linkText}</span>
                       <ArrowRight className="w-4 h-4" />
@@ -185,7 +185,7 @@ export default function ProductPage() {
                   <div className="bg-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-slate-800 space-y-4">
                     <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                       <span className="text-xs font-mono text-cyan-300">MOD-{m.id.toUpperCase()}</span>
-                      <span className="text-[11px] bg-blue-900/80 text-blue-300 px-2 py-0.5 rounded border border-blue-700/60 font-medium">
+                      <span className="text-[11px] bg-slate-900/80 text-orange-300 px-2 py-0.5 rounded border border-orange-700/60 font-medium">
                         Cloud 2026
                       </span>
                     </div>
@@ -223,7 +223,7 @@ export default function ProductPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
             <div className="bg-slate-950/60 p-5 rounded-2xl border border-slate-800 space-y-2">
-              <Cloud className="w-6 h-6 text-blue-400 mx-auto" />
+              <Cloud className="w-6 h-6 text-orange-400 mx-auto" />
               <div className="text-sm font-bold">Infraestructura Cloud</div>
               <div className="text-xs text-slate-400">Servidores de baja latencia con escalabilidad automática</div>
             </div>

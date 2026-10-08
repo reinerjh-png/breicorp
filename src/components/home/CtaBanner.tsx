@@ -1,14 +1,14 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
 import { company, getWhatsAppUrl } from "@/config/company";
 
 export function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-blue-900 via-blue-800 to-slate-900 text-white py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-16 lg:py-20">
       {/* Decorative background shapes */}
       <div className="absolute inset-0 pointer-events-none opacity-25">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-orange-600 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
@@ -21,7 +21,7 @@ export function CtaBanner() {
           ¿Listo para poner orden definitivo en tus ventas y facturación?
         </h2>
 
-        <p className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-orange-100 max-w-2xl mx-auto leading-relaxed">
           Agenda una demostración guiada de 15 minutos. Te mostramos el sistema funcionando
           con productos y comprobantes reales de tu rubro comercial.
         </p>
@@ -46,7 +46,7 @@ export function CtaBanner() {
           </a>
         </div>
 
-        <div className="pt-4 text-xs text-blue-200 flex items-center justify-center gap-4 flex-wrap">
+        <div className="pt-4 text-xs text-orange-200 flex items-center justify-center gap-4 flex-wrap">
           <span>Central Telefónica: {company.phone}</span>
           <span>•</span>
           <span>Atención de Lunes a Viernes 8:00 a 18:00</span>

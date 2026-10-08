@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/PageHeader";
+﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { company, createPageMetadata } from "@/config/company";
 
@@ -26,7 +26,7 @@ export default function EmpresaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+              <span className="text-xs font-bold uppercase tracking-wider text-orange-700 bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
                 Identidad y Trayectoria
               </span>
 
@@ -63,7 +63,7 @@ export default function EmpresaPage() {
 
                 <div className="space-y-4 text-xs">
                   <div className="space-y-1">
-                    <div className="font-bold text-blue-400 text-sm">1. Sencillez sin perder potencia</div>
+                    <div className="font-bold text-orange-400 text-sm">1. Sencillez sin perder potencia</div>
                     <p className="text-slate-300">
                       Un cajero debe aprender a usar la pantalla de ventas en 15 minutos, sin manuales de 300 páginas.
                     </p>

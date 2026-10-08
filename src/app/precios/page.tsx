@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/PageHeader";
+﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FaqSection } from "@/components/home/FaqSection";
 import { CtaBanner } from "@/components/home/CtaBanner";
@@ -45,7 +45,7 @@ export default function PreciosPage() {
                   {plans.map((plan) => (
                     <th
                       key={plan.id}
-                      className={`p-4 text-center sm:p-5 ${plan.recommended ? "bg-blue-50/70 text-blue-900" : ""}`}
+                      className={`p-4 text-center sm:p-5 ${plan.recommended ? "bg-orange-50/70 text-slate-900" : ""}`}
                     >
                       {plan.name}
                     </th>
@@ -61,7 +61,7 @@ export default function PreciosPage() {
                       return (
                         <td
                           key={plan.id}
-                          className={`p-4 text-center sm:p-5 ${plan.recommended ? "bg-blue-50/30 font-semibold text-blue-900" : "text-slate-600"}`}
+                          className={`p-4 text-center sm:p-5 ${plan.recommended ? "bg-orange-50/30 font-semibold text-slate-900" : "text-slate-600"}`}
                         >
                           {typeof value === "boolean" ? (
                             value ? (

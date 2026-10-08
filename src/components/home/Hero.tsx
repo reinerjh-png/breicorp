@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -25,7 +25,7 @@ export function Hero() {
       {/* Background glowing gradients & tech grid */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-orange-600/30 rounded-full blur-[140px]"></div>
-        <div className="absolute top-1/2 -right-40 w-96 h-96 bg-blue-600/30 rounded-full blur-[140px]"></div>
+        <div className="absolute top-1/2 -right-40 w-96 h-96 bg-orange-600/30 rounded-full blur-[140px]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
       </div>
 
@@ -107,7 +107,7 @@ export function Hero() {
           <div className="lg:col-span-5">
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               {/* Outer decorative ring */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-blue-600 to-cyan-500 rounded-3xl blur-md opacity-35"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-orange-500 to-orange-400 rounded-3xl blur-md opacity-35"></div>
 
               {/* Main Mockup Card */}
               <div className="relative rounded-2xl bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden">
@@ -197,7 +197,7 @@ export function Hero() {
                       </div>
                       <div className="flex justify-between items-center text-xs">
                         <span className="text-slate-200">Cliente: Inversiones Los Andes S.A.C.</span>
-                        <span className="bg-blue-900/60 text-blue-300 px-2 py-0.5 rounded text-[10px] font-mono">
+                        <span className="bg-slate-900/60 text-orange-300 px-2 py-0.5 rounded text-[10px] font-mono">
                           RUC 20491029381
                         </span>
                       </div>
@@ -218,7 +218,7 @@ export function Hero() {
                       <div className="bg-slate-800/80 p-2 rounded-lg text-center text-slate-300 font-medium">
                         Cierre de caja X/Z
                       </div>
-                      <div className="bg-blue-600/80 text-white p-2 rounded-lg text-center font-bold">
+                      <div className="bg-orange-600/80 text-white p-2 rounded-lg text-center font-bold">
                         Nueva venta rápida [F2]
                       </div>
                     </div>
@@ -230,7 +230,7 @@ export function Hero() {
                   <div className="p-5 space-y-3">
                     <div className="text-xs font-semibold text-slate-300 flex items-center justify-between">
                       <span>Stock Multialmacén en Tiempo Real</span>
-                      <span className="text-[11px] text-blue-400">3 almacenes activos</span>
+                      <span className="text-[11px] text-orange-400">3 almacenes activos</span>
                     </div>
 
                     <div className="space-y-2">
@@ -268,7 +268,7 @@ export function Hero() {
                       </div>
                     </div>
 
-                    <div className="bg-blue-950/40 border border-blue-800/50 p-2.5 rounded-xl text-center text-xs text-blue-300">
+                    <div className="bg-slate-950/40 border border-slate-800/50 p-2.5 rounded-xl text-center text-xs text-orange-300">
                       Kardex valorizado según método Promedio Ponderado / PEPS.
                     </div>
                   </div>
@@ -313,7 +313,7 @@ export function Hero() {
                 {/* Mockup footer ticker */}
                 <div className="bg-slate-950 px-4 py-2.5 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
                   <div className="flex items-center gap-1.5">
-                    <Smartphone className="w-3.5 h-3.5 text-blue-400" />
+                    <Smartphone className="w-3.5 h-3.5 text-orange-400" />
                     <span>App móvil sincronizada</span>
                   </div>
                   <div className="flex items-center gap-1.5">

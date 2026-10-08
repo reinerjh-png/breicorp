@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { company, createPageMetadata } from "@/config/company";
 import {
   ExternalLink,
@@ -62,8 +62,8 @@ export default function DemoPage() {
             <div className="p-6 space-y-4">
               {/* Email */}
               <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-200">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-blue-600" />
+                <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5 text-orange-600" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">
@@ -132,13 +132,13 @@ export default function DemoPage() {
           </div>
 
           {/* CTA to request real demo */}
-          <div className="bg-blue-900 rounded-3xl p-6 text-center space-y-3">
+          <div className="bg-slate-900 rounded-3xl p-6 text-center space-y-3">
             <p className="text-white font-bold text-sm">
               ¿Quieres una demostración personalizada con los datos de tu empresa?
             </p>
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-blue-900 font-black text-sm hover:bg-blue-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-slate-900 font-black text-sm hover:bg-orange-50 transition-colors"
             >
               <span>Solicitar demo guiada</span>
               <ArrowRight className="w-4 h-4" />

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -31,11 +31,11 @@ export function RoiCalculator() {
   return (
     <section className="py-20 bg-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950 border border-blue-700/60 text-blue-300 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 border border-orange-700/60 text-orange-300 text-xs font-bold uppercase tracking-wider">
             <Calculator className="w-3.5 h-3.5" />
             <span>Calculadora de Impacto Operativo</span>
           </div>
@@ -62,7 +62,7 @@ export function RoiCalculator() {
                   onClick={() => setCurrentMethod("sunat_web")}
                   className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${
                     currentMethod === "sunat_web"
-                      ? "bg-blue-600 border-blue-500 text-white shadow-sm"
+                      ? "bg-orange-600 border-orange-500 text-white shadow-sm"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800"
                   }`}
                 >
@@ -73,7 +73,7 @@ export function RoiCalculator() {
                   onClick={() => setCurrentMethod("manual")}
                   className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${
                     currentMethod === "manual"
-                      ? "bg-blue-600 border-blue-500 text-white shadow-sm"
+                      ? "bg-orange-600 border-orange-500 text-white shadow-sm"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800"
                   }`}
                 >
@@ -84,7 +84,7 @@ export function RoiCalculator() {
                   onClick={() => setCurrentMethod("old_software")}
                   className={`p-3 rounded-xl text-xs font-bold border transition-all text-center ${
                     currentMethod === "old_software"
-                      ? "bg-blue-600 border-blue-500 text-white shadow-sm"
+                      ? "bg-orange-600 border-orange-500 text-white shadow-sm"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800"
                   }`}
                 >
@@ -97,7 +97,7 @@ export function RoiCalculator() {
             <div className="space-y-2">
               <div className="flex justify-between items-center text-sm">
                 <span className="font-bold text-slate-200">Ventas / comprobantes emitidos por día:</span>
-                <span className="text-xl font-black text-blue-400 bg-blue-950/60 px-3 py-0.5 rounded-lg border border-blue-800/60">
+                <span className="text-xl font-black text-orange-400 bg-slate-950/60 px-3 py-0.5 rounded-lg border border-slate-700/60">
                   {salesPerDay} tickets/día
                 </span>
               </div>
@@ -108,7 +108,7 @@ export function RoiCalculator() {
                 step="5"
                 value={salesPerDay}
                 onChange={(e) => setSalesPerDay(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500"
+                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-orange-500"
               />
               <div className="flex justify-between text-[11px] text-slate-500">
                 <span>10 ventas/día</span>
@@ -194,7 +194,7 @@ export function RoiCalculator() {
             <div className="pt-2">
               <Link
                 href="/contacto"
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-md transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-md transition-colors"
               >
                 <span>Comenzar a ahorrar con BREICORP</span>
                 <ArrowRight className="w-4 h-4" />

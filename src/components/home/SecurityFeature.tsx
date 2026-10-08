@@ -1,4 +1,4 @@
-import {
+﻿import {
   ShieldCheck,
   Lock,
   DatabaseBackup,
@@ -52,7 +52,7 @@ export function SecurityFeature() {
     <section className="py-20 bg-slate-950 text-white border-b border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950 border border-blue-700/60 text-blue-300 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 border border-orange-700/60 text-orange-300 text-xs font-bold uppercase tracking-wider">
             <Lock className="w-3.5 h-3.5" />
             <span>Seguridad y Continuidad Operativa</span>
           </div>
@@ -73,7 +73,7 @@ export function SecurityFeature() {
                 key={idx}
                 className="bg-slate-900/90 rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-colors space-y-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-950/80 border border-blue-800/60 flex items-center justify-center text-blue-400">
+                <div className="w-10 h-10 rounded-xl bg-slate-950/80 border border-slate-700/60 flex items-center justify-center text-orange-400">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold text-white">{pillar.title}</h3>
@@ -88,7 +88,7 @@ export function SecurityFeature() {
         <div className="mt-12 text-center">
           <Link
             href="/seguridad"
-            className="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:text-blue-300 underline underline-offset-4"
+            className="inline-flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 underline underline-offset-4"
           >
             <span>Conocer más sobre nuestras medidas de seguridad y respaldos</span>
             <span>→</span>

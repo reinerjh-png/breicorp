@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 import { siteMetadata } from "@/config/company";
 
@@ -38,7 +38,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
         <li>
           <Link
             href="/"
-            className="hover:text-blue-400 transition-colors flex items-center gap-1"
+            className="hover:text-orange-400 transition-colors flex items-center gap-1"
           >
             <Home className="w-3.5 h-3.5" />
             <span>Inicio</span>
@@ -52,7 +52,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className="hover:text-blue-400 transition-colors"
+                  className="hover:text-orange-400 transition-colors"
                 >
                   {item.label}
                 </Link>

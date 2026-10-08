@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import {
@@ -66,7 +66,7 @@ export default function SoftwareVentasInventarioPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+              <span className="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
                 Punto de Venta + Inventario Integrado
               </span>
 
@@ -102,7 +102,7 @@ export default function SoftwareVentasInventarioPage() {
               <div className="pt-4">
                 <Link
                   href="/contacto"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
                 >
                   <span>Solicitar demo de inventario</span>
                   <ArrowRight className="w-4 h-4" />
@@ -161,7 +161,7 @@ export default function SoftwareVentasInventarioPage() {
                 key={i}
                 className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-2"
               >
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm">
+                <div className="w-8 h-8 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center font-bold text-sm">
                   0{i + 1}
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">{cap.title}</h3>

@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/PageHeader";
+﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import {
   Receipt,
@@ -105,7 +105,7 @@ export default function FacturacionElectronicaPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <Zap className="w-8 h-8 text-blue-600" />
+              <Zap className="w-8 h-8 text-orange-600" />
               <h3 className="font-bold text-lg text-slate-900">Validación de DNI y RUC</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Ingresa el número de RUC y el sistema autocompleta la Razón Social y dirección fiscal registrada en SUNAT. Ingresa el DNI y autocompleta nombres y apellidos.

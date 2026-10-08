@@ -2,9 +2,9 @@
 
 /* ============================================================
    BREICORP — Design System
-   
+
    Enterprise SaaS visual identity.
-   Navy + Blue technology palette built around the brand.
+   Corporate palette: Orange #FF6801 / Black #111111 / White / Grey.
    ============================================================ */
 
 @theme {
@@ -15,18 +15,13 @@
   --color-brand-orange-light: #FF8533;
   --color-brand-orange-subtle: #FFF7ED;
   --color-brand-orange-border: #FFEDD5;
-  --color-brand-navy: #0B1F33;
-  --color-brand-navy-deep: #061421;
-  --color-brand-blue: #1769E0;
-  --color-brand-blue-light: #3B82F6;
-  --color-brand-cyan: #0EA5C6;
-  --color-brand-green: #16A36A;
+  --color-brand-black: #111111;
 
   /* ---- Semantic Colors ---- */
-  --color-foreground: #0F172A;
+  --color-foreground: #111111;
   --color-foreground-muted: #64748B;
   --color-foreground-subtle: #94A3B8;
-  --color-background: #F7F9FC;
+  --color-background: #F7F7F7;
   --color-surface: #FFFFFF;
   --color-surface-elevated: #FFFFFF;
   --color-border: #E2E8F0;
@@ -46,7 +41,7 @@
   /* ---- Shadows ---- */
   --shadow-premium: 0 1px 3px 0 rgba(0,0,0,0.04), 0 6px 24px -4px rgba(0,0,0,0.06);
   --shadow-float: 0 8px 40px -8px rgba(0,0,0,0.1), 0 2px 8px -2px rgba(0,0,0,0.04);
-  --shadow-glow-blue: 0 0 20px rgba(23,105,224,0.15);
+  --shadow-glow-orange: 0 0 20px rgba(255,104,1,0.15);
 
   /* ---- Animation ---- */
   --ease-out-expo: cubic-bezier(0.23, 1, 0.32, 1);
@@ -101,7 +96,7 @@ body {
   left: 16px;
   z-index: 100;
   padding: 0.75rem 1.5rem;
-  background: var(--color-brand-blue);
+  background: var(--color-brand-orange);
   color: white;
   border-radius: var(--radius-md);
   font-weight: 600;
@@ -112,7 +107,7 @@ body {
 
 .skip-link:focus {
   top: 16px;
-  outline: 3px solid var(--color-brand-blue);
+  outline: 3px solid var(--color-brand-orange);
   outline-offset: 2px;
 }
 
@@ -121,7 +116,7 @@ body {
    ============================================================ */
 
 :focus-visible {
-  outline: 2px solid var(--color-brand-blue);
+  outline: 2px solid var(--color-brand-orange);
   outline-offset: 2px;
 }
 
@@ -168,15 +163,23 @@ body {
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-brand-blue);
+  color: var(--color-brand-orange);
 }
 
 /* ============================================================
    Text Gradient
    ============================================================ */
 
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--color-brand-orange), var(--color-brand-orange-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Alias for legacy references */
 .text-gradient-blue {
-  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-cyan));
+  background: linear-gradient(135deg, var(--color-brand-orange), var(--color-brand-orange-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -215,7 +218,7 @@ body {
 .bg-radial-glow {
   background: radial-gradient(
     60% 60% at 50% 0%,
-    rgba(23,105,224,0.08),
+    rgba(255,104,1,0.08),
     transparent 70%
   );
 }
@@ -232,7 +235,7 @@ body {
   .card-interactive:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-float);
-    border-color: rgba(23,105,224,0.2);
+    border-color: rgba(255,104,1,0.2);
   }
 }
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -196,7 +196,7 @@ export function PlatformInteractive() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
             <span>Plataforma Todo-en-Uno</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
@@ -217,9 +217,9 @@ export function PlatformInteractive() {
               <button
                 key={m.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                   isSelected
-                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
+                    ? "bg-orange-600 text-white shadow-md shadow-orange-600/20"
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
                 }`}
               >
@@ -235,7 +235,7 @@ export function PlatformInteractive() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-orange-50 text-orange-700 text-xs font-bold border border-orange-200">
                 <span>{current.previewBadge}</span>
               </div>
 
@@ -261,7 +261,7 @@ export function PlatformInteractive() {
               <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Link
                   href={current.link}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-blue-600 text-white font-bold text-sm transition-all duration-200 shadow-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-orange-600 text-white font-bold text-sm transition-all duration-200 shadow-sm"
                 >
                   <span>{current.linkText}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -269,7 +269,7 @@ export function PlatformInteractive() {
 
                 <Link
                   href="/contacto"
-                  className="text-sm font-bold text-blue-600 hover:text-blue-800 underline underline-offset-4"
+                  className="text-sm font-bold text-orange-600 hover:text-slate-800 underline underline-offset-4"
                 >
                   Solicitar demo de este módulo →
                 </Link>
@@ -281,7 +281,7 @@ export function PlatformInteractive() {
               <div className="bg-slate-900 rounded-2xl p-6 text-white shadow-xl border border-slate-800 space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                   <div className="flex items-center gap-2">
-                    <current.icon className="w-5 h-5 text-blue-400" />
+                    <current.icon className="w-5 h-5 text-orange-400" />
                     <span className="font-bold text-sm">{current.previewData.title}</span>
                   </div>
                   <span className="text-[10px] uppercase font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">

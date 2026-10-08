@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/PageHeader";
+﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { ShoppingBag, CreditCard, BarChart2 } from "lucide-react";
 import { createPageMetadata } from "@/config/company";
@@ -33,7 +33,7 @@ export default function SoftwareComercializadorasPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <ShoppingBag className="w-8 h-8 text-blue-600" />
+              <ShoppingBag className="w-8 h-8 text-orange-600" />
               <h3 className="font-bold text-lg text-slate-900">Ventas en 2 Segundos</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Escanea el código de barras, selecciona la forma de pago y emite la boleta electrónica con impresión automática en ticketera térmica.

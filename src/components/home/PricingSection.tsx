@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -13,7 +13,7 @@ export function PricingSection() {
     <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
             <span>Precios Transparentes</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
@@ -38,7 +38,7 @@ export function PricingSection() {
             <button
               type="button"
               onClick={() => setBillingCycle(billingCycle === "monthly" ? "annual" : "monthly")}
-              className="relative inline-flex h-7 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-600 bg-slate-900"
+              className="relative inline-flex h-7 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 bg-slate-900"
               role="switch"
               aria-checked={billingCycle === "annual"}
               aria-label="Alternar entre pago mensual y anual"
@@ -156,7 +156,7 @@ export function PricingSection() {
                       <div key={i} className="flex items-start gap-2 text-xs">
                         <Check
                           className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                            plan.recommended ? "text-cyan-400" : "text-blue-600"
+                            plan.recommended ? "text-cyan-400" : "text-orange-600"
                           }`}
                         />
                         <span
@@ -201,7 +201,7 @@ export function PricingSection() {
               href={getWhatsAppUrl("Hola, requiero una cotización a medida para mi empresa.")}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 font-bold hover:underline"
+              className="text-orange-600 font-bold hover:underline"
             >
               Habla directamente con un asesor comercial por WhatsApp →
             </a>

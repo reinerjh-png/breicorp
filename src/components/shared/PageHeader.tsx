@@ -1,4 +1,4 @@
-import { Breadcrumbs } from "./Breadcrumbs";
+﻿import { Breadcrumbs } from "./Breadcrumbs";
 
 interface PageHeaderProps {
   badge?: string;
@@ -16,14 +16,14 @@ export function PageHeader({
   return (
     <div className="bg-slate-950 text-white pt-10 pb-16 border-b border-slate-800 relative overflow-hidden">
       {/* Background radial glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={breadcrumbs} />
 
         <div className="max-w-3xl space-y-3 mt-4">
           {badge && (
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950 border border-blue-800/60 text-blue-300 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 border border-slate-700/60 text-orange-300 text-xs font-semibold">
               <span>{badge}</span>
             </div>
           )}

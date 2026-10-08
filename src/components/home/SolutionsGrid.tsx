@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import {
   Store,
   Truck,
@@ -90,20 +90,20 @@ export function SolutionsGrid() {
             return (
               <div
                 key={idx}
-                className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+                className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                    <div className="w-12 h-12 rounded-2xl bg-orange-100 text-orange-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+                    <span className="text-xs font-bold text-orange-700 bg-orange-50 px-2.5 py-1 rounded-full border border-orange-200">
                       {item.badge}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
+                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-orange-700 transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-xs font-semibold text-slate-500 mt-1">
@@ -128,7 +128,7 @@ export function SolutionsGrid() {
                 <div className="pt-6 mt-6 border-t border-slate-200/60">
                   <Link
                     href={item.link}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 group-hover:text-blue-800 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 group-hover:text-slate-800 transition-colors"
                   >
                     <span>Conocer solución detallada</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

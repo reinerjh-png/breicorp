@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import {
@@ -56,7 +56,7 @@ export default function SoftwareEmpresarialPage() {
               <div className="pt-2">
                 <Link
                   href="/contacto"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
                 >
                   <span>Solicitar asesoría para empresas</span>
                   <ArrowRight className="w-4 h-4" />
@@ -68,7 +68,7 @@ export default function SoftwareEmpresarialPage() {
               <h3 className="text-xl font-bold text-slate-100">Beneficios Estratégicos</h3>
               <div className="space-y-4 text-xs">
                 <div className="bg-slate-800/80 p-4 rounded-xl space-y-1">
-                  <div className="font-bold text-blue-400 text-sm">Cero servidores físicos costosos</div>
+                  <div className="font-bold text-orange-400 text-sm">Cero servidores físicos costosos</div>
                   <div className="text-slate-300">Ahorra en mantenimiento, técnicos de soporte y costosas licencias anuales de bases de datos.</div>
                 </div>
                 <div className="bg-slate-800/80 p-4 rounded-xl space-y-1">

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -122,8 +122,8 @@ export function Header() {
                       href={item.href}
                       className={`px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
                         isActive
-                          ? "text-blue-600 bg-blue-50/70"
-                          : "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
+                          ? "text-orange-600 bg-orange-50/70"
+                          : "text-slate-700 hover:text-orange-600 hover:bg-slate-50"
                       }`}
                     >
                       {item.label}
@@ -140,16 +140,16 @@ export function Header() {
                   >
                     <button
                       type="button"
-                      className={`flex items-center gap-1 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 ${
+                      className={`flex items-center gap-1 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                         isActive
-                          ? "text-blue-600 bg-blue-50/70"
-                          : "text-slate-700 hover:text-blue-600 hover:bg-slate-50"
+                          ? "text-orange-600 bg-orange-50/70"
+                          : "text-slate-700 hover:text-orange-600 hover:bg-slate-50"
                       }`}
                       aria-expanded={activeDropdown === item.label}
                     >
                       <span>{item.label}</span>
                       <ChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 text-slate-400 group-hover:text-blue-600 ${
+                        className={`w-4 h-4 transition-transform duration-200 text-slate-400 group-hover:text-orange-600 ${
                           activeDropdown === item.label ? "rotate-180" : ""
                         }`}
                       />
@@ -170,12 +170,12 @@ export function Header() {
                               key={child.href}
                               href={child.href}
                               className={`block p-2.5 rounded-xl transition-all duration-150 hover:bg-slate-50 group/item ${
-                                pathname === child.href ? "bg-blue-50/60" : ""
+                                pathname === child.href ? "bg-orange-50/60" : ""
                               }`}
                             >
-                              <div className="text-sm font-bold text-slate-800 group-hover/item:text-blue-600 flex items-center justify-between">
+                              <div className="text-sm font-bold text-slate-800 group-hover/item:text-orange-600 flex items-center justify-between">
                                 <span>{child.label}</span>
-                                <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-blue-600" />
+                                <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all text-orange-600" />
                               </div>
                               {child.description && (
                                 <p className="text-xs text-slate-500 mt-0.5 leading-snug">
@@ -223,7 +223,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú de navegación"}
                 aria-expanded={mobileMenuOpen}
               >
@@ -241,12 +241,12 @@ export function Header() {
                 <div key={item.label} className="border-b border-slate-100 pb-2">
                   <div className="font-bold text-slate-900 py-1 text-base">{item.label}</div>
                   {item.children ? (
-                    <div className="pl-3 mt-1 space-y-2 border-l-2 border-blue-100">
+                    <div className="pl-3 mt-1 space-y-2 border-l-2 border-orange-100">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block py-1 text-sm text-slate-600 hover:text-blue-600"
+                          className="block py-1 text-sm text-slate-600 hover:text-orange-600"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           <div className="font-medium text-slate-800">{child.label}</div>
@@ -259,7 +259,7 @@ export function Header() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block py-1 text-sm font-medium text-slate-700 hover:text-blue-600"
+                      className="block py-1 text-sm font-medium text-slate-700 hover:text-orange-600"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Ver {item.label}
@@ -280,7 +280,7 @@ export function Header() {
 
                 <Link
                   href="/contacto"
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-600 text-white font-bold text-sm shadow-md hover:bg-blue-700"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-orange-600 text-white font-bold text-sm shadow-md hover:bg-orange-700"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span>Solicitar demo personalizada</span>

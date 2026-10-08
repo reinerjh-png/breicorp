@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/PageHeader";
+﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { createPageMetadata } from "@/config/company";
 import { CheckCircle, ShieldCheck, MapPin } from "lucide-react";
@@ -33,7 +33,7 @@ export default function SoftwareEmpresasPeruPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <ShieldCheck className="w-8 h-8 text-blue-600" />
+              <ShieldCheck className="w-8 h-8 text-orange-600" />
               <h3 className="font-bold text-lg text-slate-900">Actualizaciones SUNAT sin costo</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Nuevas resoluciones tributarias, cambios en catálogos UBL o guías de remisión se actualizan automáticamente en la nube sin cobrarte horas de programación.

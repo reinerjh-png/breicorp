@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { PageHeader } from "@/components/shared/PageHeader";
@@ -165,7 +165,7 @@ export default function LibroReclamacionesPage() {
                     value="reclamo"
                     checked={formData.tipoReclamo === "reclamo"}
                     onChange={() => setFormData({ ...formData, tipoReclamo: "reclamo" })}
-                    className="text-blue-600"
+                    className="text-orange-600"
                   />
                   <span className="font-bold">Reclamo</span>
                 </label>
@@ -176,7 +176,7 @@ export default function LibroReclamacionesPage() {
                     value="queja"
                     checked={formData.tipoReclamo === "queja"}
                     onChange={() => setFormData({ ...formData, tipoReclamo: "queja" })}
-                    className="text-blue-600"
+                    className="text-orange-600"
                   />
                   <span className="font-bold">Queja</span>
                 </label>

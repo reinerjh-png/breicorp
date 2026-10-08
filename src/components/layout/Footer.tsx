@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { company, getWhatsAppUrl } from "@/config/company";
 import {
   ShieldCheck,
@@ -123,7 +123,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/precios"
-                  className="hover:text-white transition-colors text-blue-400 font-semibold"
+                  className="hover:text-white transition-colors text-orange-400 font-semibold"
                 >
                   Planes y Tarifas
                 </Link>
@@ -186,7 +186,7 @@ export function Footer() {
             </h3>
             <div className="space-y-3 text-xs text-slate-300">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
                 <span>{company.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
@@ -199,7 +199,7 @@ export function Footer() {
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
+                <Mail className="w-4 h-4 text-orange-400 shrink-0" />
                 <a
                   href={`mailto:${company.contactEmail}`}
                   className="hover:text-white transition-colors"

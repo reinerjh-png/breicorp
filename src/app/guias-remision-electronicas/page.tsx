@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/PageHeader";
+﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { Truck } from "lucide-react";
 import { createPageMetadata } from "@/config/company";
@@ -77,7 +77,7 @@ export default function GuiasRemisionPage() {
                 key={i}
                 className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center font-bold">
                   <Truck className="w-5 h-5" />
                 </div>
                 <h3 className="font-bold text-slate-900 text-base">{f.title}</h3>

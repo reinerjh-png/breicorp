@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { CheckCircle, ArrowRight } from "lucide-react";
@@ -53,7 +53,7 @@ export default function SoftwareMypesPage() {
               <div className="pt-2">
                 <Link
                   href="/precios"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
                 >
                   <span>Ver Planes para Emprendedores</span>
                   <ArrowRight className="w-4 h-4" />
@@ -72,7 +72,7 @@ export default function SoftwareMypesPage() {
               </ul>
               <div className="pt-4 border-t border-slate-200 text-sm font-bold text-slate-900 flex justify-between items-center">
                 <span>Inversión mensual:</span>
-                <span className="text-2xl font-black text-blue-600">S/ 50.00</span>
+                <span className="text-2xl font-black text-orange-600">S/ 50.00</span>
               </div>
             </div>
           </div>

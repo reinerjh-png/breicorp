@@ -1,4 +1,4 @@
-import {
+﻿import {
   CheckCircle2,
 } from "lucide-react";
 import { company } from "@/config/company";
@@ -46,7 +46,7 @@ export function SocialProof() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 pb-10 border-b border-slate-800">
           {trustMetrics.map((metric, idx) => (
             <div key={idx} className="text-center sm:text-left space-y-1">
-              <div className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+              <div className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300">
                 {metric.value}
               </div>
               <div className="text-sm font-bold text-white">{metric.label}</div>
@@ -67,7 +67,7 @@ export function SocialProof() {
                 key={sector}
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs font-medium text-slate-300 hover:text-white transition-colors"
               >
-                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-orange-400" />
                 <span>{sector}</span>
               </span>
             ))}

@@ -1,4 +1,4 @@
-import { confirmedCaseStudy } from "@/config/caseStudies";
+﻿import { confirmedCaseStudy } from "@/config/caseStudies";
 import { CheckCircle, Clock, Layers } from "lucide-react";
 
 export function Testimonials() {
@@ -25,12 +25,12 @@ export function Testimonials() {
           </div>
 
           <div className="space-y-3 border-y border-slate-200 p-7 sm:p-8 lg:border-x lg:border-y-0">
-            <Layers className="h-7 w-7 text-blue-600" />
+            <Layers className="h-7 w-7 text-orange-600" />
             <h3 className="font-bold text-slate-950">La implementación</h3>
             <ul className="space-y-2">
               {confirmedCaseStudy.implementation.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
-                  <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
+                  <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-orange-600" />
                   <span>{item}</span>
                 </li>
               ))}

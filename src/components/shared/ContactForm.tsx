@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { company, getWhatsAppUrl } from "@/config/company";
@@ -92,7 +92,7 @@ export function ContactForm() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="Ej. Carlos Mendoza"
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white text-slate-900"
               />
             </div>
           </div>
@@ -109,7 +109,7 @@ export function ContactForm() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="Ej. 987 654 321"
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white text-slate-900"
               />
             </div>
           </div>
@@ -128,7 +128,7 @@ export function ContactForm() {
                 value={formData.companyName}
                 onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                 placeholder="Ej. Distribuidora Santa Rosa"
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white text-slate-900"
               />
             </div>
           </div>
@@ -145,7 +145,7 @@ export function ContactForm() {
                 value={formData.ruc}
                 onChange={(e) => setFormData({ ...formData, ruc: e.target.value })}
                 placeholder="Ej. 20601234567"
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white text-slate-900"
               />
             </div>
           </div>
@@ -165,7 +165,7 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="carlos@tuempresa.pe"
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white text-slate-900"
               />
             </div>
           </div>
@@ -179,7 +179,7 @@ export function ContactForm() {
               <select
                 value={formData.sector}
                 onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900"
+                className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white text-slate-900"
               >
                 <option value="comercio">Comercializadora / Retail / Tienda</option>
                 <option value="distribuidora">Distribuidora Mayorista / Almacén</option>
@@ -202,7 +202,7 @@ export function ContactForm() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Ej. Busco controlar mi stock en 2 tiendas, emitir guías de remisión y reemplazar la web de SUNAT."
-            className="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white text-slate-900"
+            className="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white text-slate-900"
           ></textarea>
         </div>
 
@@ -219,7 +219,7 @@ export function ContactForm() {
 
         <p className="text-[11px] text-slate-400 text-center pt-2">
           Al continuar, se abrirá WhatsApp con estos datos para que tú confirmes el envío. BREICORP no registra este formulario en la web. Consulta nuestra{" "}
-          <Link href={company.legalLinks.privacyPolicy} className="text-blue-600 hover:underline">
+          <Link href={company.legalLinks.privacyPolicy} className="text-orange-600 hover:underline">
             Política de Privacidad
           </Link>.
         </p>

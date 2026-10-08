@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/shared/PageHeader";
+﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { ContactForm } from "@/components/shared/ContactForm";
 import { company, createPageMetadata, getWhatsAppUrl } from "@/config/company";
 import {
@@ -49,7 +49,7 @@ export default function ContactoPage() {
                       <div className="font-bold text-slate-900">Central Telefónica</div>
                       <a
                         href={`tel:${company.phone.replace(/\s+/g, "")}`}
-                        className="text-slate-600 hover:text-blue-600 transition-colors"
+                        className="text-slate-600 hover:text-orange-600 transition-colors"
                       >
                         {company.phone}
                       </a>
@@ -72,12 +72,12 @@ export default function ContactoPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Mail className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+                    <Mail className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
                     <div>
                       <div className="font-bold text-slate-900">Correo de Contacto</div>
                       <a
                         href={`mailto:${company.contactEmail}`}
-                        className="text-slate-600 hover:text-blue-600"
+                        className="text-slate-600 hover:text-orange-600"
                       >
                         {company.contactEmail}
                       </a>
@@ -110,11 +110,11 @@ export default function ContactoPage() {
               </div>
 
               {/* What happens next box */}
-              <div className="bg-blue-900 text-white rounded-3xl p-6 border border-blue-800 space-y-3">
+              <div className="bg-slate-900 text-white rounded-3xl p-6 border border-slate-800 space-y-3">
                 <div className="font-bold text-sm text-cyan-300">
                   ¿Qué ocurre tras solicitar una demo?
                 </div>
-                <div className="space-y-2 text-xs text-blue-100">
+                <div className="space-y-2 text-xs text-orange-100">
                   <div className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                     <span>Coordinamos contigo la fecha y el alcance de la demostración.</span>
