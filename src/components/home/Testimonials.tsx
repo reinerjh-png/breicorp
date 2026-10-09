@@ -20,13 +20,15 @@ export function Testimonials() {
         <article className="grid grid-cols-1 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm lg:grid-cols-3">
           <div className="space-y-3 p-7 sm:p-8">
             <Clock className="h-7 w-7 text-orange-600" />
-            <h3 className="font-bold text-slate-950">El punto de partida</h3>
+            <p className="text-xs font-black uppercase tracking-widest text-orange-700">Antes</p>
+            <h3 className="text-2xl font-black text-slate-950">15+ horas semanales</h3>
             <p className="text-sm leading-relaxed text-slate-600">{confirmedCaseStudy.context}</p>
           </div>
 
           <div className="space-y-3 border-y border-slate-200 p-7 sm:p-8 lg:border-x lg:border-y-0">
             <Layers className="h-7 w-7 text-orange-600" />
-            <h3 className="font-bold text-slate-950">La implementación</h3>
+            <p className="text-xs font-black uppercase tracking-widest text-orange-700">Implementación</p>
+            <h3 className="font-bold text-slate-950">SaaS web + móvil</h3>
             <ul className="space-y-2">
               {confirmedCaseStudy.implementation.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-slate-600">
@@ -39,7 +41,8 @@ export function Testimonials() {
 
           <div className="space-y-3 p-7 sm:p-8">
             <CheckCircle className="h-7 w-7 text-emerald-600" />
-            <h3 className="font-bold text-slate-950">El resultado observado</h3>
+            <p className="text-xs font-black uppercase tracking-widest text-emerald-700">Resultado del caso</p>
+            <h3 className="text-2xl font-black text-slate-950">≈90% menos tiempo de emisión</h3>
             <p className="text-sm leading-relaxed text-slate-600">
               {confirmedCaseStudy.results[0]} También mejoró la visibilidad del stock y se eliminaron las inconsistencias existentes en ese flujo específico.
             </p>

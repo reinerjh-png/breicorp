@@ -18,5 +18,5 @@ export const confirmedCaseStudy = {
     "Se eliminaron las inconsistencias que existían en ese flujo específico.",
   ],
   disclaimer:
-    "Resultado correspondiente a este proyecto específico. No constituye una promesa de rendimiento general para otras operaciones.",
+    "Resultados correspondientes a este proyecto específico. Pueden variar según la operación de cada empresa.",
 } as const;

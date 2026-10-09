@@ -1,85 +1,17 @@
-﻿import Link from "next/link";
-import { PageHeader } from "@/components/shared/PageHeader";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { SectorLanding } from "@/components/seo/SectorLanding";
 import { createPageMetadata } from "@/config/company";
 
-export const metadata = createPageMetadata({
-  title: "Software de Facturación y Ventas para MYPEs en Perú",
-  description:
-    "El software más fácil y económico para micro y pequeñas empresas en Perú. Factura electrónicamente a SUNAT, controla tus ventas y clientes desde S/ 50 al mes.",
-  path: "/software-mypes",
-});
+export const metadata = createPageMetadata({title:"Software para MYPE: Ventas, Facturación e Inventario",description:"Organiza una micro o pequeña empresa con facturación electrónica, ventas e inventario en una plataforma sencilla y con costos previsibles.",keywords:["software para MYPE","software para pequeñas empresas","facturación electrónica MYPE","inventario para negocios"],path:"/software-mypes"});
 
-export default function SoftwareMypesPage() {
-  return (
-    <>
-      <PageHeader
-        badge="Especial para Micro y Pequeñas Empresas"
-        title="Software accesible para formalizar y crecer tu MYPE"
-        description="Diseñado para que cualquier emprendedor o comerciante comience a emitir boletas y facturas en menos de 24 horas, sin contratar técnicos ni pagar miles de soles."
-        breadcrumbs={[{ label: "Empresas", href: "/software-empresas-peru" }, { label: "MYPEs" }]}
-      />
-
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                Planes desde S/ 50/mes
-              </span>
-              <h2 className="text-3xl font-black text-slate-950">
-                Todo lo que tu negocio necesita sin complicaciones técnicas
-              </h2>
-              <p className="text-slate-600 leading-relaxed">
-                Si estás cansado de que la web de SUNAT se cuelgue mientras tu cliente espera en caja, o si necesitas ordenar tus cuentas sin aprender sistemas difíciles, BREICORP fue creado pensando en ti.
-              </p>
-
-              <div className="space-y-3">
-                <div className="flex items-center gap-2.5 text-sm text-slate-700">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
-                  <span>Emisión en 3 clics desde tu celular, tablet o laptop.</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm text-slate-700">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
-                  <span>Envío directo de boletas y facturas por WhatsApp a tus clientes.</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-sm text-slate-700">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
-                  <span>Catálogo de productos con precios claros y reporte para tu contador.</span>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/precios"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-orange-600 hover:bg-orange-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
-                >
-                  <span>Ver Planes para Emprendedores</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-slate-50 rounded-3xl p-8 border border-slate-200 space-y-4">
-              <h3 className="font-bold text-xl text-slate-900">¿Qué incluye el Plan Emprendedor?</h3>
-              <ul className="space-y-2 text-xs text-slate-600">
-                <li className="flex items-center gap-2">✓ Hasta 100 comprobantes mensuales</li>
-                <li className="flex items-center gap-2">✓ Boletas, facturas y notas de crédito</li>
-                <li className="flex items-center gap-2">✓ Catálogo de hasta 100 productos</li>
-                <li className="flex items-center gap-2">✓ Reporte de ventas para tu contador en Excel</li>
-                <li className="flex items-center gap-2">✓ Capacitación inicial de uso incluida</li>
-              </ul>
-              <div className="pt-4 border-t border-slate-200 text-sm font-bold text-slate-900 flex justify-between items-center">
-                <span>Inversión mensual:</span>
-                <span className="text-2xl font-black text-orange-600">S/ 50.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CtaBanner />
-    </>
-  );
-}
+export default function SoftwareMypesPage(){return <SectorLanding
+  path="/software-mypes" badge="Gestión simple para pequeños negocios" title="Software para MYPE: formaliza, controla y crece con orden" description="Integra facturación electrónica, ventas e inventario en una herramienta comprensible para la operación diaria de una micro o pequeña empresa." breadcrumb="MYPE"
+  introTitle="La simplicidad es una condición de crecimiento"
+  intro={["Una MYPE suele operar con equipos pequeños: la misma persona vende, cobra, compra y coordina entregas. Cuando cada tarea utiliza una aplicación o archivo diferente, el control consume horas que deberían destinarse a clientes y al desarrollo del negocio.","Un software para MYPE debe resolver lo esencial sin obligar al usuario a aprender una estructura innecesariamente compleja. El catálogo, los clientes, las ventas, los comprobantes y el stock necesitan un flujo comprensible, con información disponible para el propietario y para quien prepara los registros contables.","La formalización no se limita a emitir una factura. También implica conservar documentos, ordenar ingresos, conocer las existencias y separar las decisiones del negocio de las anotaciones personales. Una plataforma integrada ayuda a construir esa disciplina de manera gradual."]}
+  problems={["Ventas anotadas en cuadernos o conversaciones que después deben consolidarse.","Productos sin códigos o nombres uniformes, lo que dificulta saber cuánto queda.","Comprobantes emitidos por separado de la venta y del control de inventario.","Precios y costos que solo conoce el propietario.","Reportes preparados manualmente cuando el contador o la gerencia los solicita.","Temor a adoptar un sistema por costo, complejidad o falta de acompañamiento."]}
+  workflowTitle="Un flujo básico para vender y controlar sin duplicar trabajo" workflowIntro="La operación puede comenzar con pocos módulos, siempre que compartan los mismos datos. El objetivo es que una venta correctamente registrada sirva para el comprobante, el cobro y el movimiento de inventario que correspondan."
+  features={[{title:"Catálogo ordenado",text:"Productos, servicios, unidades y precios se mantienen en una fuente común para evitar descripciones distintas en cada venta."},{title:"Venta y comprobante",text:"Los datos del cliente y de los productos pueden reutilizarse en la facturación electrónica, reduciendo digitación entre pasos."},{title:"Inventario visible",text:"Las entradas por compra y salidas por venta permiten consultar existencias y reconocer productos que requieren reposición."},{title:"Caja comprensible",text:"Los cobros se clasifican por medio de pago para facilitar la revisión del turno y la comparación con el dinero recibido."},{title:"Información para gestión",text:"Las ventas registradas permiten consultar periodos, productos y clientes sin reconstruir cada reporte desde varios archivos."},{title:"Acceso desde internet",text:"El propietario puede revisar información desde un navegador o dispositivo autorizado cuando no se encuentra en el local."}]}
+  sections={[{title:"Formalización con información preparada desde el origen",paragraphs:["La facturación electrónica forma parte del proceso comercial de muchas empresas peruanas. Para una MYPE, el reto es emitir el documento sin volver a escribir toda la operación. Cuando cliente, productos, importes y condiciones ya están registrados, la emisión puede integrarse al mismo flujo.","Los comprobantes de pago electrónicos generan archivos y estados que deben poder consultarse. Contar con XML, representaciones y respuestas asociadas en un solo entorno facilita atender solicitudes del cliente y preparar información para revisión. La obligación específica depende del régimen y condiciones de cada empresa, por lo que la configuración debe validarse para su caso."],bullets:["Datos comerciales reutilizados en el comprobante.","Consulta ordenada de documentos emitidos.","Separación de perfiles para propietario y colaboradores.","Exportaciones para revisión administrativa o contable."]},{title:"Costo previsible y adopción del equipo",paragraphs:["El costo de una solución no es únicamente la mensualidad. También incluye el tiempo de aprenderla, preparar datos y cambiar hábitos. Por eso conviene comenzar con un alcance que el equipo pueda adoptar, comprobar el flujo y ampliar cuando exista una necesidad real.","Una interfaz sencilla no elimina la capacitación. El personal debe practicar ventas, anulaciones, devoluciones, cierres y consultas frecuentes. El acompañamiento inicial ayuda a evitar controles paralelos que terminan reproduciendo el desorden anterior.","Antes de elegir un plan, compara usuarios, locales, volumen de documentos y funciones realmente necesarias. BREICORP publica sus precios para que la MYPE pueda revisar el alcance y conversar sobre las dudas sin depender de una cotización opaca."],bullets:["Priorizar el proceso que hoy genera más reproceso.","Depurar el catálogo antes de importarlo.","Asignar permisos según la función de cada persona.","Revisar resultados después de las primeras semanas."]}]}
+  closing="Una MYPE no necesita comenzar con todos los módulos: necesita una base clara que pueda acompañar su formalización y crecer con la operación."
+  faq={[{question:"¿Qué debe incluir un software para MYPE?",answer:"Como base, debe facilitar ventas, clientes, productos, comprobantes y consulta de inventario. El alcance adecuado depende de si el negocio maneja caja, compras, crédito, varios usuarios o más de un local."},{question:"¿Necesito conocimientos técnicos para usarlo?",answer:"No debería requerir conocimientos de programación. Sí requiere aprender el flujo del negocio dentro de la plataforma y definir correctamente productos, precios, usuarios y documentos."},{question:"¿Puedo comenzar solo con facturación electrónica?",answer:"Puede evaluarse un inicio acotado, pero conviene evitar que la facturación quede aislada de la venta. Integrar al menos catálogo y clientes reduce duplicación y prepara el crecimiento."},{question:"¿Cómo ayuda con el inventario?",answer:"Registra entradas y salidas vinculadas con compras, ventas o ajustes. La calidad del resultado depende de contar con un catálogo ordenado y registrar de manera constante los movimientos."},{question:"¿El sistema sirve si luego abro otro local?",answer:"Una solución escalable debe permitir evaluar nuevos usuarios, cajas, almacenes o locales. Antes de ampliar conviene definir cómo se manejarán precios, stock y permisos entre sedes."},{question:"¿Cómo se inicia la implementación?",answer:"Se revisa el proceso prioritario, se prepara la información inicial, se configura el alcance, se prueban operaciones habituales y se capacita a las personas que lo utilizarán."}]}
+  links={[{href:"/facturacion-electronica",title:"Facturación electrónica para empresas",description:"Comprende el flujo de comprobantes, XML y respuestas asociadas."},{href:"/software-ventas-inventario",title:"Ventas e inventario integrado",description:"Profundiza en stock, compras, Kardex, caja y almacenes."},{href:"/precios",title:"Planes para comenzar",description:"Compara precios publicados y alcance comercial."},{href:"/demo",title:"Ver el entorno de demostración",description:"Consulta las credenciales y explora datos de prueba."}]}
+/>}

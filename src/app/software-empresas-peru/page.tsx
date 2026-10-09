@@ -1,65 +1,17 @@
-﻿import { PageHeader } from "@/components/shared/PageHeader";
-import { CtaBanner } from "@/components/home/CtaBanner";
+import { SectorLanding } from "@/components/seo/SectorLanding";
 import { createPageMetadata } from "@/config/company";
-import { CheckCircle, ShieldCheck, MapPin } from "lucide-react";
 
-export const metadata = createPageMetadata({
-  title: "Software para Empresas en Perú | Facturación SUNAT y ERP",
-  description:
-    "El software empresarial desarrollado en Perú para responder a la normativa tributaria local, moneda en Soles, SIRE SUNAT y realidad operativa nacional.",
-  path: "/software-empresas-peru",
-});
+export const metadata=createPageMetadata({title:"Software para Empresas en Perú: Gestión y SUNAT",description:"Gestiona ventas, inventario y operación local con facturación electrónica, CPE y guías de remisión para empresas en Perú.",keywords:["software para empresas en Perú","software empresarial Perú","facturación electrónica SUNAT","CPE Perú","GRE SUNAT"],path:"/software-empresas-peru"});
 
-export default function SoftwareEmpresasPeruPage() {
-  return (
-    <>
-      <PageHeader
-        badge="Desarrollado para empresas peruanas"
-        title="Software Empresarial adaptado a la legislación y comercio peruano"
-        description="A diferencia de softwares extranjeros que no contemplan las exigencias de SUNAT ni los métodos de cobro locales, BREICORP nace en Perú para resolver la realidad del empresario nacional."
-        breadcrumbs={[{ label: "Empresas", href: "/software-empresarial" }, { label: "Empresas en Perú" }]}
-      />
-
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl font-black text-slate-950">
-              ¿Por qué elegir un software desarrollado en Perú?
-            </h2>
-            <p className="text-base text-slate-600">
-              Las exigencias de SUNAT cambian con el tiempo. Un software desarrollado en Perú puede adaptar sus flujos a la normativa y a las prácticas comerciales locales.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <ShieldCheck className="w-8 h-8 text-orange-600" />
-              <h3 className="font-bold text-lg text-slate-900">Actualizaciones SUNAT sin costo</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Nuevas resoluciones tributarias, cambios en catálogos UBL o guías de remisión se actualizan automáticamente en la nube sin cobrarte horas de programación.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <CheckCircle className="w-8 h-8 text-emerald-600" />
-              <h3 className="font-bold text-lg text-slate-900">Yape, Plin y medios locales</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Cobro fluido con billeteras digitales peruanas, transferencias bancarias BCP, BBVA, Interbank y pagos mixtos habituales en los negocios peruanos.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <MapPin className="w-8 h-8 text-cyan-600" />
-              <h3 className="font-bold text-lg text-slate-900">Soporte Técnico en tu Horario</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Sin tickets que tardan días en responderse desde el extranjero. Atención en español por teléfono y WhatsApp con especialistas que entienden tu negocio.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CtaBanner />
-    </>
-  );
-}
+export default function SoftwareEmpresasPeruPage(){return <SectorLanding
+  path="/software-empresas-peru" badge="Operación empresarial en Perú" title="Software para empresas en Perú: gestión comercial y documentos electrónicos" description="Organiza ventas, inventario, caja y logística considerando los comprobantes y documentos utilizados en la operación peruana." breadcrumb="Empresas en Perú"
+  introTitle="Tecnología empresarial adaptada al contexto operativo peruano"
+  intro={["Una empresa en Perú necesita coordinar su gestión comercial con documentos y procesos tributarios locales. La venta, el cobro, el movimiento de mercadería y la entrega no son tareas separadas: cada una puede generar información que debe mantenerse consistente en comprobantes, inventario y reportes.","Un software para empresas en Perú debe facilitar esa relación sin atribuirse funciones que corresponden a SUNAT o a proveedores autorizados. La plataforma organiza datos y flujos; la validez, los mecanismos de envío y las obligaciones dependen del marco aplicable y de la configuración de cada contribuyente.","El contexto también incluye diversidad de tamaños, conectividad, equipos y formas de trabajo. Una tienda con una caja tiene necesidades distintas a una distribuidora con vendedores en ruta y almacenes. La elección debe comenzar por el proceso, no por una lista genérica de módulos."]}
+  problems={["Ventas registradas aparte de la emisión del comprobante electrónico.","XML, representaciones y respuestas guardados en ubicaciones distintas.","Traslados preparados sin relacionar pedido, mercadería y guía.","Stock por local consolidado manualmente al final del periodo.","Información para gestión y contabilidad extraída de fuentes inconsistentes.","Sistemas que no se adaptan al crecimiento de usuarios o sedes."]}
+  workflowTitle="Gestión local: operación comercial y documentación relacionada" workflowIntro="La plataforma puede centralizar información para que cada paso reutilice datos confiables. Esto facilita operar y consultar documentos, sin afirmar que BREICORP sea OSE o PSE ni reemplazar las responsabilidades del contribuyente."
+  features={[{title:"Clientes y productos",text:"Datos maestros ordenados permiten reutilizar identificaciones, direcciones, unidades, precios y descripciones en distintas operaciones."},{title:"Ventas y CPE",text:"La información comercial alimenta facturas, boletas o notas según el flujo habilitado y conserva archivos relacionados para consulta."},{title:"XML y CDR",text:"El sistema organiza el archivo estructurado del comprobante y la respuesta asociada a su procesamiento cuando forman parte del servicio configurado."},{title:"Inventario y Kardex",text:"Entradas, salidas, compras, ventas y traslados aportan un historial de movimientos por producto y almacén."},{title:"GRE y logística",text:"Los datos del pedido y del despacho pueden reutilizarse para preparar documentos vinculados con el traslado de bienes."},{title:"Reportes operativos",text:"La información registrada permite revisar ventas, cajas, existencias y otros indicadores sin reconstruirlos desde múltiples archivos."}]}
+  sections={[{title:"Facturación electrónica, CPE y SUNAT",paragraphs:["Los comprobantes de pago electrónicos incluyen documentos como facturas, boletas y notas, según las condiciones aplicables. El XML contiene datos estructurados; la representación facilita su lectura; y la CDR se relaciona con la respuesta recibida dentro del proceso de envío correspondiente.","Una solución empresarial ayuda a reducir la separación entre la venta y el comprobante. En lugar de copiar cliente, productos e importes en otra herramienta, utiliza los datos de la operación y conserva una relación entre ambos registros. La empresa debe revisar el estado del documento y atender las observaciones que correspondan.","BREICORP presenta funciones de facturación electrónica y gestión documental sin afirmar que opera como OSE o PSE propio. El alcance técnico debe confirmarse durante la implementación, junto con las credenciales, certificados o mecanismos necesarios para el emisor."],bullets:["Facturas, boletas y notas según el alcance contratado.","Consulta de archivos relacionados con la emisión.","Datos de venta reutilizados para reducir duplicación.","Configuración revisada para el contexto del contribuyente."]},{title:"Guías de remisión y operación con mercadería",paragraphs:["El traslado de bienes puede requerir una guía de remisión electrónica conforme al supuesto aplicable. La preparación del documento necesita información logística: punto de partida y llegada, participantes, vehículo o conductor cuando corresponda, productos y cantidades.","Integrar la GRE con pedido, inventario y despacho reduce el riesgo de que cada área mantenga versiones diferentes. El sistema ayuda a organizar la información, pero el usuario debe confirmar que la operación y sus datos reflejan el traslado real.","Para empresas con varios almacenes o locales, también conviene diferenciar el traslado interno de una venta o entrega a cliente. Cada movimiento debe tener una razón y un responsable para mantener un historial útil."],bullets:["Datos logísticos vinculados con el despacho.","Movimientos diferenciados por almacén.","Consulta de documentos asociados a la operación.","Revisión previa de información del traslado."]},{title:"Elegir una solución para operar en Perú",paragraphs:["La referencia a SUNAT no debe ocultar otras necesidades. Una empresa puede emitir correctamente y aun así desconocer su stock, tener cierres de caja tardíos o depender de archivos manuales. La evaluación debe considerar el flujo completo y la capacidad de las personas para usarlo.","También conviene revisar soporte, preparación de datos, permisos, exportaciones y crecimiento. Una plataforma SaaS facilita el acceso desde distintas ubicaciones, pero requiere conectividad y políticas internas sobre usuarios y dispositivos.","La demostración debe utilizar casos cercanos a la operación: una venta, una devolución, un traslado, un cierre o una consulta de archivos. Así se comprueba el mecanismo en lugar de depender de afirmaciones generales."],bullets:["Validar escenarios reales y excepciones.","Confirmar alcance tributario y operativo.","Revisar permisos, locales y almacenes.","Planificar capacitación y adopción."]}]}
+  closing="El software empresarial en Perú debe conectar la gestión diaria con los documentos locales sin confundir automatización con el cumplimiento automático de todas las obligaciones."
+  faq={[{question:"¿Qué debe considerar un software empresarial en Perú?",answer:"Debe adaptarse a los documentos, moneda, identificaciones y flujos locales, además de resolver ventas, inventario, caja o logística según el negocio."},{question:"¿Qué es un CPE?",answer:"Es un comprobante de pago emitido por medios electrónicos dentro del sistema correspondiente. Puede tratarse de factura, boleta, nota u otro documento según el caso."},{question:"¿Qué diferencia hay entre XML y CDR?",answer:"El XML contiene los datos estructurados del comprobante. La CDR es una constancia de recepción asociada a su procesamiento dentro del mecanismo utilizado."},{question:"¿BREICORP es OSE o PSE?",answer:"La web no afirma que BREICORP sea un OSE o PSE propio. El alcance y mecanismo técnico de emisión se confirma para cada implementación."},{question:"¿El sistema contempla guías de remisión?",answer:"Puede incluir preparación y gestión de guías de remisión electrónicas según el alcance contratado. La empresa debe proporcionar y revisar los datos del traslado."},{question:"¿Sirve para empresas con varias sedes?",answer:"El entorno puede organizar usuarios, cajas y almacenes por ubicación. La implementación define permisos, catálogos compartidos y reglas de movimiento entre sedes."}]}
+  links={[{href:"/software-empresarial",title:"Guía de software empresarial",description:"Comprende cómo se conectan áreas y cómo implementar una plataforma SaaS."},{href:"/facturacion-electronica",title:"Facturación electrónica y CPE",description:"Profundiza en emisión, XML, CDR y flujo comercial."},{href:"/guias-remision-electronicas",title:"Guías de remisión electrónicas",description:"Revisa información, tipos de flujo y relación con despacho."},{href:"/precios",title:"Planes de BREICORP",description:"Consulta precios publicados y evalúa el alcance adecuado."}]}
+/>}

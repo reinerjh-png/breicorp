@@ -91,13 +91,15 @@ export function FaqSection() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-all duration-200"
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden"
               >
                 <button
+                  id={`home-faq-button-${idx}`}
                   type="button"
                   onClick={() => toggle(idx)}
                   className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none focus:bg-slate-50"
                   aria-expanded={isOpen}
+                  aria-controls={`home-faq-panel-${idx}`}
                 >
                   <span className="font-bold text-slate-900 text-base sm:text-lg">
                     {faq.question}
@@ -110,7 +112,7 @@ export function FaqSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                  <div id={`home-faq-panel-${idx}`} role="region" aria-labelledby={`home-faq-button-${idx}`} className="px-5 pb-6 sm:px-6 pt-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
                     {faq.answer}
                   </div>
                 )}

@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Analytics } from "@/components/analytics/Analytics";
 import { siteMetadata, company, robotsPolicy } from "@/config/company";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -58,6 +67,9 @@ export const metadata: Metadata = {
     images: [siteMetadata.ogImage],
   },
   robots: robotsPolicy,
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION || undefined,
+  },
   icons: {
     icon: [
       { url: "/logo-breicorp.webp", type: "image/webp" },
@@ -82,9 +94,10 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/logo-breicorp.webp" type="image/webp" />
         <link rel="apple-touch-icon" href="/logo-breicorp.webp" />
       </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-orange-600 selection:text-white">
+      <body className={`${inter.variable} min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-orange-600 selection:text-white`}>
         <JsonLd type="Organization" />
         <JsonLd type="SoftwareApplication" />
+        <Analytics />
         <Header />
         <main id="main-content" className="flex-grow">
           {children}

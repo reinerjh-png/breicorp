@@ -4,7 +4,7 @@
   "private": true,
   "description": "BREICORP — Software empresarial, automatización y soluciones digitales",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

@@ -9,6 +9,7 @@ import {
   MessageCircle,
   CheckCircle,
 } from "lucide-react";
+import { EventTracker } from "@/components/analytics/EventTracker";
 
 export const metadata = createPageMetadata({
   title: "Contacto y Solicitud de Demostración",
@@ -17,15 +18,10 @@ export const metadata = createPageMetadata({
   path: "/contacto",
 });
 
-export default async function ContactoPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ plan?: string }>;
-}) {
-  const { plan } = await searchParams;
-
+export default function ContactoPage() {
   return (
     <>
+      <EventTracker name="contact_click" />
       <PageHeader
         badge="Atención Personalizada"
         title="Agenda una demostración guiada de 15 minutos"
@@ -38,7 +34,7 @@ export default async function ContactoPage({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Form Column */}
             <div className="lg:col-span-7">
-              <ContactForm planPreselected={plan} />
+              <ContactForm />
             </div>
 
             {/* Direct Channels Column */}

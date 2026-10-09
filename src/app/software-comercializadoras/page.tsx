@@ -1,65 +1,17 @@
-﻿import { PageHeader } from "@/components/shared/PageHeader";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import { ShoppingBag, CreditCard, BarChart2 } from "lucide-react";
+import { SectorLanding } from "@/components/seo/SectorLanding";
 import { createPageMetadata } from "@/config/company";
 
-export const metadata = createPageMetadata({
-  title: "Software para Comercializadoras y Tiendas Retail en Perú",
-  description:
-    "Punto de venta POS de alta velocidad para tiendas comerciales, ferreterías, farmacias y minimarkets. Cobros con Yape, lector de código de barras y arqueo de caja.",
-  path: "/software-comercializadoras",
-});
+export const metadata=createPageMetadata({title:"Software para Comercializadoras: POS, Caja y Stock",description:"Gestiona punto de venta, códigos de barras, medios de pago, arqueos, precios, inventario y locales en una comercializadora.",keywords:["software para comercializadoras","punto de venta POS","software de caja","código de barras inventario","stock por local"],path:"/software-comercializadoras"});
 
-export default function SoftwareComercializadorasPage() {
-  return (
-    <>
-      <PageHeader
-        badge="Retail y Comercio"
-        title="Software de Punto de Venta para Comercializadoras y Retail"
-        description="Atiende a tus clientes en segundos en el mostrador. Cobro rápido con lector de barras, billeteras digitales y control exacto de efectivo en cada turno de caja."
-        breadcrumbs={[{ label: "Empresas", href: "/software-empresas-peru" }, { label: "Comercializadoras" }]}
-      />
-
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl font-black text-slate-950">
-              Menos cola en caja, más ventas concretadas
-            </h2>
-            <p className="text-base text-slate-600">
-              Cada segundo que un cliente espera en la fila es un riesgo de compra cancelada. BREICORP agiliza la venta al máximo nivel de eficiencia.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <ShoppingBag className="w-8 h-8 text-orange-600" />
-              <h3 className="font-bold text-lg text-slate-900">Ventas en 2 Segundos</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Escanea el código de barras, selecciona la forma de pago y emite la boleta electrónica con impresión automática en ticketera térmica.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <CreditCard className="w-8 h-8 text-emerald-600" />
-              <h3 className="font-bold text-lg text-slate-900">Cobros Mixtos</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                El cliente puede pagar una parte en efectivo y otra con Yape o tarjeta de crédito. La caja registra los importes por canal con total transparencia.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <BarChart2 className="w-8 h-8 text-cyan-600" />
-              <h3 className="font-bold text-lg text-slate-900">Arqueos Ciegos de Caja</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                El cajero declara lo que tiene en caja sin ver el total calculado por el sistema, garantizando que cualquier descuadre quede registrado de inmediato.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CtaBanner />
-    </>
-  );
-}
+export default function SoftwareComercializadorasPage(){return <SectorLanding
+  path="/software-comercializadoras" badge="Comercio, tiendas y retail" title="Software para comercializadoras: punto de venta, caja y stock" description="Conecta la atención en mostrador con precios, medios de pago, comprobantes, inventario y cierres por local." breadcrumb="Comercializadoras"
+  introTitle="La venta rápida también necesita control"
+  intro={["Una comercializadora debe atender sin convertir la caja en un punto ciego. El cliente espera rapidez, mientras la empresa necesita aplicar el precio correcto, identificar la forma de pago, emitir el documento correspondiente y descontar la mercadería del local adecuado.","Cuando el POS, el inventario y la caja no comparten información, los problemas aparecen después: diferencias de stock, pagos mal clasificados, precios cambiados sin autorización o cierres que requieren revisar comprobantes uno por uno.","Un software para comercializadoras debe simplificar la operación del cajero y, al mismo tiempo, entregar contexto al administrador. La pantalla de venta necesita ser directa; la configuración de productos, permisos, cajas y locales debe ser suficientemente clara para sostener el control."]}
+  problems={["Búsqueda lenta de productos o precios durante la atención.","Códigos y descripciones diferentes entre caja e inventario.","Cobros por efectivo, transferencia, billetera o tarjeta sin clasificación común.","Stock que se actualiza al final del día y no después de cada operación.","Arqueos construidos manualmente sin relacionarlos con el turno.","Locales con catálogos o precios independientes difíciles de supervisar."]}
+  workflowTitle="Del código de barras al arqueo del turno" workflowIntro="El punto de venta debe reunir los pasos cotidianos en una secuencia coherente. Cada operación conserva productos, vendedor o cajero, medio de pago, documento y local para que el cierre pueda revisarse con información de origen."
+  features={[{title:"POS de mostrador",text:"La búsqueda por nombre, código o lector ayuda a seleccionar productos y cantidades con una interacción adecuada para la caja."},{title:"Precios y promociones",text:"Listas, autorizaciones y vigencias deben definirse para que el cajero aplique condiciones comerciales sin improvisar."},{title:"Medios de pago",text:"Efectivo, transferencias, billeteras y tarjetas pueden registrarse por separado, incluyendo combinaciones cuando el flujo lo contempla."},{title:"Comprobante electrónico",text:"Los datos de la venta alimentan la emisión del documento correspondiente y reducen la duplicación al finalizar la atención."},{title:"Stock por local",text:"La salida se relaciona con la tienda o almacén configurado, facilitando consultas y reposición entre ubicaciones."},{title:"Cierre y arqueo",text:"El turno reúne ventas, cobros y movimientos para comparar la declaración del cajero con la información registrada."}]}
+  sections={[{title:"Productos, códigos de barras y precios consistentes",paragraphs:["El catálogo es la base del POS. Cada producto necesita una identificación comprensible, unidad de venta, precio y relación con inventario. Si existen duplicados o códigos reutilizados, el problema se traslada a caja y hace menos confiables los reportes.","El lector de códigos de barras agiliza la selección cuando el código está correctamente vinculado. También deben contemplarse productos sin código, variantes, ventas por diferentes unidades y búsquedas manuales. La velocidad real nace de un catálogo mantenido y de una interfaz que no obliga al cajero a navegar por opciones innecesarias.","Los cambios de precio requieren reglas. La empresa puede definir listas por local o tipo de cliente, así como permisos para descuentos. Registrar quién aplicó una condición ayuda a revisar excepciones sin impedir la atención cotidiana."],bullets:["Catálogo central con códigos y unidades definidos.","Precios visibles según reglas comerciales.","Permisos para descuentos y modificaciones.","Historial de operaciones por usuario y local."]},{title:"Caja, pagos, inventario y operación multilocal",paragraphs:["La caja no es únicamente un total de ventas. Necesita distinguir cuánto se recibió por cada medio, qué operaciones fueron anuladas o devueltas y qué movimientos no corresponden a ventas. Esa separación facilita el arqueo y evita comparar cifras que representan cosas diferentes.","Cuando una venta se completa, el inventario del local correspondiente debe reflejar el movimiento configurado. Las devoluciones, mermas y traslados también requieren su propio registro para no corregir el stock mediante cambios sin explicación.","En una empresa con varios locales, la gerencia necesita comparar ventas, cajas y existencias sin recopilar archivos de cada sede. Una plataforma centralizada aporta visibilidad, pero cada local debe respetar horarios, responsables y procedimientos para que los datos sean comparables."],bullets:["Apertura y cierre identificados por caja y turno.","Cobros separados por medio de pago.","Movimientos de stock asociados a la operación.","Consulta consolidada y detalle por local."]}]}
+  closing="Un POS útil atiende con agilidad en el mostrador y conserva la información necesaria para revisar caja, precios y existencias después de la venta."
+  faq={[{question:"¿Qué es un sistema POS para una comercializadora?",answer:"Es el punto de venta donde se registran productos, cantidades, precios, cliente, pagos y documento. Su mayor valor aparece cuando se integra con caja e inventario."},{question:"¿Se puede usar un lector de código de barras?",answer:"El sistema puede contemplar búsqueda mediante códigos asociados al catálogo. La compatibilidad práctica depende del dispositivo, sistema operativo y forma en que el lector entrega la información."},{question:"¿Cómo se registran Yape, transferencias o tarjetas?",answer:"Pueden configurarse medios de pago diferenciados para clasificarlos en la operación y el cierre. La plataforma registra la declaración; no sustituye la conciliación con el proveedor financiero."},{question:"¿Qué es un arqueo de caja?",answer:"Es la comparación entre los importes registrados y lo que el responsable declara o entrega al cerrar su turno. Debe considerar ventas, otros movimientos y medios de pago."},{question:"¿Puedo controlar varias tiendas?",answer:"Sí, un entorno central puede separar cajas, usuarios, ventas y stock por local. La implementación define qué información se comparte y qué permisos conserva cada sede."},{question:"¿La venta actualiza el inventario?",answer:"Cuando los módulos y reglas están integrados, la operación genera el movimiento correspondiente. Devoluciones, anulaciones y ajustes también deben seguir flujos definidos."}]}
+  links={[{href:"/software-ventas-inventario",title:"Software de ventas e inventario",description:"Conoce el control de stock, compras, almacenes y Kardex."},{href:"/facturacion-electronica",title:"Facturación electrónica en el POS",description:"Revisa comprobantes, XML y respuestas asociadas."},{href:"/software-empresarial",title:"Gestión empresarial integrada",description:"Conecta caja y tienda con otras áreas de la empresa."},{href:"/demo",title:"Probar el entorno demo",description:"Consulta las credenciales y explora el punto de venta con datos de prueba."}]}
+/>}

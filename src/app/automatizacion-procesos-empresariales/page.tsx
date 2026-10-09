@@ -1,65 +1,51 @@
-﻿import { PageHeader } from "@/components/shared/PageHeader";
+import Link from "next/link";
+import { ArrowRight, ClipboardList, GitMerge, RefreshCw, Search, Settings2, Target } from "lucide-react";
+import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { Zap, RefreshCw, Layers } from "lucide-react";
+import { SeoFaq } from "@/components/seo/SeoFaq";
+import { ContextualLinks } from "@/components/seo/ContextualLinks";
 import { createPageMetadata } from "@/config/company";
 
 export const metadata = createPageMetadata({
-  title: "Automatización de Procesos Empresariales en Perú",
-  description:
-    "Elimina tareas manuales repetitivas, digitación duplicada y errores de stock. Automatiza la facturación, traslados y cobros de tu negocio.",
+  title: "Automatización de Procesos Empresariales: Guía Práctica",
+  description: "Aprende a identificar, simplificar y automatizar procesos repetitivos sin trasladar el desorden manual a un sistema.",
+  keywords: ["automatización de procesos", "automatización empresarial", "digitalización empresarial", "mapear procesos empresariales"],
   path: "/automatizacion-procesos-empresariales",
 });
 
+const stages = [
+  { icon: Search, title: "1. Observar", text: "Seguir el proceso desde el evento que lo inicia hasta el resultado final, incluyendo excepciones, esperas y responsables." },
+  { icon: ClipboardList, title: "2. Mapear", text: "Representar entradas, decisiones, documentos, herramientas y traspasos entre personas o áreas." },
+  { icon: RefreshCw, title: "3. Simplificar", text: "Eliminar copias, controles redundantes y aprobaciones que no reducen un riesgo concreto." },
+  { icon: Settings2, title: "4. Automatizar", text: "Configurar reglas, estados e integraciones para ejecutar tareas repetibles con datos consistentes." },
+  { icon: Target, title: "5. Medir", text: "Comparar tiempos, reprocesos, pendientes y calidad de información antes y después del cambio." },
+];
+
+const faq = [
+  { question: "¿Cuál es la diferencia entre digitalización y automatización?", answer: "Digitalizar convierte información o tareas a un entorno digital. Automatizar hace que una acción definida se ejecute a partir de reglas o eventos. Un formulario en pantalla es digitalización; usar sus datos para actualizar stock, generar una tarea y preparar un documento puede formar parte de una automatización." },
+  { question: "¿Qué procesos conviene automatizar primero?", answer: "Los que son frecuentes, repetitivos, basados en reglas y generan un costo visible por demora o duplicación. También conviene considerar su impacto en clientes y otras áreas. Un proceso inestable o lleno de excepciones suele necesitar simplificación antes de automatizarse." },
+  { question: "¿Cómo se identifica una tarea repetitiva?", answer: "Observa si la misma persona copia datos, reconcilia archivos, consulta estados o prepara el mismo reporte con una secuencia predecible. Registra frecuencia, tiempo, errores y dependencias para priorizar con evidencia." },
+  { question: "¿Es necesario automatizar toda la empresa al mismo tiempo?", answer: "No. Una implementación gradual permite validar reglas y adopción con menor riesgo. Es habitual comenzar por un flujo de alto impacto, medirlo y ampliar la solución cuando el equipo ya trabaja con el nuevo proceso." },
+  { question: "¿Cómo se mide el resultado de una automatización?", answer: "Con indicadores vinculados al problema inicial: tiempo de ciclo, número de digitaciones, correcciones, pendientes, documentos procesados o disponibilidad de información. La métrica debe tener una línea base y un periodo comparable." },
+  { question: "¿Qué ocurre con las excepciones?", answer: "Deben documentarse y asignarse a una persona o regla específica. Una buena automatización no oculta los casos especiales: los identifica, los deriva y conserva información suficiente para resolverlos." },
+];
+
 export default function AutomatizacionPage() {
-  return (
-    <>
-      <PageHeader
-        badge="Eficiencia Operativa"
-        title="Automatización de Procesos Comerciales y Tributarios"
-        description="Reduce drásticamente el tiempo que tu personal dedica a tareas mecánicas de digitación y cuadre manual. Deja que la tecnología trabaje por tu empresa."
-        breadcrumbs={[{ label: "Soluciones", href: "/software-empresarial" }, { label: "Automatización de Procesos" }]}
-      />
+  return <>
+    <PageHeader path="/automatizacion-procesos-empresariales" badge="Método antes que tecnología" title="Cómo identificar y automatizar procesos empresariales" description="Una guía para eliminar duplicaciones, definir reglas y mejorar flujos operativos antes de trasladarlos a un sistema." breadcrumbs={[{ label: "Software empresarial", href: "/software-empresarial" }, { label: "Automatización de procesos" }]} />
 
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl font-black text-slate-950">
-              ¿Qué procesos automatiza BREICORP en tu empresa?
-            </h2>
-            <p className="text-base text-slate-600">
-              Transformamos flujos manuales lentos en flujos automáticos sincronizados en tiempo real.
-            </p>
-          </div>
+    <section className="border-b border-slate-200 bg-white py-16 sm:py-20"><div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8"><div><h2 className="text-3xl font-black text-slate-950">Digitalizar un paso no significa automatizar el proceso</h2><p className="mt-5 leading-8 text-slate-600">Una empresa puede reemplazar el papel por hojas de cálculo y continuar realizando los mismos traspasos, validaciones y copias manuales. La información ahora es digital, pero el trabajo todavía depende de que alguien la mueva entre herramientas.</p><p className="mt-4 leading-8 text-slate-600">La automatización de procesos conecta eventos y reglas. Por ejemplo, un pedido aprobado puede quedar disponible para despacho, reservar existencias y reutilizar datos en documentos posteriores. El objetivo no es quitar decisiones importantes, sino evitar tareas mecánicas que no agregan valor.</p><p className="mt-4 leading-8 text-slate-600">Antes de elegir una herramienta hay que comprender el flujo. <strong className="text-slate-900">Automatizar el caos reproduce el caos con mayor velocidad.</strong> Por eso se revisan responsables, datos mínimos, puntos de control y excepciones antes de configurar el sistema.</p></div><div className="rounded-3xl bg-slate-950 p-8 text-white"><GitMerge className="h-8 w-8 text-orange-400"/><h2 className="mt-5 text-2xl font-black">Una pregunta útil para comenzar</h2><p className="mt-4 text-lg leading-8 text-slate-300">¿Cuántas veces se registra la misma venta desde que el cliente hace el pedido hasta que recibe el producto y se confirma el pago?</p><p className="mt-6 border-t border-slate-800 pt-5 text-sm leading-7 text-slate-400">Cada nueva digitación crea tiempo de espera y una oportunidad de inconsistencia. El mapa del proceso ayuda a localizar esas repeticiones.</p></div></div></section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <Zap className="w-8 h-8 text-orange-600" />
-              <h3 className="font-bold text-lg text-slate-900">Validación RUC/DNI en 1 clic</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                No vuelvas a teclear la razón social o dirección del cliente. Al escribir el RUC, el sistema obtiene los datos oficiales de SUNAT de forma automática.
-              </p>
-            </div>
+    <section className="border-b border-slate-200 bg-slate-50 py-16 sm:py-20"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="mx-auto max-w-3xl text-center"><h2 className="text-3xl font-black text-slate-950">Cómo detectar procesos repetitivos e ineficientes</h2><p className="mt-4 leading-7 text-slate-600">Conviene observar el trabajo cotidiano durante varios ciclos, no solo preguntar cómo debería funcionar.</p></div><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{["Datos copiados entre correo, WhatsApp, hojas y sistema.","Esperas porque una persona debe confirmar información básica.","Diferencias que se descubren al cierre y no cuando ocurren.","Reportes construidos manualmente con varias fuentes.","Tareas que se acumulan cuando falta un colaborador.","Excepciones frecuentes sin una regla de atención."].map(item=><div key={item} className="rounded-2xl border border-slate-200 bg-white p-5 text-sm leading-7 text-slate-700">{item}</div>)}</div><p className="mx-auto mt-8 max-w-4xl text-center text-sm leading-7 text-slate-600">Para priorizar, registra cuántas veces ocurre cada tarea, cuánto tarda, cuántas personas intervienen y qué sucede cuando falla. Esa línea base permite saber si el cambio produjo un resultado y evita justificar la inversión solo con percepciones.</p></div></section>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <RefreshCw className="w-8 h-8 text-emerald-600" />
-              <h3 className="font-bold text-lg text-slate-900">Descuento de Stock Automático</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Cada boleta, factura o guía descuenta el almacén correspondiente sin requerir que un encargado digite una salida en otra hoja de cálculo.
-              </p>
-            </div>
+    <section className="border-b border-slate-200 bg-white py-16 sm:py-20"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><h2 className="text-3xl font-black text-slate-950">Método gradual: mapear, simplificar y conectar</h2><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">{stages.map(({icon:Icon,title,text})=><div key={title} className="rounded-2xl border border-slate-200 p-5"><Icon className="h-7 w-7 text-orange-600"/><h3 className="mt-4 font-bold text-slate-950">{title}</h3><p className="mt-2 text-xs leading-6 text-slate-600">{text}</p></div>)}</div><div className="mt-10 grid gap-8 lg:grid-cols-2"><div className="rounded-2xl border border-orange-200 bg-orange-50 p-7"><h3 className="text-xl font-black text-slate-950">Definir reglas antes de configurar</h3><p className="mt-3 text-sm leading-7 text-slate-700">Una regla responde preguntas concretas: ¿quién puede aprobar un descuento?, ¿qué almacén atiende cada pedido?, ¿cuándo una venta se considera cobrada?, ¿qué ocurre si no hay stock?, ¿qué datos requiere un despacho? Si las respuestas cambian según la persona, el proceso todavía necesita acuerdos.</p></div><div className="rounded-2xl border border-cyan-200 bg-cyan-50 p-7"><h3 className="text-xl font-black text-slate-950">Conectar sistemas y fuentes</h3><p className="mt-3 text-sm leading-7 text-slate-700">La integración debe reducir saltos entre herramientas y conservar una referencia común. No siempre se requiere integrar todo: a veces basta con centralizar el catálogo, reutilizar datos de una operación o definir exportaciones claras. La decisión depende del volumen, la frecuencia y el riesgo.</p></div></div></div></section>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <Layers className="w-8 h-8 text-cyan-600" />
-              <h3 className="font-bold text-lg text-slate-900">Conversión de Cotización a Factura</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Una cotización aprobada se convierte en comprobante electrónico o guía de despacho con un solo botón, manteniendo los mismos precios acordados.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section className="border-b border-slate-200 bg-slate-950 py-16 text-white sm:py-20"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><h2 className="text-3xl font-black">Ejemplos concretos de automatización empresarial</h2><div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{[{title:"Pedido a despacho",text:"Reutilizar cliente, productos, cantidades y dirección; validar disponibilidad y preparar la documentación relacionada."},{title:"Venta a inventario",text:"Registrar el movimiento de stock asociado a la operación y al almacén correspondiente, sin una segunda digitación."},{title:"Cotización a comprobante",text:"Mantener los datos aprobados y completar únicamente la información necesaria para emitir el documento."},{title:"Compra a recepción",text:"Comparar lo solicitado con lo recibido, actualizar existencias y dejar pendientes visibles."},{title:"Caja a reporte",text:"Clasificar cobros por medio de pago y facilitar la revisión del turno con datos de las operaciones registradas."},{title:"Preventa a ruta",text:"Consolidar pedidos de vendedores en campo para organizar preparación, documentos y entrega."}].map(item=><div key={item.title} className="rounded-2xl border border-slate-800 bg-slate-900 p-6"><h3 className="font-bold text-orange-400">{item.title}</h3><p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p></div>)}</div></div></section>
 
-      <CtaBanner />
-    </>
-  );
+    <section className="border-b border-slate-200 bg-white py-16 sm:py-20"><div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8"><div><h2 className="text-3xl font-black text-slate-950">Medir resultados sin confundir actividad con mejora</h2><p className="mt-4 leading-8 text-slate-600">Procesar más registros no significa necesariamente que el proceso sea mejor. La medición debe responder al objetivo original. Si el problema era la demora, se compara el tiempo de ciclo; si eran las inconsistencias, se revisan correcciones o diferencias; si faltaba visibilidad, se mide cuánto tarda el equipo en obtener un estado confiable.</p><p className="mt-4 leading-8 text-slate-600">También importa la adopción. Una automatización técnicamente correcta pierde valor si los usuarios mantienen controles paralelos porque no comprenden el nuevo flujo o porque las excepciones no fueron contempladas.</p></div><div><h2 className="text-3xl font-black text-slate-950">Errores frecuentes</h2><ul className="mt-5 space-y-3 text-sm leading-7 text-slate-700">{["Empezar por la herramienta sin definir el problema.","Intentar cubrir todos los procesos en una sola salida.","Automatizar aprobaciones que ya no son necesarias.","Ignorar datos incompletos, catálogos duplicados y reglas informales.","No asignar un responsable del proceso después del cambio.","Medir solo ahorro de tiempo y olvidar calidad, servicio y control."].map(item=><li key={item} className="rounded-xl bg-slate-50 p-4">• {item}</li>)}</ul></div></div><div className="mx-auto mt-10 max-w-5xl rounded-2xl border border-slate-200 bg-slate-50 p-7 text-center"><p className="text-sm leading-7 text-slate-700">La automatización puede apoyarse en un <Link href="/software-empresarial" className="font-bold text-orange-700 hover:underline">software empresarial que conecte áreas</Link>, pero la tecnología funciona mejor cuando el proceso ya tiene propósito, responsables y criterios definidos.</p><Link href="/contacto" className="mt-5 inline-flex items-center gap-2 rounded-xl bg-orange-600 px-5 py-3 text-sm font-bold text-white hover:bg-orange-700">Conversar sobre un proceso específico <ArrowRight className="h-4 w-4"/></Link></div></section>
+
+    <SeoFaq title="Preguntas sobre automatización de procesos" items={faq}/>
+    <ContextualLinks links={[{href:"/software-empresarial",title:"Software empresarial",description:"Conoce cómo conectar ventas, inventario, facturación, caja y logística."},{href:"/software-distribuidoras",title:"Procesos de distribución",description:"Revisa un flujo con preventa, vendedores, almacenes, despacho y crédito."},{href:"/software-ventas-inventario",title:"Ventas e inventario",description:"Relaciona movimientos de stock con compras, ventas y almacenes."},{href:"/demo",title:"Explorar la demo",description:"Consulta las credenciales públicas del entorno con datos de prueba."}]} />
+    <CtaBanner />
+  </>;
 }

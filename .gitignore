@@ -4,3 +4,9 @@ out/
 build/
 .env*.local
 dev-server*.log
+production-server*.log
+
+# Chrome audit profile (internal tool)
+.chrome-audit-profile/
+.screenshots/
+

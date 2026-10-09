@@ -1,161 +1,17 @@
-﻿import { PageHeader } from "@/components/shared/PageHeader";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import {
-  Receipt,
-  ShieldCheck,
-  CheckCircle,
-  Zap,
-  Printer,
-  Share2,
-  FileCheck,
-  AlertTriangle,
-} from "lucide-react";
+import { SectorLanding } from "@/components/seo/SectorLanding";
 import { createPageMetadata } from "@/config/company";
 
-export const metadata = createPageMetadata({
-  title: "Facturación Electrónica SUNAT en Perú",
-  description:
-    "Emite facturas, boletas de venta, notas de crédito y débito electrónicas para procesos relacionados con SUNAT, con envío por WhatsApp e impresión en ticket.",
-  keywords: [
-    "facturación electrónica sunat",
-    "sistema facturación electrónica perú",
-    "boletas y facturas electrónicas tingo maria",
-    "software comprobantes electrónicos sunat",
-    "emisión comprobantes electrónicos",
-  ],
-  path: "/facturacion-electronica",
-});
+export const metadata=createPageMetadata({title:"Facturación Electrónica: CPE, XML y CDR para Empresas",description:"Integra facturas, boletas y notas con ventas y clientes. Comprende el flujo de CPE, XML, CDR y consulta documental.",keywords:["facturación electrónica","CPE SUNAT","XML factura electrónica","CDR SUNAT","software de facturación electrónica"],path:"/facturacion-electronica"});
 
-export default function FacturacionElectronicaPage() {
-  const problemsSolved = [
-    {
-      problem: "Caídas y lentitud constantes en el portal 'Mis Trámites' de SUNAT",
-      solution: "BREICORP mantiene el registro comercial y organiza el proceso electrónico del comprobante.",
-    },
-    {
-      problem: "Clientes esperando minutos en caja para recibir su boleta",
-      solution: "Flujo de emisión ágil con consulta de datos de DNI/RUC cuando corresponde.",
-    },
-    {
-      problem: "Pérdida de comprobantes y desorden para el contador a fin de mes",
-      solution: "Reporte de ventas consolidado y exportación de archivos XML y CDR en un clic.",
-    },
-    {
-      problem: "Riesgo de sanciones por emitir comprobantes con errores normativos",
-      solution: "Validaciones automáticas de impuestos (IGV, exonerado, inafecto, ICBPER bolsa).",
-    },
-  ];
-
-  return (
-    <>
-      <PageHeader
-        badge="Facturación Electrónica en Perú"
-        title="Facturación electrónica ágil y organizada para tu empresa"
-        description="Emite boletas de venta, facturas comerciales, notas de crédito y débito, y comparte los comprobantes por WhatsApp en formato ticket o A4."
-        breadcrumbs={[
-          { label: "Producto", href: "/producto" },
-          { label: "Facturación Electrónica" },
-        ]}
-      />
-
-      {/* Comparison: Portal SUNAT vs BREICORP */}
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-            <h2 className="text-3xl font-black text-slate-950 tracking-tight">
-              ¿Por qué las empresas peruanas migran del portal de SUNAT a BREICORP?
-            </h2>
-            <p className="text-base text-slate-600">
-              Emitir desde el portal web gratuito de SUNAT cuesta caro en tiempo perdido,
-              errores de digitación y clientes insatisfechos en la cola.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {problemsSolved.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-3"
-              >
-                <div className="flex items-start gap-2.5 text-rose-600 text-sm font-semibold">
-                  <AlertTriangle className="w-5 h-5 shrink-0 mt-0.5" />
-                  <span>Problema habitual: {item.problem}</span>
-                </div>
-                <div className="flex items-start gap-2.5 text-emerald-700 text-sm font-bold pl-1 pt-1 border-t border-slate-200/80">
-                  <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
-                  <span>Solución con BREICORP: {item.solution}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Key Features */}
-      <section className="py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl font-black text-slate-950">
-              Todo lo que incluye el módulo de facturación
-            </h2>
-            <p className="text-slate-600 text-sm">
-              Diseñado tanto para pequeñas tiendas con una sola caja como para distribuidoras con cientos de comprobantes diarios.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <Zap className="w-8 h-8 text-orange-600" />
-              <h3 className="font-bold text-lg text-slate-900">Validación de DNI y RUC</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Ingresa el número de RUC y el sistema autocompleta la Razón Social y dirección fiscal registrada en SUNAT. Ingresa el DNI y autocompleta nombres y apellidos.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <Printer className="w-8 h-8 text-cyan-600" />
-              <h3 className="font-bold text-lg text-slate-900">Formatos Ticket & A4</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Impresión directa en ticketeras térmicas estándar de 80mm o 58mm (con logotipo de tu negocio y código QR oficial) y hojas tamaño A4 o A5 para facturas corporativas.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <Share2 className="w-8 h-8 text-emerald-600" />
-              <h3 className="font-bold text-lg text-slate-900">Envío por WhatsApp</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Ahorra papel enviando el comprobante electrónico con un solo clic directamente al número de WhatsApp o correo electrónico de tu cliente.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <ShieldCheck className="w-8 h-8 text-indigo-600" />
-              <h3 className="font-bold text-lg text-slate-900">Certificado Digital Incluido</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Te orientamos en la vinculación del Certificado Digital Tributario (CDT) otorgado por SUNAT o gestionamos el certificado propio de tu empresa.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <FileCheck className="w-8 h-8 text-purple-600" />
-              <h3 className="font-bold text-lg text-slate-900">Notas de Crédito y Débito</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Anulaciones, devoluciones parciales y correcciones de comprobantes en pocos segundos, vinculadas automáticamente al comprobante de origen.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-              <Receipt className="w-8 h-8 text-amber-600" />
-              <h3 className="font-bold text-lg text-slate-900">Exportación Contable</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Descarga el reporte mensual de ventas en Excel con todas las columnas exigidas para la declaración tributaria y el SIRE de tu contador.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CtaBanner />
-    </>
-  );
-}
+export default function FacturacionElectronicaPage(){return <SectorLanding parentLabel="Producto" parentHref="/producto"
+  path="/facturacion-electronica" badge="Comprobantes electrónicos" title="Facturación electrónica integrada con la operación comercial" description="Emite y organiza comprobantes utilizando los datos de ventas, clientes y productos, con acceso a los archivos y estados relacionados." breadcrumb="Facturación electrónica"
+  introTitle="La emisión comienza antes de presionar “facturar”"
+  intro={["La calidad de un comprobante depende de la información registrada en la operación. Cliente, identificación, productos, impuestos, importes y condiciones deben estar completos antes de generar el documento. Si estos datos se mantienen en sistemas separados, cada emisión exige copiar y revisar nuevamente.","Un software de facturación electrónica integrado reutiliza la información comercial. El comprobante queda relacionado con la venta que lo originó, los pagos registrados y, cuando corresponde, los movimientos de mercadería. Esto facilita consultar el contexto de una factura o boleta sin reconstruirlo desde varias fuentes.","BREICORP organiza este flujo como parte de su plataforma empresarial. La web no afirma que BREICORP sea OSE o PSE propio. Los mecanismos técnicos, credenciales y condiciones de emisión se confirman de acuerdo con la configuración aplicable a cada empresa."]}
+  problems={["Clientes y productos digitados nuevamente para cada comprobante.","XML, representaciones y respuestas almacenados en carpetas o correos distintos.","Ventas anuladas o corregidas sin relación clara con notas posteriores.","Estados de emisión revisados solo cuando el cliente reporta un problema.","Documentos emitidos sin conexión con caja o inventario.","Información para el contador preparada manualmente al final del periodo."]}
+  workflowTitle="Del registro comercial a la consulta del documento" workflowIntro="El flujo debe conservar la relación entre la operación, el comprobante y los archivos asociados. Cada etapa necesita validaciones y responsables, especialmente cuando existen observaciones o correcciones."
+  features={[{title:"Datos de la venta",text:"Cliente, productos, precios e importes se toman de la operación registrada para evitar una segunda captura de información."},{title:"Generación del CPE",text:"La plataforma prepara factura, boleta o nota según el tipo de operación y el alcance configurado para la empresa."},{title:"Archivo XML",text:"El comprobante se representa mediante información estructurada que debe conservarse y poder consultarse cuando se requiera."},{title:"Procesamiento y CDR",text:"La respuesta asociada al proceso de envío se vincula con el documento para revisar su estado y atender observaciones."},{title:"Entrega y consulta",text:"El usuario puede localizar la representación y archivos disponibles para compartirlos o responder solicitudes del cliente."},{title:"Relación operativa",text:"La emisión conserva vínculo con venta, pago y movimientos relacionados, en lugar de existir como un registro aislado."}]}
+  sections={[{title:"Qué son el CPE, el XML y la CDR",paragraphs:["Un comprobante de pago electrónico es un documento emitido mediante los sistemas electrónicos previstos para ese fin. Facturas, boletas y notas responden a situaciones distintas y deben utilizarse de acuerdo con la operación y las reglas aplicables.","El XML contiene los datos estructurados del documento. No es simplemente una imagen o PDF: permite que la información sea procesada por sistemas. La representación impresa o digital facilita la lectura, pero no reemplaza el archivo electrónico dentro del flujo que corresponda.","La CDR se relaciona con la constancia o respuesta recibida durante el procesamiento. Para la gestión cotidiana es importante que el usuario pueda identificar el documento, su estado y los archivos asociados. Los términos exactos y efectos dependen del mecanismo utilizado, por lo que la empresa debe revisar su caso."],bullets:["Factura y boleta según el tipo de operación.","Notas para correcciones o ajustes que correspondan.","XML organizado y localizable.","Respuesta asociada al documento para consulta."]},{title:"Facturación conectada con ventas, caja e inventario",paragraphs:["Emitir un documento es solo una parte del ciclo. Una venta puede involucrar reserva o salida de stock, un cobro inmediato o pendiente y una entrega posterior. Si cada módulo utiliza una referencia distinta, es difícil explicar por qué los importes o cantidades no coinciden.","La integración permite navegar desde la venta hacia el comprobante y mantener los datos comunes. También ayuda a que una anulación o devolución siga un procedimiento visible, en lugar de corregir cifras directamente sin conservar el motivo.","Para el equipo de caja, el comprobante debe formar parte de una atención sencilla. Para administración, debe conservar suficiente información para filtrar, exportar y revisar. El diseño del flujo equilibra ambas necesidades sin convertir la pantalla de venta en un formulario técnico."],bullets:["Una referencia común para venta y comprobante.","Cobros clasificados y vinculados con la operación.","Movimientos de inventario generados según reglas.","Correcciones mediante flujos y permisos definidos."]},{title:"Implementación y control de la emisión",paragraphs:["La puesta en marcha requiere revisar RUC, establecimientos, series, tipos de documento, productos, impuestos y datos de clientes. También se confirman credenciales o certificados cuando resulten necesarios dentro del mecanismo configurado.","Antes de operar, conviene probar ventas frecuentes, operaciones a crédito, descuentos, notas y contingencias previstas. Las personas responsables deben saber cómo reconocer un documento pendiente, observado o rechazado y a quién escalarlo.","La facturación electrónica no debe presentarse como una garantía automática de cumplimiento. Es una herramienta para ejecutar y organizar el proceso con información consistente; la empresa conserva la responsabilidad de revisar sus obligaciones y la exactitud de los datos emitidos."],bullets:["Configuración inicial revisada con la empresa.","Pruebas con escenarios reales y excepciones.","Permisos para emitir, anular o corregir.","Capacitación para consultar estados y archivos."]}]}
+  closing="Integra la facturación con la venta para que el comprobante conserve su contexto y el equipo pueda consultar documentos y estados sin repetir información."
+  faq={[{question:"¿Qué es un comprobante de pago electrónico?",answer:"Es un documento emitido mediante un sistema electrónico conforme al tipo de operación aplicable. Incluye, entre otros, facturas, boletas y notas."},{question:"¿El PDF es lo mismo que el XML?",answer:"No. El XML contiene datos estructurados del comprobante. El PDF u otra representación facilita su lectura, pero cumple una función diferente."},{question:"¿Qué es una CDR?",answer:"Es una constancia o respuesta vinculada con el procesamiento del documento dentro del mecanismo de emisión utilizado. Debe mantenerse asociada al comprobante para su consulta."},{question:"¿Se puede facturar desde una venta ya registrada?",answer:"En un flujo integrado, los datos de la venta se reutilizan para preparar el comprobante, reduciendo digitación. El usuario debe revisar que la información sea correcta antes de emitir."},{question:"¿Qué ocurre si un comprobante tiene una observación?",answer:"El responsable debe revisar el estado y el mensaje asociado, corregir la causa cuando corresponda y seguir el procedimiento aplicable. El sistema ayuda a mostrar la información; no sustituye la revisión."},{question:"¿BREICORP funciona como OSE o PSE?",answer:"La web no presenta a BREICORP como OSE o PSE propio. El mecanismo técnico y los servicios involucrados se confirman para cada implementación."}]}
+  links={[{href:"/software-empresarial",title:"Software empresarial integrado",description:"Relaciona facturación con inventario, caja, reportes y logística."},{href:"/guias-remision-electronicas",title:"Guías de remisión electrónicas",description:"Conecta documentos de traslado con pedido y despacho."},{href:"/precios",title:"Planes de facturación y gestión",description:"Revisa precios publicados y alcance comercial."},{href:"/demo",title:"Ver la facturación en la demo",description:"Consulta las credenciales del entorno con datos de prueba."}]}
+/>}

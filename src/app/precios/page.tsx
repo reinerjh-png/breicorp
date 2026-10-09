@@ -5,6 +5,7 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 import { planComparison, plans } from "@/config/plans";
 import { createPageMetadata } from "@/config/company";
 import { Check, X } from "lucide-react";
+import { EventTracker } from "@/components/analytics/EventTracker";
 
 export const metadata = createPageMetadata({
   title: "Planes y Tarifas Transparentes",
@@ -16,6 +17,7 @@ export const metadata = createPageMetadata({
 export default function PreciosPage() {
   return (
     <>
+      <EventTracker name="pricing_view" />
       <PageHeader
         badge="Inversión con Retorno Inmediato"
         title="Planes claros y predecibles para tu empresa"

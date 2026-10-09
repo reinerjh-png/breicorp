@@ -1,5 +1,7 @@
 ﻿import Link from "next/link";
 import { company, createPageMetadata } from "@/config/company";
+import { DemoLink } from "@/components/analytics/EventTracker";
+import { CopyCredentialButton } from "@/components/demo/CopyCredentialButton";
 import {
   ExternalLink,
   KeyRound,
@@ -61,7 +63,7 @@ export default function DemoPage() {
 
             <div className="p-6 space-y-4">
               {/* Email */}
-              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div className="flex flex-col gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-200 sm:flex-row sm:items-center">
                 <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-orange-600" />
                 </div>
@@ -73,10 +75,11 @@ export default function DemoPage() {
                     {company.demo.email}
                   </div>
                 </div>
+                <CopyCredentialButton value={company.demo.email} label="Copiar usuario" />
               </div>
 
               {/* Password */}
-              <div className="flex items-center gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-200">
+              <div className="flex flex-col gap-3 p-4 bg-slate-50 rounded-2xl border border-slate-200 sm:flex-row sm:items-center">
                 <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center shrink-0">
                   <KeyRound className="w-5 h-5 text-orange-600" />
                 </div>
@@ -88,19 +91,18 @@ export default function DemoPage() {
                     {company.demo.password}
                   </div>
                 </div>
+                <CopyCredentialButton value={company.demo.password} label="Copiar contraseña" />
               </div>
 
               {/* Access button */}
-              <a
+              <DemoLink
                 href={company.demo.url}
-                target="_blank"
-                rel="noopener noreferrer"
                 id="btn-acceso-demo"
-                className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 active:from-orange-700 active:to-orange-800 text-white font-black text-base shadow-lg shadow-orange-500/30 transition-all duration-200 transform hover:-translate-y-0.5"
+                className="w-full min-h-12 flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 active:scale-[0.98] text-white font-black text-base shadow-lg shadow-orange-500/30 transition-transform duration-150"
               >
-                <span>Acceder al entorno demo</span>
+                <span>Acceder al demo</span>
                 <ExternalLink className="w-5 h-5" />
-              </a>
+              </DemoLink>
 
               <p className="text-center text-[11px] text-slate-400">
                 Se abrirá en una nueva pestaña en{" "}

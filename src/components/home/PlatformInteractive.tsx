@@ -217,7 +217,7 @@ export function PlatformInteractive() {
               <button
                 key={m.id}
                 onClick={() => setActiveTab(idx)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
+                className={`flex min-h-11 items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                   isSelected
                     ? "bg-orange-600 text-white shadow-md shadow-orange-600/20"
                     : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80"
@@ -261,7 +261,7 @@ export function PlatformInteractive() {
               <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Link
                   href={current.link}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-orange-600 text-white font-bold text-sm transition-all duration-200 shadow-sm"
+                  className="inline-flex min-h-11 items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-orange-600 text-white font-bold text-sm transition-colors duration-200 shadow-sm"
                 >
                   <span>{current.linkText}</span>
                   <ArrowRight className="w-4 h-4" />

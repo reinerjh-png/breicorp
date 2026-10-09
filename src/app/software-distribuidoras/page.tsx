@@ -1,65 +1,17 @@
-﻿import { PageHeader } from "@/components/shared/PageHeader";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import { Boxes, QrCode, Smartphone } from "lucide-react";
+import { SectorLanding } from "@/components/seo/SectorLanding";
 import { createPageMetadata } from "@/config/company";
 
-export const metadata = createPageMetadata({
-  title: "Software para Distribuidoras y Mayoristas en Perú",
-  description:
-    "Control de preventa, vendedores en ruta, despacho con Guías de Remisión Electrónica con QR SUNAT, multialmacén y listas de precios por volumen.",
-  path: "/software-distribuidoras",
-});
+export const metadata=createPageMetadata({title:"Software para Distribuidoras: Preventa, Stock y Despacho",description:"Conecta vendedores en ruta, pedidos, listas de precios, crédito, almacenes, despacho y guías de remisión para distribuidoras.",keywords:["software para distribuidoras","preventa móvil","inventario multialmacén","software de despacho","guías de remisión"],path:"/software-distribuidoras"});
 
-export default function SoftwareDistribuidorasPage() {
-  return (
-    <>
-      <PageHeader
-        badge="Distribución y Mayoristas"
-        title="Software de Logística, Preventa y Distribución Mayorista"
-        description="Acelera tu despacho de pedidos, supervisa a tu fuerza de ventas en la calle y emite Guías de Remisión Electrónicas GRE obligatorias con código QR sin demoras."
-        breadcrumbs={[{ label: "Empresas", href: "/software-empresas-peru" }, { label: "Distribuidoras" }]}
-      />
-
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl font-black text-slate-950">
-              Diseñado para el ritmo de carga y despacho masivo
-            </h2>
-            <p className="text-base text-slate-600">
-              Controla desde que el vendedor toma el pedido en la tienda del cliente hasta que el camión sale con su guía oficial validada por SUNAT.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <Smartphone className="w-8 h-8 text-orange-600" />
-              <h3 className="font-bold text-lg text-slate-900">Preventa en Ruta</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Tus vendedores toman pedidos desde la app móvil conociendo el stock real en almacén, listas de precios mayoristas y crédito disponible del cliente.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <QrCode className="w-8 h-8 text-emerald-600" />
-              <h3 className="font-bold text-lg text-slate-900">Guías GRE al Instante</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Genera la guía remitente o transportista con código QR para que los camiones viajen tranquilos ante cualquier control policial o de fiscalización SUNAT.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
-              <Boxes className="w-8 h-8 text-cyan-600" />
-              <h3 className="font-bold text-lg text-slate-900">Múltiples Precios y Bultos</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Vende por caja cerrada, fardo o unidad con listas de precios diferenciadas por volumen (mayorista A, B, especial) asignadas automáticamente al cliente.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CtaBanner />
-    </>
-  );
-}
+export default function SoftwareDistribuidorasPage(){return <SectorLanding
+  path="/software-distribuidoras" badge="Distribución y venta mayorista" title="Software para distribuidoras: preventa, almacenes y despacho conectados" description="Organiza pedidos de vendedores en campo, crédito, stock, preparación de carga y guías de remisión en un flujo compartido." breadcrumb="Distribuidoras"
+  introTitle="Del pedido en ruta a la entrega sin volver a digitar"
+  intro={["Una distribuidora coordina decisiones que ocurren en lugares distintos. El vendedor visita al cliente, administración revisa precios o crédito, almacén prepara mercadería y despacho organiza la salida. Si cada área trabaja con mensajes y archivos independientes, el pedido cambia de forma en cada traspaso.","El software para distribuidoras debe conservar una referencia común desde la preventa hasta la entrega. El pedido registrado en campo puede incluir cliente, lista de precios, productos y cantidades; después, las áreas autorizadas completan validaciones, preparación, comprobantes y documentos de traslado.","La velocidad no depende solo de tomar pedidos rápido. También depende de prometer cantidades disponibles, respetar condiciones comerciales y entregar información completa a quienes preparan la carga. Por eso el stock, el crédito y la logística necesitan verse como partes del mismo proceso."]}
+  problems={["Vendedores que consultan stock por llamada antes de confirmar un pedido.","Listas de precios enviadas en archivos que quedan desactualizados.","Pedidos escritos por chat y digitados nuevamente en administración.","Crédito aprobado sin una vista común de saldos y condiciones.","Preparación de mercadería sin prioridades ni estados visibles.","Guías y comprobantes elaborados con datos copiados del pedido."]}
+  workflowTitle="Un circuito comercial diseñado para distribución" workflowIntro="El objetivo es que cada equipo complete su parte sobre el mismo pedido. La configuración puede adaptarse a ventas en campo, atención directa, varias listas de precios y uno o más almacenes."
+  features={[{title:"Preventa móvil",text:"El vendedor registra pedidos desde campo con los datos comerciales disponibles para su perfil y deja una referencia inmediata para administración."},{title:"Listas de precios",text:"Las condiciones por cliente, canal o volumen pueden organizarse para reducir decisiones improvisadas durante la visita."},{title:"Crédito y cobranza",text:"Los pedidos a crédito requieren límites, plazos y saldos visibles para que la aprobación siga reglas conocidas."},{title:"Stock por almacén",text:"La disponibilidad se consulta por ubicación y los movimientos permiten distinguir mercadería física, comprometida o trasladada según la configuración."},{title:"Preparación y despacho",text:"El pedido aprobado puede continuar hacia picking, revisión, carga y salida, manteniendo cantidades y observaciones."},{title:"GRE y documentos",text:"Los datos logísticos se reutilizan para preparar guías de remisión y vincularlas con la operación que origina el traslado."}]}
+  sections={[{title:"Vendedores, rutas y control comercial",paragraphs:["La movilidad permite que el vendedor registre información mientras atiende al cliente. Eso evita esperar el regreso a la oficina para conocer la demanda y reduce la interpretación de notas manuscritas. La aplicación debe mostrar solo los datos necesarios y respetar permisos sobre precios, descuentos o saldos.","Una ruta no es únicamente una secuencia geográfica. También incluye cartera asignada, frecuencia de visita, pedidos pendientes y cobranzas. La empresa puede utilizar estos datos para organizar su jornada, sin convertir la herramienta en una promesa de optimización automática que no haya sido configurada.","Cuando existe venta por unidad, caja, fardo u otra presentación, las equivalencias deben definirse en el catálogo. La claridad evita que almacén interprete una cantidad distinta de la que el vendedor ofreció."],bullets:["Cartera y condiciones comerciales por vendedor.","Pedidos con estados visibles para oficina y almacén.","Unidades de venta y listas de precios consistentes.","Observaciones de entrega conservadas desde el origen."]},{title:"Inventario, despacho y guías de remisión",paragraphs:["La operación multialmacén necesita identificar desde dónde se atenderá cada pedido. Consultar un total general puede ser insuficiente si la mercadería está en otra ciudad o comprometida para una salida. El proceso debe distinguir ubicaciones y registrar traslados internos cuando correspondan.","En despacho, la preparación requiere comparar lo pedido con lo disponible y lo realmente cargado. Las diferencias deben quedar visibles antes de cerrar la operación. Esa información alimenta una mejor revisión de faltantes, devoluciones y entregas parciales.","La guía de remisión electrónica documenta traslados bajo las condiciones aplicables. Integrarla evita copiar placa, conductor, destino, productos y cantidades desde documentos separados. La empresa sigue siendo responsable de proporcionar información correcta y revisar sus obligaciones."],bullets:["Preparación basada en pedidos aprobados.","Control por almacén y registro de traslados.","Datos logísticos reutilizados en la GRE.","Historial para revisar entregas y devoluciones."]}]}
+  closing="La distribución gana visibilidad cuando vendedor, administración, almacén y despacho trabajan sobre la misma operación y cada cambio conserva su contexto."
+  faq={[{question:"¿Qué es la preventa para una distribuidora?",answer:"Es el registro del pedido antes de la entrega, normalmente durante la visita del vendedor. Permite organizar validación comercial, preparación de mercadería, documentos y ruta de despacho."},{question:"¿Los vendedores pueden consultar stock desde el celular?",answer:"Una solución móvil puede mostrar la disponibilidad que la empresa decida exponer. Es importante definir si se presenta stock físico, disponible o por almacén y considerar la conectividad."},{question:"¿Se pueden manejar varias listas de precios?",answer:"Sí, pueden organizarse por cliente, canal, volumen u otra regla comercial. La implementación debe definir prioridades para evitar conflictos entre listas y descuentos."},{question:"¿Cómo se controla la venta a crédito?",answer:"Se registran condiciones, documentos y saldos para apoyar la evaluación. Los límites y autorizaciones deben responder a la política de la empresa; el sistema no reemplaza esa decisión."},{question:"¿La guía de remisión se relaciona con el pedido?",answer:"Puede reutilizar datos del pedido y del despacho para preparar la guía correspondiente, reduciendo copias. Los datos del traslado deben revisarse antes de emitir."},{question:"¿Funciona con varios almacenes?",answer:"El alcance puede contemplar existencias y movimientos por ubicación. Es necesario definir responsables, documentos de traslado y reglas para comprometer o despachar stock."}]}
+  links={[{href:"/software-ventas-inventario",title:"Control de inventario y Kardex",description:"Profundiza en stock, movimientos, compras y almacenes."},{href:"/guias-remision-electronicas",title:"Guías de remisión electrónicas",description:"Revisa el flujo documental para traslados y despacho."},{href:"/automatizacion-procesos-empresariales",title:"Automatizar pedidos y despacho",description:"Aprende a mapear reglas y eliminar digitación duplicada."},{href:"/demo",title:"Explorar la demo de BREICORP",description:"Consulta credenciales públicas y abre el entorno de prueba."}]}
+/>}

@@ -1,94 +1,17 @@
-﻿import { PageHeader } from "@/components/shared/PageHeader";
-import { CtaBanner } from "@/components/home/CtaBanner";
-import { Truck } from "lucide-react";
+import { SectorLanding } from "@/components/seo/SectorLanding";
 import { createPageMetadata } from "@/config/company";
 
-export const metadata = createPageMetadata({
-  title: "Guías de Remisión Electrónica GRE SUNAT en Perú",
-  description:
-    "Gestiona Guías de Remisión Remitente (09) y Transportista (31) con código QR para documentar el traslado de mercadería.",
-  keywords: [
-    "guias de remision electronicas sunat",
-    "guia remitente gre sunat perú",
-    "software guias remision con qr",
-    "emision guias transporte carga",
-    "traslado mercaderia sunat obligatorio",
-  ],
-  path: "/guias-remision-electronicas",
-});
+export const metadata=createPageMetadata({title:"Guías de Remisión Electrónicas: GRE y Despacho",description:"Organiza datos de traslado, mercadería, remitente, transportista y despacho para preparar guías de remisión electrónicas.",keywords:["guías de remisión electrónicas","GRE SUNAT","guía remitente","guía transportista","software de despacho"],path:"/guias-remision-electronicas"});
 
-export default function GuiasRemisionPage() {
-  const greFeatures = [
-    {
-      title: "Generación de Código QR Oficial",
-      description: "La guía se emite con el código QR y código de barras bidimensional que SUNAT y la PNP escanean en los puestos de control en carretera.",
-    },
-    {
-      title: "Guía Remitente (09) y Transportista (31)",
-      description: "Soporta ambas modalidades de emisión, ya sea que traslades con tu propia flota de vehículos o mediante empresas de transporte de carga.",
-    },
-    {
-      title: "Padrón de Conductores y Vehículos",
-      description: "Guarda tu lista de choferes (DNI, nombre, número de brevete) y tractos/carretas (placas autorizadas) para emitir en 30 segundos.",
-    },
-    {
-      title: "Vinculación Automática a Facturas",
-      description: "Convierte una factura comercial o pedido de venta en una guía electrónica en un solo clic, sin volver a digitar los productos.",
-    },
-    {
-      title: "Traslados entre Establecimientos Propios",
-      description: "Emite guías por traslado entre tus propias tiendas, sucursales y almacenes con control estricto de entrada y salida.",
-    },
-    {
-      title: "Envío Digital al Chofer por WhatsApp",
-      description: "El conductor puede portar la guía en formato PDF en su celular o impresa en formato ticket térmico de 80mm.",
-    },
-  ];
-
-  return (
-    <>
-      <PageHeader
-        badge="Normativa Obligatoria SUNAT"
-        title="Guías de Remisión Electrónica (GRE) sin retrasos en ruta"
-        description="Evita decomisos de mercadería y multas de SUNAT. Emite Guías de Remisión Remitente y Transportista en segundos con código QR validado."
-        breadcrumbs={[
-          { label: "Producto", href: "/producto" },
-          { label: "Guías de Remisión Electrónica" },
-        ]}
-      />
-
-      <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-              Documentación para el traslado
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
-              Despacha tus camiones con la tranquilidad de cumplir la norma
-            </h2>
-            <p className="text-base text-slate-600">
-              La SUNAT exige que todo traslado de mercadería esté respaldado por una Guía Electrónica con código QR. Con BREICORP la emites antes de que el vehículo salga del almacén.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {greFeatures.map((f, i) => (
-              <div
-                key={i}
-                className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-sm space-y-3"
-              >
-                <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-700 flex items-center justify-center font-bold">
-                  <Truck className="w-5 h-5" />
-                </div>
-                <h3 className="font-bold text-slate-900 text-base">{f.title}</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CtaBanner />
-    </>
-  );
-}
+export default function GuiasRemisionPage(){return <SectorLanding parentLabel="Producto" parentHref="/producto"
+  path="/guias-remision-electronicas" badge="Documentos para el traslado" title="Guías de remisión electrónicas conectadas con el despacho" description="Reutiliza información de pedidos, inventario y transporte para preparar la GRE correspondiente y revisar el traslado antes de la salida." breadcrumb="Guías de remisión"
+  introTitle="La guía debe reflejar el traslado real"
+  intro={["Una guía de remisión electrónica reúne información sobre el motivo, los participantes, los puntos de partida y llegada, el transporte y los bienes trasladados. Prepararla al final, copiando datos desde un pedido o una hoja de carga, aumenta la posibilidad de inconsistencias.","Cuando el documento se integra con el despacho, el equipo puede partir de la mercadería efectivamente preparada y completar los datos logísticos que correspondan. El objetivo es conservar una relación entre pedido, movimiento de inventario, carga y guía.","Los tipos de guía y la información exigible dependen del rol y de las condiciones del traslado. BREICORP ayuda a organizar y emitir dentro del alcance configurado, pero la empresa debe identificar el supuesto aplicable y validar que los datos describan la operación real."]}
+  problems={["Productos y cantidades copiados manualmente desde el pedido.","Direcciones incompletas o diferentes entre cliente y lugar de entrega.","Datos de vehículo o conductor solicitados cuando la carga ya debe salir.","Guías sin referencia clara al despacho o documento relacionado.","Traslados internos confundidos con entregas a clientes.","Archivos dispersos que dificultan una consulta posterior."]}
+  workflowTitle="Preparar, validar, emitir y conservar" workflowIntro="La emisión responsable comienza en la operación logística. El sistema puede reutilizar información disponible y pedir los datos que faltan antes de generar el documento."
+  features={[{title:"Origen del traslado",text:"El pedido, compra, transferencia u otra operación aporta contexto y evita crear la guía como un registro sin relación."},{title:"Bienes y cantidades",text:"La lista se contrasta con lo preparado para que el documento refleje la mercadería que se planea trasladar."},{title:"Puntos y participantes",text:"Partida, llegada, remitente, destinatario y otros datos se completan según el supuesto correspondiente."},{title:"Transporte",text:"La modalidad y la información de vehículo, conductor o transportista se registran cuando resulten aplicables."},{title:"Emisión de la GRE",text:"La plataforma prepara el documento electrónico y gestiona su flujo según la configuración contratada."},{title:"Consulta posterior",text:"La guía y sus archivos relacionados permanecen vinculados con la operación para facilitar búsqueda y revisión."}]}
+  sections={[{title:"Guía remitente y guía transportista",paragraphs:["La guía emitida por el remitente y la guía vinculada al transportista responden a roles distintos dentro del traslado. No deben elegirse únicamente por disponibilidad en la pantalla: primero se identifica quién realiza la operación y qué responsabilidad documental le corresponde.","La configuración puede contemplar los tipos de guía incluidos en el servicio. Los usuarios necesitan capacitación para reconocer cuál utilizar, completar los datos requeridos y revisar el documento antes de emitirlo.","El código o representación disponible forma parte del documento, pero no sustituye la verificación de la información. Una placa, dirección o cantidad incorrecta continúa siendo un problema aunque la emisión técnica haya finalizado."],bullets:["Identificar el rol dentro del traslado.","Seleccionar el tipo de guía aplicable.","Completar datos logísticos antes de la salida.","Revisar estado y archivos asociados."]},{title:"Integración con inventario y despacho",paragraphs:["El almacén necesita saber qué preparar, desde qué ubicación y para qué entrega. Una orden de despacho derivada del pedido reduce interpretaciones y permite registrar diferencias cuando no se atiende la cantidad completa.","Una vez confirmada la carga, los datos pueden alimentar la guía y el movimiento de inventario correspondiente. Esta secuencia evita emitir sobre cantidades que todavía no fueron verificadas y deja un historial de quién preparó o confirmó la salida.","En transferencias entre almacenes, el movimiento de origen y la recepción en destino deben distinguirse. La guía documenta el traslado cuando corresponde, mientras el inventario registra el cambio de ubicación bajo las reglas internas."],bullets:["Pedido convertido en tarea de preparación.","Confirmación de cantidades antes de documentar.","Salida identificada por almacén.","Recepción y diferencias visibles en destino."]},{title:"Datos que conviene preparar antes de emitir",paragraphs:["La captura tardía de información detiene vehículos y genera llamadas. Conviene mantener actualizados clientes, direcciones, establecimientos, transportistas, vehículos y conductores que se utilizan con frecuencia.","También deben acordarse responsables. Ventas conoce el destino y las condiciones del cliente; almacén conoce la carga; logística conoce el transporte. El flujo debe reunir sus datos sin exigir que una sola persona adivine toda la operación.","Antes de producción, la empresa debe revisar sus obligaciones y casos particulares con asesoría competente. El software facilita la ejecución y conservación de información, pero no reemplaza la evaluación legal o tributaria de cada traslado."],bullets:["Direcciones y establecimientos consistentes.","Vehículos y conductores actualizados.","Motivo y modalidad definidos.","Productos, unidades y cantidades revisados."]}]}
+  closing="Relaciona pedido, carga, transporte y GRE para que el documento se prepare con información operativa y pueda consultarse junto con el despacho."
+  faq={[{question:"¿Qué es una guía de remisión electrónica?",answer:"Es un documento electrónico que sustenta información relacionada con el traslado de bienes bajo los supuestos aplicables. Contiene datos de participantes, puntos, transporte y mercadería."},{question:"¿Qué diferencia hay entre guía remitente y transportista?",answer:"Corresponden a roles diferentes dentro del traslado. La obligación y el tipo aplicable dependen de quién remite, quién transporta y de las características de la operación."},{question:"¿La GRE puede generarse desde un pedido?",answer:"Puede reutilizar productos, cantidades, cliente y direcciones del pedido o despacho. Antes de emitir deben completarse y verificarse los datos logísticos."},{question:"¿Se puede gestionar un traslado entre almacenes?",answer:"Sí, el sistema puede registrar el movimiento entre ubicaciones y vincular la documentación que corresponda. Deben definirse salida, recepción y tratamiento de diferencias."},{question:"¿Qué pasa si cambia el vehículo o conductor?",answer:"La información debe revisarse conforme al procedimiento aplicable antes o durante el traslado. El equipo necesita conocer cómo registrar cambios y qué documento corresponde."},{question:"¿El sistema garantiza el cumplimiento de todos los traslados?",answer:"No debe entenderse como garantía automática. La plataforma ayuda a organizar y emitir; la empresa es responsable de identificar obligaciones y proporcionar datos correctos."}]}
+  links={[{href:"/software-distribuidoras",title:"Logística para distribuidoras",description:"Integra preventa, almacenes, crédito, preparación y despacho."},{href:"/software-ventas-inventario",title:"Inventario multialmacén",description:"Controla movimientos, transferencias y existencias por ubicación."},{href:"/facturacion-electronica",title:"Comprobantes electrónicos",description:"Conoce el flujo de CPE, XML y CDR relacionado con la venta."},{href:"/demo",title:"Explorar documentos en la demo",description:"Consulta credenciales públicas y utiliza datos de prueba."}]}
+/>}

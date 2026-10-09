@@ -21,10 +21,11 @@ export const company = {
   whatsapp: "51948261382",
   whatsappMessage:
     "Hola, quiero conocer BREICORP y evaluar qué procesos de mi empresa puedo automatizar.",
-  salesEmail: "ventas@breicorp.com.pe",
-  supportEmail: "soporte@breicorp.com.pe",
-  /** Correo de contacto principal. Usar este en la UI visible al usuario. */
+  /** Correo general, visible y destinatario de formularios en esta fase. */
   contactEmail: "breicorp@gmail.com",
+  /** Alias temporales: todos los canales usan el correo general en Sprint 1B. */
+  salesEmail: "breicorp@gmail.com",
+  supportEmail: "breicorp@gmail.com",
   foundationYear: 2017,
   domain: "breicorp.com.pe",
   appDomain: "app.breicorp.com",

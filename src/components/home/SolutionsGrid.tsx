@@ -90,7 +90,7 @@ export function SolutionsGrid() {
             return (
               <div
                 key={idx}
-                className="bg-slate-50 rounded-3xl p-8 border border-slate-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
+                className="card-interactive bg-slate-50 rounded-3xl p-8 border border-slate-200 flex flex-col justify-between group"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">

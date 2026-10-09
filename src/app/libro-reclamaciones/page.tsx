@@ -1,11 +1,16 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { company, getWhatsAppUrl } from "@/config/company";
 import { AlertCircle, MessageCircle } from "lucide-react";
 
 export default function LibroReclamacionesPage() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [error, setError] = useState("");
+  const [receiptId, setReceiptId] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -20,7 +25,19 @@ export default function LibroReclamacionesPage() {
     detalle: "",
     pedidoConcreto: "",
     aceptaTerminos: false,
+    website: "",
   });
+
+  const submit = async (event: React.FormEvent) => {
+    event.preventDefault(); setStatus("loading"); setError("");
+    try {
+      const response = await fetch("/api/libro-reclamaciones", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "No pudimos enviar el reclamo.");
+      setReceiptId(result.id); setStatus("success");
+    } catch (cause) { setError(cause instanceof Error ? cause.message : "No pudimos enviar el reclamo."); setStatus("error"); requestAnimationFrame(() => formRef.current?.focus()); }
+  };
+  useEffect(() => { if (status === "success") successRef.current?.focus(); }, [status]);
 
   return (
     <>
@@ -48,15 +65,15 @@ export default function LibroReclamacionesPage() {
             <div className="flex items-start gap-3">
               <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-amber-700" />
               <div className="space-y-2">
-                <p className="font-bold">El registro web todavía no está habilitado.</p>
+                <p className="font-bold">Recepción por correo, sin almacenamiento web.</p>
                 <p className="text-xs leading-relaxed text-amber-900">
-                  Este formulario se conserva como vista previa y no envía ni almacena información. Para recibir orientación por el canal confirmado de BREICORP, comunícate por WhatsApp.
+                  Al enviar, recibirás una copia y un identificador que acredita la recepción por correo. Esta solución debe ser revisada legalmente antes de su uso en producción.
                 </p>
                 <a
                   href={getWhatsAppUrl("Hola, necesito orientación para presentar un reclamo o una queja ante BREICORP.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-emerald-700"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-emerald-700"
                 >
                   <MessageCircle className="h-4 w-4" />
                   Solicitar orientación por WhatsApp
@@ -65,15 +82,20 @@ export default function LibroReclamacionesPage() {
             </div>
           </div>
 
-          <form onSubmit={(event) => event.preventDefault()} className="space-y-6 text-xs sm:text-sm">
+          {status === "success" ? <div ref={successRef} tabIndex={-1} role="status" aria-live="polite" className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-sm text-emerald-950 space-y-2"><p className="font-bold">Tu reclamo o queja fue recibido por correo.</p><p>Identificador de recepción: <strong>{receiptId}</strong></p><p className="text-xs">También enviamos una copia al correo que registraste. Este identificador corresponde a la recepción por correo y no a un sistema interno de trazabilidad.</p></div> : <form ref={formRef} tabIndex={-1} aria-busy={status === "loading"} onSubmit={submit} className="space-y-6 text-xs sm:text-sm">
+            {error && <div role="alert" aria-live="assertive" className="rounded-xl border border-rose-200 bg-rose-50 p-3 text-rose-800">{error}</div>}
+            <input tabIndex={-1} autoComplete="off" aria-hidden="true" value={formData.website} onChange={(e) => setFormData({ ...formData, website: e.target.value })} className="absolute h-px w-px overflow-hidden opacity-0" />
             <div className="space-y-4">
               <h3 className="text-base font-bold text-slate-900 border-b pb-2">
                 1. Identificación del Consumidor Reclamante
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-semibold mb-1">Nombres *</label>
+                  <label htmlFor="reclamo-nombre" className="block font-semibold mb-1">Nombres *</label>
                   <input
+                    id="reclamo-nombre"
+                    name="nombre"
+                    autoComplete="given-name"
                     type="text"
                     required
                     value={formData.nombre}
@@ -82,8 +104,11 @@ export default function LibroReclamacionesPage() {
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold mb-1">Apellidos *</label>
+                  <label htmlFor="reclamo-apellido" className="block font-semibold mb-1">Apellidos *</label>
                   <input
+                    id="reclamo-apellido"
+                    name="apellido"
+                    autoComplete="family-name"
                     type="text"
                     required
                     value={formData.apellido}
@@ -95,8 +120,10 @@ export default function LibroReclamacionesPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block font-semibold mb-1">Tipo de Documento *</label>
+                  <label htmlFor="reclamo-tipo-doc" className="block font-semibold mb-1">Tipo de Documento *</label>
                   <select
+                    id="reclamo-tipo-doc"
+                    name="tipoDoc"
                     value={formData.tipoDoc}
                     onChange={(e) => setFormData({ ...formData, tipoDoc: e.target.value })}
                     className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
@@ -108,8 +135,12 @@ export default function LibroReclamacionesPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block font-semibold mb-1">Número de Documento *</label>
+                  <label htmlFor="reclamo-num-doc" className="block font-semibold mb-1">Número de Documento *</label>
                   <input
+                    id="reclamo-num-doc"
+                    name="numDoc"
+                    inputMode="numeric"
+                    maxLength={30}
                     type="text"
                     required
                     value={formData.numDoc}
@@ -118,8 +149,13 @@ export default function LibroReclamacionesPage() {
                   />
                 </div>
                 <div>
-                  <label className="block font-semibold mb-1">Teléfono / Celular *</label>
+                  <label htmlFor="reclamo-telefono" className="block font-semibold mb-1">Teléfono / Celular *</label>
                   <input
+                    id="reclamo-telefono"
+                    name="telefono"
+                    autoComplete="tel"
+                    inputMode="tel"
+                    maxLength={25}
                     type="tel"
                     required
                     value={formData.telefono}
@@ -130,8 +166,13 @@ export default function LibroReclamacionesPage() {
               </div>
 
               <div>
-                <label className="block font-semibold mb-1">Correo Electrónico *</label>
+                <label htmlFor="reclamo-email" className="block font-semibold mb-1">Correo Electrónico *</label>
                 <input
+                  id="reclamo-email"
+                  name="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  maxLength={120}
                   type="email"
                   required
                   value={formData.email}
@@ -141,8 +182,12 @@ export default function LibroReclamacionesPage() {
               </div>
 
               <div>
-                <label className="block font-semibold mb-1">Domicilio *</label>
+                <label htmlFor="reclamo-direccion" className="block font-semibold mb-1">Domicilio *</label>
                 <input
+                  id="reclamo-direccion"
+                  name="direccion"
+                  autoComplete="street-address"
+                  maxLength={180}
                   type="text"
                   required
                   value={formData.direccion}
@@ -158,7 +203,7 @@ export default function LibroReclamacionesPage() {
               </h3>
 
               <div className="flex gap-6">
-                <label className="flex items-center gap-2 cursor-pointer">
+                <label className="flex min-h-11 items-center gap-2 cursor-pointer">
                   <input
                     type="radio"
                     name="tipo"
@@ -169,7 +214,7 @@ export default function LibroReclamacionesPage() {
                   />
                   <span className="font-bold">Reclamo</span>
                 </label>
-                <label className="flex items-center gap-2 cursor-pointer">
+                <label className="flex min-h-11 items-center gap-2 cursor-pointer">
                   <input
                     type="radio"
                     name="tipo"
@@ -183,8 +228,11 @@ export default function LibroReclamacionesPage() {
               </div>
 
               <div>
-                <label className="block font-semibold mb-1">Descripción del Servicio Contratado</label>
+                <label htmlFor="reclamo-servicio" className="block font-semibold mb-1">Descripción del Servicio Contratado</label>
                 <input
+                  id="reclamo-servicio"
+                  name="descripcionBien"
+                  maxLength={400}
                   type="text"
                   placeholder="Ej. Plan Negocio de facturación electrónica"
                   value={formData.descripcionBien}
@@ -194,8 +242,11 @@ export default function LibroReclamacionesPage() {
               </div>
 
               <div>
-                <label className="block font-semibold mb-1">Detalle del Reclamo o Queja *</label>
+                <label htmlFor="reclamo-detalle" className="block font-semibold mb-1">Detalle del Reclamo o Queja *</label>
                 <textarea
+                  id="reclamo-detalle"
+                  name="detalle"
+                  maxLength={3000}
                   rows={4}
                   required
                   value={formData.detalle}
@@ -205,8 +256,11 @@ export default function LibroReclamacionesPage() {
               </div>
 
               <div>
-                <label className="block font-semibold mb-1">Pedido Concreto del Consumidor *</label>
+                <label htmlFor="reclamo-pedido" className="block font-semibold mb-1">Pedido Concreto del Consumidor *</label>
                 <textarea
+                  id="reclamo-pedido"
+                  name="pedidoConcreto"
+                  maxLength={1500}
                   rows={2}
                   required
                   value={formData.pedidoConcreto}
@@ -217,7 +271,7 @@ export default function LibroReclamacionesPage() {
             </div>
 
             <div className="pt-2">
-              <label className="flex items-start gap-2 cursor-pointer text-xs text-slate-600">
+              <label className="flex min-h-11 items-start gap-2 cursor-pointer text-xs text-slate-600">
                 <input
                   type="checkbox"
                   required
@@ -231,15 +285,10 @@ export default function LibroReclamacionesPage() {
               </label>
             </div>
 
-            <button
-              type="submit"
-              disabled
-              aria-disabled="true"
-              className="w-full cursor-not-allowed py-3.5 px-6 bg-slate-300 text-slate-600 font-bold rounded-xl flex items-center justify-center gap-2"
-            >
-              <span>Envío web en proceso de habilitación</span>
+            <button type="submit" disabled={status === "loading"} className="min-h-11 w-full py-3.5 px-6 bg-orange-600 hover:bg-orange-700 disabled:cursor-wait disabled:opacity-60 text-white font-bold rounded-xl flex items-center justify-center gap-2">
+              <span>{status === "loading" ? "Enviando…" : "Enviar reclamo o queja por correo"}</span>
             </button>
-          </form>
+          </form>}
         </div>
       </section>
     </>

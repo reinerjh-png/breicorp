@@ -26,14 +26,16 @@ export function PricingSection() {
 
           {/* Billing Cycle Switcher */}
           <div className="pt-4 flex items-center justify-center gap-3">
-            <span
-              className={`text-sm font-semibold cursor-pointer ${
+            <button
+              type="button"
+              aria-pressed={billingCycle === "monthly"}
+              className={`min-h-11 rounded-lg px-2 text-sm font-semibold ${
                 billingCycle === "monthly" ? "text-slate-900 font-bold" : "text-slate-500"
               }`}
               onClick={() => setBillingCycle("monthly")}
             >
               Facturación Mensual
-            </span>
+            </button>
 
             <button
               type="button"
@@ -50,8 +52,10 @@ export function PricingSection() {
               />
             </button>
 
-            <span
-              className={`text-sm font-semibold cursor-pointer flex items-center gap-1.5 ${
+            <button
+              type="button"
+              aria-pressed={billingCycle === "annual"}
+              className={`min-h-11 rounded-lg px-2 text-sm font-semibold flex items-center gap-1.5 ${
                 billingCycle === "annual" ? "text-slate-900 font-bold" : "text-slate-500"
               }`}
               onClick={() => setBillingCycle("annual")}
@@ -60,7 +64,7 @@ export function PricingSection() {
               <span className="bg-emerald-100 text-emerald-800 text-[11px] font-extrabold px-2 py-0.5 rounded-full border border-emerald-300">
                 Ahorra 20%
               </span>
-            </span>
+            </button>
           </div>
         </div>
 
@@ -75,7 +79,7 @@ export function PricingSection() {
             return (
               <div
                 key={plan.id}
-                className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 relative ${
+                className={`rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-[box-shadow,border-color,transform] duration-200 relative ${
                   plan.recommended
                     ? "bg-slate-900 text-white shadow-2xl ring-2 ring-orange-500 scale-[1.02] z-10"
                     : "bg-white text-slate-900 border border-slate-200 shadow-sm hover:shadow-md"
@@ -83,7 +87,7 @@ export function PricingSection() {
               >
                 {plan.recommended && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                    Más Elegido por Empresas
+                    Recomendado
                   </div>
                 )}
 
@@ -175,7 +179,8 @@ export function PricingSection() {
                 <div className="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800">
                   <Link
                     href={`/contacto?plan=${plan.id}`}
-                    className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-all duration-200 ${
+                    onClick={() => window.dispatchEvent(new CustomEvent("breicorp:analytics", { detail: { name: "demo_cta_click" } }))}
+                    className={`min-h-11 w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-colors duration-200 ${
                       plan.recommended
                         ? "bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25"
                         : "bg-slate-100 hover:bg-slate-200 text-slate-900"
@@ -201,6 +206,7 @@ export function PricingSection() {
               href={getWhatsAppUrl("Hola, requiero una cotización a medida para mi empresa.")}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => window.dispatchEvent(new CustomEvent("breicorp:analytics", { detail: { name: "whatsapp_click" } }))}
               className="text-orange-600 font-bold hover:underline"
             >
               Habla directamente con un asesor comercial por WhatsApp →

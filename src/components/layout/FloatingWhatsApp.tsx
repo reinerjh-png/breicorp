@@ -1,18 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getWhatsAppUrl } from "@/config/company";
 import { MessageCircle, X, Send, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 export function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!isOpen) return;
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") { setIsOpen(false); triggerRef.current?.focus(); } };
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, [isOpen]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end sm:bottom-6 sm:right-6 print:hidden">
       {/* Floating Card Popup */}
       {isOpen && (
-        <div className="mb-3 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div id="whatsapp-panel" role="dialog" aria-label="Contacto comercial por WhatsApp" className="mb-3 w-[calc(100vw-2rem)] max-w-80 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-5 motion-safe:duration-200">
           {/* Card Header */}
           <div className="bg-gradient-to-r from-emerald-600 to-teal-700 p-4 text-white flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -26,19 +33,17 @@ export function FloatingWhatsApp() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-300 border-2 border-emerald-700 rounded-full"></span>
               </div>
               <div>
                 <h4 className="font-bold text-sm leading-tight">Asesoría BREICORP</h4>
                 <p className="text-[11px] text-emerald-100 flex items-center gap-1 mt-0.5">
-                  <span className="inline-block w-1.5 h-1.5 bg-emerald-300 rounded-full animate-pulse"></span>
                   Atención comercial por WhatsApp
                 </p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white"
               aria-label="Cerrar chat de WhatsApp"
             >
               <X className="w-5 h-5" />
@@ -68,7 +73,8 @@ export function FloatingWhatsApp() {
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-xs rounded-xl shadow transition-all duration-150 transform hover:scale-[1.02]"
+              onClick={() => window.dispatchEvent(new CustomEvent("breicorp:analytics", { detail: { name: "whatsapp_click" } }))}
+              className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white shadow transition-colors hover:bg-emerald-700 active:bg-emerald-800"
             >
               <span>Abrir chat de WhatsApp</span>
               <Send className="w-3.5 h-3.5" />
@@ -79,13 +85,15 @@ export function FloatingWhatsApp() {
 
       {/* Main Floating Trigger Button */}
       <button
+        ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="group relative flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-emerald-300"
-        aria-label="Contactar por WhatsApp"
+        className="group relative flex min-h-12 min-w-12 items-center justify-center gap-3 rounded-full bg-emerald-600 p-3 text-white shadow-lg transition-[background-color,box-shadow,transform] duration-150 hover:bg-emerald-500 hover:shadow-xl active:scale-[0.97] focus:outline-none focus:ring-4 focus:ring-emerald-300 sm:px-4"
+        aria-label={isOpen ? "Cerrar opciones de WhatsApp" : "Abrir opciones de contacto por WhatsApp"}
+        aria-expanded={isOpen}
+        aria-controls="whatsapp-panel"
       >
         <span className="relative flex items-center justify-center">
           <MessageCircle className="w-6 h-6" />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-300 border-2 border-white rounded-full"></span>
         </span>
         <span className="font-bold text-sm tracking-tight hidden sm:inline-block pr-1">
           {isOpen ? "Cerrar" : "Consultar por WhatsApp"}

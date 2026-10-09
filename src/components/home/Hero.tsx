@@ -19,6 +19,16 @@ import Image from "next/image";
 
 export function Hero() {
   const [activeTab, setActiveTab] = useState<"pos" | "kardex" | "sunat">("pos");
+  const tabOrder = ["pos", "kardex", "sunat"] as const;
+  const handleTabKey = (event: React.KeyboardEvent<HTMLButtonElement>, current: typeof activeTab) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const index = tabOrder.indexOf(current);
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabOrder.length - 1 : event.key === 'ArrowRight' ? (index + 1) % tabOrder.length : (index - 1 + tabOrder.length) % tabOrder.length;
+    const tab = tabOrder[next];
+    setActiveTab(tab);
+    document.getElementById(`hero-tab-${tab}`)?.focus();
+  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white pt-12 pb-24 lg:pt-16 lg:pb-32">
@@ -53,7 +63,7 @@ export function Hero() {
             {/* Subheadline */}
             <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Centraliza tus ventas en mostrador, emisión inmediata de comprobantes electrónicos,
-              control de Kardex físico-valorizado y reportes en tiempo real. Creado especialmente
+              control de Kardex físico-valorizado y reportes operativos. Creado especialmente
               para la realidad operativa de empresas peruanas.
             </p>
 
@@ -69,7 +79,7 @@ export function Hero() {
               </div>
               <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Migración sin perder datos</span>
+                <span>Acompañamiento de implementación</span>
               </div>
             </div>
 
@@ -77,21 +87,23 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <Link
                 href="/contacto"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600 hover:from-orange-600 hover:via-orange-700 hover:to-amber-700 active:from-orange-700 text-white font-bold text-base shadow-lg shadow-orange-500/25 transition-all duration-200 transform hover:-translate-y-0.5"
+                onClick={() => window.dispatchEvent(new CustomEvent("breicorp:analytics", { detail: { name: "demo_cta_click" } }))}
+                className="min-h-11 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-orange-500 via-orange-600 to-amber-600 hover:from-orange-600 hover:via-orange-700 hover:to-amber-700 active:scale-[0.98] text-white font-bold text-base shadow-lg shadow-orange-500/25 transition-transform duration-150"
               >
-                <span>Solicitar demostración guiada</span>
+                <span>Solicitar demo</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
 
-              <a
-                href={getWhatsAppUrl("Hola, deseo conocer una demo de BREICORP y saber los precios para mi empresa.")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white font-semibold text-base transition-colors"
+              <Link
+                href="/demo"
+                onClick={() => window.dispatchEvent(new CustomEvent("breicorp:analytics", { detail: { name: "demo_open" } }))}
+                className="min-h-11 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-transparent hover:bg-slate-800/70 border border-slate-600 text-slate-100 font-semibold text-base transition-colors"
               >
-                <span>Consultar por WhatsApp</span>
-              </a>
+                <span>Ver demo</span>
+              </Link>
             </div>
+
+            <a href={getWhatsAppUrl("Hola, deseo conocer BREICORP para mi empresa.")} target="_blank" rel="noopener noreferrer" onClick={() => window.dispatchEvent(new CustomEvent("breicorp:analytics", { detail: { name: "whatsapp_click" } }))} className="inline-flex min-h-11 items-center justify-center text-sm font-semibold text-emerald-300 underline decoration-emerald-500/60 underline-offset-4 hover:text-emerald-200">Consultar por WhatsApp</a>
 
             {/* Bottom trust remark */}
             <div className="pt-2 text-xs text-slate-400 flex items-center justify-center lg:justify-start gap-3">
@@ -128,15 +140,21 @@ export function Hero() {
                   </div>
                   <div className="flex items-center gap-1.5 text-[11px] text-emerald-400 font-medium bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/60">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>Vista demostrativa</span>
+                    <span>Datos de demostración</span>
                   </div>
                 </div>
 
                 {/* Tab Switcher inside mockup */}
-                <div className="p-3 bg-slate-900/90 border-b border-slate-800 flex gap-2">
+                <div className="p-3 bg-slate-900/90 border-b border-slate-800 flex gap-2" role="tablist" aria-label="Vistas de demostración de BREICORP">
                   <button
+                    type="button"
+                    id="hero-tab-pos"
+                    role="tab"
+                    aria-selected={activeTab === "pos"}
+                    aria-controls="hero-panel-pos"
                     onClick={() => setActiveTab("pos")}
-                    className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                    onKeyDown={(event) => handleTabKey(event, "pos")}
+                    className={`min-h-11 flex-1 flex items-center justify-center gap-1.5 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${
                       activeTab === "pos"
                         ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-sm"
                         : "text-slate-400 hover:text-white hover:bg-slate-800"
@@ -146,8 +164,14 @@ export function Hero() {
                     <span>Punto de Venta</span>
                   </button>
                   <button
+                    type="button"
+                    id="hero-tab-kardex"
+                    role="tab"
+                    aria-selected={activeTab === "kardex"}
+                    aria-controls="hero-panel-kardex"
                     onClick={() => setActiveTab("kardex")}
-                    className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                    onKeyDown={(event) => handleTabKey(event, "kardex")}
+                    className={`min-h-11 flex-1 flex items-center justify-center gap-1.5 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${
                       activeTab === "kardex"
                         ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-sm"
                         : "text-slate-400 hover:text-white hover:bg-slate-800"
@@ -157,8 +181,14 @@ export function Hero() {
                     <span>Kardex & Stock</span>
                   </button>
                   <button
+                    type="button"
+                    id="hero-tab-sunat"
+                    role="tab"
+                    aria-selected={activeTab === "sunat"}
+                    aria-controls="hero-panel-sunat"
                     onClick={() => setActiveTab("sunat")}
-                    className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                    onKeyDown={(event) => handleTabKey(event, "sunat")}
+                    className={`min-h-11 flex-1 flex items-center justify-center gap-1.5 px-2 py-2 text-xs font-semibold rounded-lg transition-colors ${
                       activeTab === "sunat"
                         ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-sm"
                         : "text-slate-400 hover:text-white hover:bg-slate-800"
@@ -171,7 +201,7 @@ export function Hero() {
 
                 {/* Tab Content 1: POS */}
                 {activeTab === "pos" && (
-                  <div className="p-5 space-y-4">
+                  <div id="hero-panel-pos" role="tabpanel" aria-labelledby="hero-tab-pos" className="p-5 space-y-4">
                     {/* Metrics strip */}
                     <div className="grid grid-cols-2 gap-3">
                       <div className="bg-slate-800/60 p-3 rounded-xl border border-slate-700/60">
@@ -179,13 +209,13 @@ export function Hero() {
                         <div className="text-xl font-black text-white mt-0.5">S/ 4,892.50</div>
                         <div className="text-[10px] text-emerald-400 mt-0.5 flex items-center gap-1">
                           <TrendingUp className="w-3 h-3" />
-                          <span>+18.4% vs. ayer</span>
+                          <span>Dato ilustrativo</span>
                         </div>
                       </div>
                       <div className="bg-slate-800/60 p-3 rounded-xl border border-slate-700/60">
                         <div className="text-[11px] text-slate-400">Comprobantes Emitidos</div>
                         <div className="text-xl font-black text-cyan-300 mt-0.5">64 tickets</div>
-                        <div className="text-[10px] text-slate-400 mt-0.5">0 rechazos SUNAT</div>
+                        <div className="text-[10px] text-slate-400 mt-0.5">Escenario de prueba</div>
                       </div>
                     </div>
 
@@ -227,7 +257,7 @@ export function Hero() {
 
                 {/* Tab Content 2: Kardex */}
                 {activeTab === "kardex" && (
-                  <div className="p-5 space-y-3">
+                  <div id="hero-panel-kardex" role="tabpanel" aria-labelledby="hero-tab-kardex" className="p-5 space-y-3">
                     <div className="text-xs font-semibold text-slate-300 flex items-center justify-between">
                       <span>Stock Multialmacén en Tiempo Real</span>
                       <span className="text-[11px] text-orange-400">3 almacenes activos</span>
@@ -276,12 +306,12 @@ export function Hero() {
 
                 {/* Tab Content 3: SUNAT */}
                 {activeTab === "sunat" && (
-                  <div className="p-5 space-y-3.5 text-xs">
+                  <div id="hero-panel-sunat" role="tabpanel" aria-labelledby="hero-tab-sunat" className="p-5 space-y-3.5 text-xs">
                     <div className="bg-slate-800/60 p-3 rounded-xl border border-slate-700/60 space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="font-semibold text-white">Conexión SUNAT en Vivo</span>
+                        <span className="font-semibold text-white">Vista demostrativa del flujo</span>
                         <span className="bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded text-[10px] font-bold">
-                          FLUJO DISPONIBLE
+                          DATOS DE PRUEBA
                         </span>
                       </div>
                       <p className="text-slate-400 text-[11px]">
@@ -314,11 +344,11 @@ export function Hero() {
                 <div className="bg-slate-950 px-4 py-2.5 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
                   <div className="flex items-center gap-1.5">
                     <Smartphone className="w-3.5 h-3.5 text-orange-400" />
-                    <span>App móvil sincronizada</span>
+                        <span>Vista web y móvil</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Server className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Respaldo en la nube cada 60s</span>
+                    <span>Entorno SaaS demostrativo</span>
                   </div>
                 </div>
               </div>
