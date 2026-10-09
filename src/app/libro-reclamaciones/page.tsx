@@ -1,9 +1,10 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { company, getWhatsAppUrl } from "@/config/company";
-import { AlertCircle, MessageCircle } from "lucide-react";
+import { AlertCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 
 export default function LibroReclamacionesPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -75,7 +76,7 @@ export default function LibroReclamacionesPage() {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-emerald-700"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4 w-4 fill-current text-white" />
                   Solicitar orientación por WhatsApp
                 </a>
               </div>
@@ -98,9 +99,10 @@ export default function LibroReclamacionesPage() {
                     autoComplete="given-name"
                     type="text"
                     required
+                    placeholder="Ej. Juan Carlos"
                     value={formData.nombre}
                     onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                   />
                 </div>
                 <div>
@@ -111,9 +113,10 @@ export default function LibroReclamacionesPage() {
                     autoComplete="family-name"
                     type="text"
                     required
+                    placeholder="Ej. Pérez García"
                     value={formData.apellido}
                     onChange={(e) => setFormData({ ...formData, apellido: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                   />
                 </div>
               </div>
@@ -126,7 +129,7 @@ export default function LibroReclamacionesPage() {
                     name="tipoDoc"
                     value={formData.tipoDoc}
                     onChange={(e) => setFormData({ ...formData, tipoDoc: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                   >
                     <option value="DNI">DNI</option>
                     <option value="RUC">RUC</option>
@@ -143,9 +146,10 @@ export default function LibroReclamacionesPage() {
                     maxLength={30}
                     type="text"
                     required
+                    placeholder="Ej. 72345678"
                     value={formData.numDoc}
                     onChange={(e) => setFormData({ ...formData, numDoc: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                   />
                 </div>
                 <div>
@@ -158,9 +162,10 @@ export default function LibroReclamacionesPage() {
                     maxLength={25}
                     type="tel"
                     required
+                    placeholder="Ej. 948 261 382"
                     value={formData.telefono}
                     onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                   />
                 </div>
               </div>
@@ -175,9 +180,10 @@ export default function LibroReclamacionesPage() {
                   maxLength={120}
                   type="email"
                   required
+                  placeholder="Ej. juan.perez@correo.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                 />
               </div>
 
@@ -190,9 +196,10 @@ export default function LibroReclamacionesPage() {
                   maxLength={180}
                   type="text"
                   required
+                  placeholder="Ej. Av. Tito Jaime 642, Tingo María, Huánuco"
                   value={formData.direccion}
                   onChange={(e) => setFormData({ ...formData, direccion: e.target.value })}
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                 />
               </div>
             </div>
@@ -237,7 +244,7 @@ export default function LibroReclamacionesPage() {
                   placeholder="Ej. Plan Negocio de facturación electrónica"
                   value={formData.descripcionBien}
                   onChange={(e) => setFormData({ ...formData, descripcionBien: e.target.value })}
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                 />
               </div>
 
@@ -252,7 +259,7 @@ export default function LibroReclamacionesPage() {
                   placeholder="Ej. 150.00"
                   value={formData.montoReclamado}
                   onChange={(e) => setFormData({ ...formData, montoReclamado: e.target.value.replace(/[^\d.,]/g, "") })}
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                 />
               </div>
 
@@ -264,9 +271,10 @@ export default function LibroReclamacionesPage() {
                   maxLength={3000}
                   rows={4}
                   required
+                  placeholder="Describe con claridad los hechos, fecha del suceso y el motivo detallado de tu reclamo o queja..."
                   value={formData.detalle}
                   onChange={(e) => setFormData({ ...formData, detalle: e.target.value })}
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                 ></textarea>
               </div>
 
@@ -278,9 +286,10 @@ export default function LibroReclamacionesPage() {
                   maxLength={1500}
                   rows={2}
                   required
+                  placeholder="Indica de forma clara y precisa la solución, medida o compensación que solicitas..."
                   value={formData.pedidoConcreto}
                   onChange={(e) => setFormData({ ...formData, pedidoConcreto: e.target.value })}
-                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-orange-500 outline-none"
                 ></textarea>
               </div>
             </div>
@@ -300,7 +309,7 @@ export default function LibroReclamacionesPage() {
               </label>
             </div>
 
-            <button type="submit" disabled={status === "loading"} className="min-h-11 w-full py-3.5 px-6 bg-orange-600 hover:bg-orange-700 disabled:cursor-wait disabled:opacity-60 text-white font-bold rounded-xl flex items-center justify-center gap-2">
+            <button type="submit" disabled={status === "loading"} className="min-h-11 w-full py-3.5 px-6 bg-orange-700 hover:bg-orange-800 disabled:cursor-wait disabled:opacity-60 text-white font-bold rounded-xl flex items-center justify-center gap-2">
               <span>{status === "loading" ? "Enviando…" : "Enviar reclamo o queja por correo"}</span>
             </button>
           </form>}

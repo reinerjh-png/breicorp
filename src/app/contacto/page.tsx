@@ -1,4 +1,4 @@
-﻿import { PageHeader } from "@/components/shared/PageHeader";
+import { PageHeader } from "@/components/shared/PageHeader";
 import { ContactForm } from "@/components/shared/ContactForm";
 import { company, createPageMetadata, getWhatsAppUrl } from "@/config/company";
 import {
@@ -6,10 +6,9 @@ import {
   Mail,
   MapPin,
   Clock,
-  MessageCircle,
   CheckCircle,
 } from "lucide-react";
-import { EventTracker } from "@/components/analytics/EventTracker";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 
 export const metadata = createPageMetadata({
   title: "Contacto y Solicitud de Demostración",
@@ -21,7 +20,6 @@ export const metadata = createPageMetadata({
 export default function ContactoPage() {
   return (
     <>
-      <EventTracker name="contact_click" />
       <PageHeader
         badge="Atención Personalizada"
         title="Agenda una demostración guiada de 15 minutos"
@@ -51,6 +49,7 @@ export default function ContactoPage() {
                       <div className="font-bold text-slate-900">Central Telefónica</div>
                       <a
                         href={`tel:${company.phone.replace(/\s+/g, "")}`}
+                        data-analytics-event="contact_click"
                         className="text-slate-600 hover:text-orange-600 transition-colors"
                       >
                         {company.phone}
@@ -59,13 +58,14 @@ export default function ContactoPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <MessageCircle className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                    <WhatsAppIcon className="w-5 h-5 text-[#25D366] fill-current shrink-0 mt-0.5" />
                     <div>
                       <div className="font-bold text-slate-900">WhatsApp Comercial</div>
                       <a
                         href={getWhatsAppUrl()}
                         target="_blank"
                         rel="noopener noreferrer"
+                        data-analytics-event="whatsapp_click"
                         className="text-emerald-700 font-semibold hover:underline"
                       >
                         Chatear con un asesor por WhatsApp →
@@ -79,6 +79,7 @@ export default function ContactoPage() {
                       <div className="font-bold text-slate-900">Correo de Contacto</div>
                       <a
                         href={`mailto:${company.contactEmail}`}
+                        data-analytics-event="contact_click"
                         className="text-slate-600 hover:text-orange-600"
                       >
                         {company.contactEmail}

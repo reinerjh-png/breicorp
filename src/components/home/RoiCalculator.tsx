@@ -28,7 +28,7 @@ export function RoiCalculator() {
   const totalEstimatedMonthlySavings = laborSavings;
 
   return (
-    <section className="py-20 bg-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
+    <section className="defer-render py-20 bg-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[140px] pointer-events-none"></div>
 
@@ -61,7 +61,7 @@ export function RoiCalculator() {
                   aria-pressed={currentMethod === "sunat_web"}
                   className={`min-h-11 p-3 rounded-xl text-xs font-bold border transition-colors text-center ${
                     currentMethod === "sunat_web"
-                      ? "bg-orange-600 border-orange-500 text-white shadow-sm"
+                      ? "bg-orange-700 border-orange-600 text-white shadow-sm"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800"
                   }`}
                 >
@@ -73,7 +73,7 @@ export function RoiCalculator() {
                   aria-pressed={currentMethod === "manual"}
                   className={`min-h-11 p-3 rounded-xl text-xs font-bold border transition-colors text-center ${
                     currentMethod === "manual"
-                      ? "bg-orange-600 border-orange-500 text-white shadow-sm"
+                      ? "bg-orange-700 border-orange-600 text-white shadow-sm"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800"
                   }`}
                 >
@@ -85,7 +85,7 @@ export function RoiCalculator() {
                   aria-pressed={currentMethod === "old_software"}
                   className={`min-h-11 p-3 rounded-xl text-xs font-bold border transition-colors text-center ${
                     currentMethod === "old_software"
-                      ? "bg-orange-600 border-orange-500 text-white shadow-sm"
+                      ? "bg-orange-700 border-orange-600 text-white shadow-sm"
                       : "bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800"
                   }`}
                 >
@@ -113,7 +113,7 @@ export function RoiCalculator() {
                 aria-valuetext={`${salesPerDay} comprobantes por día`}
                 className="w-full h-11 bg-transparent cursor-pointer accent-orange-500"
               />
-              <div className="flex justify-between text-[11px] text-slate-500">
+              <div className="flex justify-between text-[11px] text-slate-300">
                 <span>10 ventas/día</span>
                 <span>~{monthlyDocs} al mes</span>
                 <span>250+ ventas/día</span>
@@ -139,7 +139,7 @@ export function RoiCalculator() {
                 aria-valuetext={`${employees} ${employees === 1 ? "persona" : "personas"}`}
                 className="w-full h-11 bg-transparent cursor-pointer accent-emerald-500"
               />
-              <div className="flex justify-between text-[11px] text-slate-500">
+              <div className="flex justify-between text-[11px] text-slate-300">
                 <span>1 usuario</span>
                 <span>5 usuarios</span>
                 <span>10 usuarios</span>
@@ -149,33 +149,33 @@ export function RoiCalculator() {
 
           {/* Results column */}
           <div aria-live="polite" className="lg:col-span-6 bg-slate-900/90 rounded-2xl p-6 sm:p-8 border border-slate-800 space-y-6">
-            <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+            <div className="text-xs font-bold text-slate-300 uppercase tracking-wider">
               Ahorro operativo mensual proyectado:
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
+                <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
                   <Clock className="w-4 h-4 text-cyan-400" />
                   <span>Tiempo recuperado</span>
                 </div>
                 <div className="text-3xl font-black text-cyan-300">
                   ~{hoursSavedMonthly} hrs
                 </div>
-                <div className="text-[11px] text-slate-400 mt-1">
+                <div className="text-[11px] text-slate-300 mt-1">
                   Equivale a {Math.round((hoursSavedMonthly / 8) * 10) / 10} días laborales al mes
                 </div>
               </div>
 
               <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                <div className="flex items-center gap-2 text-slate-400 text-xs mb-1">
+                <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
                   <Coins className="w-4 h-4 text-emerald-400" />
                   <span>Valor referencial del tiempo</span>
                 </div>
                 <div className="text-3xl font-black text-emerald-400">
                   S/ {totalEstimatedMonthlySavings}
                 </div>
-                <div className="text-[11px] text-slate-400 mt-1">
+                <div className="text-[11px] text-slate-300 mt-1">
                   Calculado con una hora referencial de S/ {averageHourlyCost}
                 </div>
               </div>
@@ -196,12 +196,12 @@ export function RoiCalculator() {
               </div>
             </div>
 
-            <p className="text-[11px] leading-5 text-slate-500">Estimación ilustrativa basada en 26 días laborables y tiempos configurados para cada método. Los resultados reales dependen del proceso, volumen, adopción y configuración de cada empresa.</p>
+            <p className="text-[11px] leading-5 text-slate-300">Estimación ilustrativa basada en 26 días laborables y tiempos configurados para cada método. Los resultados reales dependen del proceso, volumen, adopción y configuración de cada empresa.</p>
 
             <div className="pt-2">
               <Link
                 href="/contacto"
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-orange-600 hover:bg-orange-500 text-white font-bold text-sm shadow-md transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-orange-700 hover:bg-orange-800 text-white font-bold text-sm shadow-md transition-colors"
               >
                 <span>Comenzar a ahorrar con BREICORP</span>
                 <ArrowRight className="w-4 h-4" />

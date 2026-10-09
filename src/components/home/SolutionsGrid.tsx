@@ -69,7 +69,7 @@ export function SolutionsGrid() {
   ];
 
   return (
-    <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
+    <section className="defer-render py-20 bg-white text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
@@ -128,7 +128,7 @@ export function SolutionsGrid() {
                 <div className="pt-6 mt-6 border-t border-slate-200/60">
                   <Link
                     href={item.link}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 group-hover:text-slate-800 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-orange-700 group-hover:text-slate-800 transition-colors"
                   >
                     <span>Conocer solución detallada</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -12,7 +12,6 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -86,7 +85,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const analyticsEnabled = process.env.SITE_ENV === "production" || process.env.SITE_ENV === "staging";
+  const analyticsEnabled = Boolean(process.env.NEXT_PUBLIC_GA_ID) &&
+    (process.env.SITE_ENV === "production" || process.env.SITE_ENV === "staging");
   return (
     <html lang="es-PE">
       <head>
@@ -97,7 +97,7 @@ export default function RootLayout({
       <body className={`${inter.variable} min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-orange-600 selection:text-white`}>
         <JsonLd type="Organization" />
         <JsonLd type="SoftwareApplication" />
-        <Analytics enabled={analyticsEnabled} />
+        {analyticsEnabled ? <Analytics /> : null}
         <Header />
         <main id="main-content" className="flex-grow">
           {children}

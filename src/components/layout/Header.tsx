@@ -155,7 +155,7 @@ export function Header() {
                       href={item.href}
                       className={`px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors ${
                         isActive
-                          ? "text-orange-600 bg-orange-50/70"
+                          ? "text-orange-700 bg-orange-50/70"
                           : "text-slate-700 hover:text-orange-600 hover:bg-slate-50"
                       }`}
                     >
@@ -176,7 +176,7 @@ export function Header() {
                       type="button"
                       className={`flex items-center gap-1 px-3.5 py-2 text-sm font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 ${
                         isActive
-                          ? "text-orange-600 bg-orange-50/70"
+                          ? "text-orange-700 bg-orange-50/70"
                           : "text-slate-700 hover:text-orange-600 hover:bg-slate-50"
                       }`}
                       aria-expanded={activeDropdown === item.label}
@@ -273,7 +273,7 @@ export function Header() {
             <div className="flex items-center gap-2 lg:hidden">
               <Link
                 href="/contacto"
-                className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-sm"
+                className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-white bg-orange-700 hover:bg-orange-800 rounded-lg shadow-sm"
               >
                 Solicitar
               </Link>
@@ -340,7 +340,7 @@ export function Header() {
 
                 <Link
                   href="/contacto"
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-orange-600 text-white font-bold text-sm shadow-md hover:bg-orange-700"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-orange-700 text-white font-bold text-sm shadow-md hover:bg-orange-800"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span>Solicitar demo personalizada</span>

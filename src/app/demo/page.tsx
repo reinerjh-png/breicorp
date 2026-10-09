@@ -1,6 +1,5 @@
 ﻿import Link from "next/link";
 import { company, createPageMetadata } from "@/config/company";
-import { DemoLink } from "@/components/analytics/EventTracker";
 import { CopyCredentialButton } from "@/components/demo/CopyCredentialButton";
 import {
   ExternalLink,
@@ -95,16 +94,19 @@ export default function DemoPage() {
               </div>
 
               {/* Access button */}
-              <DemoLink
+              <a
                 href={company.demo.url}
                 id="btn-acceso-demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics-event="demo_open"
                 className="w-full min-h-12 flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 active:scale-[0.98] text-white font-black text-base shadow-lg shadow-orange-500/30 transition-transform duration-150"
               >
-                <span>Acceder al demo</span>
+                <span>Acceder al entorno demo</span>
                 <ExternalLink className="w-5 h-5" />
-              </DemoLink>
+              </a>
 
-              <p className="text-center text-[11px] text-slate-400">
+              <p className="text-center text-[11px] text-slate-600">
                 Se abrirá en una nueva pestaña en{" "}
                 <span className="font-mono">{company.demo.url}</span>
               </p>

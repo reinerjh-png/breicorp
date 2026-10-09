@@ -1,10 +1,11 @@
-﻿import Link from "next/link";
-import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { company, getWhatsAppUrl } from "@/config/company";
 
 export function CtaBanner() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-16 lg:py-20">
+    <section className="defer-render relative overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-16 lg:py-20">
       {/* Decorative background shapes */}
       <div className="absolute inset-0 pointer-events-none opacity-25">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
@@ -39,9 +40,9 @@ export function CtaBanner() {
             href={getWhatsAppUrl("Hola, quiero agendar una demostración de BREICORP.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-bold text-base transition-colors shadow-lg"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-bold text-base transition-colors shadow-lg"
           >
-            <MessageCircle className="w-5 h-5" />
+            <WhatsAppIcon className="w-5 h-5 fill-current" />
             <span>Hablar por WhatsApp</span>
           </a>
         </div>

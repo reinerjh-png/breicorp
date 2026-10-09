@@ -3,7 +3,7 @@ import { CheckCircle, Clock, Layers } from "lucide-react";
 
 export function Testimonials() {
   return (
-    <section className="border-b border-slate-200 bg-slate-50 py-20 text-slate-900">
+    <section className="defer-render border-b border-slate-200 bg-slate-50 py-20 text-slate-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-12 max-w-3xl space-y-4 text-center">
           <div className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-800">

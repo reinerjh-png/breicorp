@@ -92,7 +92,7 @@ export function getWhatsAppUrl(customMessage?: string) {
 /** Metadata constants */
 export const siteMetadata = {
   siteName: "BREICORP",
-  siteUrl: `https://www.${company.domain}`,
+  siteUrl: `https://${company.domain}`,
   locale: "es_PE",
   ogImage: "/logo-breicorp.webp",
   twitterHandle: "", // [VERIFICAR_TWITTER]

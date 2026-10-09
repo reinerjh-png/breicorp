@@ -1,12 +1,8 @@
-﻿"use client";
-
-import { useState } from "react";
-import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { getWhatsAppUrl } from "@/config/company";
 
 export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   const faqs = [
     {
       question: "¿Qué requisitos necesito para empezar a emitir comprobantes con BREICORP?",
@@ -45,10 +41,6 @@ export function FaqSection() {
     },
   ];
 
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   // Generate FAQPage JSON-LD schema
   const faqSchema = {
     "@context": "https://schema.org",
@@ -64,7 +56,7 @@ export function FaqSection() {
   };
 
   return (
-    <section className="py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
+    <section className="defer-render py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -86,39 +78,26 @@ export function FaqSection() {
 
         {/* Accordion list */}
         <div className="space-y-3">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden"
+          {faqs.map((faq, idx) => (
+              <details
+                key={faq.question}
+                open={idx === 0}
+                className="group bg-white rounded-2xl border border-slate-200 overflow-hidden"
               >
-                <button
-                  id={`home-faq-button-${idx}`}
-                  type="button"
-                  onClick={() => toggle(idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none focus:bg-slate-50"
-                  aria-expanded={isOpen}
-                  aria-controls={`home-faq-panel-${idx}`}
-                >
+                <summary className="w-full min-h-14 cursor-pointer list-none p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:bg-slate-50 [&::-webkit-details-marker]:hidden">
                   <span className="font-bold text-slate-900 text-base sm:text-lg">
                     {faq.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-orange-600" : ""
-                    }`}
+                    aria-hidden="true"
+                    className="w-5 h-5 text-slate-500 shrink-0 transition-transform duration-200 motion-reduce:transition-none group-open:rotate-180 group-open:text-orange-700"
                   />
-                </button>
-
-                {isOpen && (
-                  <div id={`home-faq-panel-${idx}`} role="region" aria-labelledby={`home-faq-button-${idx}`} className="px-5 pb-6 sm:px-6 pt-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                </summary>
+                  <div className="px-5 pb-6 sm:px-6 pt-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
                     {faq.answer}
                   </div>
-                )}
-              </div>
-            );
-          })}
+              </details>
+          ))}
         </div>
 
         {/* Need more help banner */}
@@ -133,9 +112,10 @@ export function FaqSection() {
             href={getWhatsAppUrl("Hola, tengo algunas dudas sobre el funcionamiento de BREICORP para mi negocio.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition-colors shadow-sm"
+            data-analytics-event="whatsapp_click"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs rounded-xl transition-colors shadow-sm"
           >
-            <MessageCircle className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4 fill-current" />
             <span>Consultar con un especialista ahora</span>
           </a>
         </div>

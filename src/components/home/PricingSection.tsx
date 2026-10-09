@@ -10,7 +10,7 @@ export function PricingSection() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
 
   return (
-    <section className="py-20 bg-white text-slate-900 border-b border-slate-200">
+    <section className="defer-render py-20 bg-white text-slate-900 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-slate-800 text-xs font-bold uppercase tracking-wider">
@@ -112,7 +112,7 @@ export function PricingSection() {
                   {/* Price */}
                   <div className="py-2 border-y border-slate-100 dark:border-slate-800">
                     <div className="flex items-baseline gap-1">
-                      <span className="text-sm font-bold text-slate-400">
+                      <span className={plan.recommended ? "text-sm font-bold text-slate-300" : "text-sm font-bold text-slate-600"}>
                         {plan.currencySymbol}
                       </span>
                       <span
@@ -122,7 +122,7 @@ export function PricingSection() {
                       >
                         {price}
                       </span>
-                      <span className="text-xs text-slate-400 font-medium">/mes</span>
+                      <span className={plan.recommended ? "text-xs text-slate-300 font-medium" : "text-xs text-slate-600 font-medium"}>/mes</span>
                     </div>
                     {billingCycle === "annual" && (
                       <div className="text-[11px] text-emerald-500 font-semibold mt-0.5">
@@ -134,33 +134,33 @@ export function PricingSection() {
                   {/* Operational limits */}
                   <div className="space-y-1.5 text-xs">
                     <div className="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800">
-                      <span className="text-slate-400">Comprobantes:</span>
+                      <span className={plan.recommended ? "text-slate-300" : "text-slate-600"}>Comprobantes:</span>
                       <span className="font-bold">{plan.documents}</span>
                     </div>
                     <div className="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800">
-                      <span className="text-slate-400">Usuarios:</span>
+                      <span className={plan.recommended ? "text-slate-300" : "text-slate-600"}>Usuarios:</span>
                       <span className="font-bold">{plan.users}</span>
                     </div>
                     <div className="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800">
-                      <span className="text-slate-400">Locales:</span>
+                      <span className={plan.recommended ? "text-slate-300" : "text-slate-600"}>Locales:</span>
                       <span className="font-bold">{plan.locations}</span>
                     </div>
                     <div className="flex items-center justify-between py-1">
-                      <span className="text-slate-400">Productos:</span>
+                      <span className={plan.recommended ? "text-slate-300" : "text-slate-600"}>Productos:</span>
                       <span className="font-bold">{plan.products}</span>
                     </div>
                   </div>
 
                   {/* Features list */}
                   <div className="pt-3 space-y-2">
-                    <div className="text-[11px] uppercase tracking-wider font-bold text-slate-400">
+                    <div className={`text-[11px] uppercase tracking-wider font-bold ${plan.recommended ? "text-slate-300" : "text-slate-600"}`}>
                       Incluye:
                     </div>
                     {plan.features.map((feat, i) => (
                       <div key={i} className="flex items-start gap-2 text-xs">
                         <Check
                           className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                            plan.recommended ? "text-cyan-400" : "text-orange-600"
+                            plan.recommended ? "text-cyan-400" : "text-orange-700"
                           }`}
                         />
                         <span
@@ -207,7 +207,7 @@ export function PricingSection() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => window.dispatchEvent(new CustomEvent("breicorp:analytics", { detail: { name: "whatsapp_click" } }))}
-              className="text-orange-600 font-bold hover:underline"
+              className="text-orange-700 font-bold hover:underline"
             >
               Habla directamente con un asesor comercial por WhatsApp →
             </a>
