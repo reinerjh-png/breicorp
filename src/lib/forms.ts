@@ -10,7 +10,7 @@ export type DemoRequest = {
 export type ComplaintRequest = {
   nombre: string; apellido: string; tipoDoc: string; numDoc: string; telefono: string;
   email: string; direccion: string; tipoReclamo: string; descripcionBien: string;
-  detalle: string; pedidoConcreto: string; aceptaTerminos: boolean; website?: string;
+  montoReclamado: string; detalle: string; pedidoConcreto: string; aceptaTerminos: boolean; website?: string;
 };
 
 const strip = (value: unknown, max: number) =>
@@ -47,12 +47,14 @@ export function parseComplaint(input: unknown): { data?: ComplaintRequest; error
     numDoc: strip(body.numDoc, 30), telefono: strip(body.telefono, 25), email: strip(body.email, 120),
     direccion: strip(body.direccion, 180), tipoReclamo: strip(body.tipoReclamo, 20),
     descripcionBien: strip(body.descripcionBien, 400), detalle: strip(body.detalle, 3000),
+    montoReclamado: strip(body.montoReclamado, 30),
     pedidoConcreto: strip(body.pedidoConcreto, 1500), aceptaTerminos: body.aceptaTerminos === true,
     website: strip(body.website, 200),
   };
   const errors: string[] = [];
   for (const [key, label, max] of [["nombre", "Nombres", 80], ["apellido", "Apellidos", 80], ["tipoDoc", "Tipo de documento", 30], ["numDoc", "Número de documento", 30], ["telefono", "Teléfono", 25], ["email", "Correo", 120], ["direccion", "Domicilio", 180], ["detalle", "Detalle", 3000], ["pedidoConcreto", "Pedido concreto", 1500]] as const) required(data[key], { label, max }, errors);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errors.push("Ingresa un correo válido.");
+  if (data.montoReclamado && !/^\d+(?:[.,]\d{1,2})?$/.test(data.montoReclamado)) errors.push("Ingresa un monto reclamado válido.");
   if (!data.aceptaTerminos) errors.push("Debes declarar la veracidad de la información.");
   return errors.length ? { errors } : { data };
 }

@@ -9,4 +9,5 @@ production-server*.log
 # Chrome audit profile (internal tool)
 .chrome-audit-profile/
 .screenshots/
+.lighthouse/
 

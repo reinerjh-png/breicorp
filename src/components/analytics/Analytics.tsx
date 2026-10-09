@@ -9,7 +9,7 @@ export function trackEvent(name: "demo_cta_click" | "demo_form_start" | "demo_fo
   window.gtag?.("event", name);
 }
 
-export function Analytics() {
+export function Analytics({ enabled }: { enabled: boolean }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   useEffect(() => {
     const handler = (event: Event) => {
@@ -19,6 +19,6 @@ export function Analytics() {
     window.addEventListener("breicorp:analytics", handler);
     return () => window.removeEventListener("breicorp:analytics", handler);
   }, []);
-  if (!gaId) return null;
+  if (!enabled || !gaId) return null;
   return <><Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" /><Script id="ga4" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};window.gtag=gtag;gtag('js',new Date());gtag('config','${gaId}', {send_page_view:true});`}</Script></>;
 }

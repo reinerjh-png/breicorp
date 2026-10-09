@@ -9,7 +9,8 @@ export async function POST(request: Request) {
   if (parsed.data!.website) return NextResponse.json({ ok: true });
   const d = parsed.data!;
   try {
-    await sendToBreicorp("Nueva solicitud de demostración — BREICORP", ["Solicitud de demostración", "", `Nombre: ${d.name}`, `Celular / WhatsApp: ${d.phone}`, `Empresa: ${d.companyName}`, `RUC: ${d.ruc}`, `Correo: ${d.email}`, `Giro: ${d.sector}`, `Proceso a mejorar: ${d.message}`].join("\n"), d.email);
+    const optional = [["Empresa", d.companyName], ["RUC", d.ruc]].filter(([, value]) => value);
+    await sendToBreicorp("Nueva solicitud de demostración — BREICORP", ["Solicitud de demostración", "", `Nombre: ${d.name}`, `Celular / WhatsApp: ${d.phone}`, ...optional.map(([label, value]) => `${label}: ${value}`), `Correo: ${d.email}`, `Giro: ${d.sector}`, `Proceso a mejorar: ${d.message}`].join("\n"), d.email);
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Demo email error", error);

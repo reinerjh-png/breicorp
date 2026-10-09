@@ -73,7 +73,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/logo-breicorp.webp", type: "image/webp" },
-      { url: "/favicon.ico", sizes: "any" },
     ],
     shortcut: ["/logo-breicorp.webp"],
     apple: [
@@ -87,6 +86,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const analyticsEnabled = process.env.SITE_ENV === "production" || process.env.SITE_ENV === "staging";
   return (
     <html lang="es-PE">
       <head>
@@ -97,7 +97,7 @@ export default function RootLayout({
       <body className={`${inter.variable} min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased selection:bg-orange-600 selection:text-white`}>
         <JsonLd type="Organization" />
         <JsonLd type="SoftwareApplication" />
-        <Analytics />
+        <Analytics enabled={analyticsEnabled} />
         <Header />
         <main id="main-content" className="flex-grow">
           {children}

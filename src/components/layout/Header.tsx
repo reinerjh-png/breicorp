@@ -116,12 +116,11 @@ export function Header() {
             <Link
               href="/"
               className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-lg p-1"
-              aria-label="BREICORP - Ir al inicio"
             >
               <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-sm group-hover:scale-105 transition-transform duration-200 shrink-0">
                 <Image
                   src="/logo-breicorp.webp"
-                  alt="BREICORP - Software Empresarial"
+                  alt=""
                   width={40}
                   height={40}
                   className="w-full h-full object-cover"

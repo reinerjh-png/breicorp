@@ -18,6 +18,19 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     const isProductionSite = process.env.SITE_ENV === "production";
+    const productionCsp = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "frame-ancestors 'none'",
+      "object-src 'none'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
+      "font-src 'self' data:",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com",
+      "upgrade-insecure-requests",
+    ].join("; ");
 
     return [
       {
@@ -31,10 +44,12 @@ const nextConfig: NextConfig = {
             value:
               "camera=(), microphone=(), geolocation=(), interest-cohort=()",
           },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains",
-          },
+          ...(isProductionSite
+            ? [
+                { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
+                { key: "Content-Security-Policy", value: productionCsp },
+              ]
+            : []),
           ...(!isProductionSite
             ? [
                 {

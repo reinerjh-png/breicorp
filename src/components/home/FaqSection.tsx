@@ -123,9 +123,9 @@ export function FaqSection() {
 
         {/* Need more help banner */}
         <div className="mt-12 bg-white rounded-2xl p-6 border border-slate-200 text-center space-y-3 shadow-sm">
-          <h4 className="font-bold text-slate-900 text-base">
+          <h3 className="font-bold text-slate-900 text-base">
             ¿Tienes una pregunta específica sobre tu negocio?
-          </h4>
+          </h3>
           <p className="text-xs text-slate-500 max-w-md mx-auto">
             Nuestros especialistas comerciales y tributarios atienden tus consultas directamente por WhatsApp sin compromiso.
           </p>

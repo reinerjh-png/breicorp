@@ -242,6 +242,21 @@ export default function LibroReclamacionesPage() {
               </div>
 
               <div>
+                <label htmlFor="reclamo-monto" className="block font-semibold mb-1">Monto reclamado en soles (opcional)</label>
+                <input
+                  id="reclamo-monto"
+                  name="montoReclamado"
+                  inputMode="decimal"
+                  maxLength={30}
+                  type="text"
+                  placeholder="Ej. 150.00"
+                  value={formData.montoReclamado}
+                  onChange={(e) => setFormData({ ...formData, montoReclamado: e.target.value.replace(/[^\d.,]/g, "") })}
+                  className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="reclamo-detalle" className="block font-semibold mb-1">Detalle del Reclamo o Queja *</label>
                 <textarea
                   id="reclamo-detalle"
