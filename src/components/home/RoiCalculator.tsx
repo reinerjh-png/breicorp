@@ -8,24 +8,40 @@ import {
   Coins,
   CheckCircle2,
   ArrowRight,
+  ChevronDown,
+  TimerReset,
+  Users,
 } from "lucide-react";
+import {
+  ADMIN_MINUTES_SAVED_PER_USER_PER_DAY,
+  OPERATING_DAYS_PER_MONTH,
+  REFERENCE_HOURLY_VALUE,
+  calculateOperationalSavings,
+  type CurrentMethod,
+} from "@/lib/operationalSavings";
+
+const hoursFormatter = new Intl.NumberFormat("es-PE", {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
+
+const currencyFormatter = new Intl.NumberFormat("es-PE", {
+  maximumFractionDigits: 0,
+});
 
 export function RoiCalculator() {
   const [salesPerDay, setSalesPerDay] = useState(40);
   const [employees, setEmployees] = useState(2);
-  const [currentMethod, setCurrentMethod] = useState<"sunat_web" | "manual" | "old_software">("sunat_web");
+  const [currentMethod, setCurrentMethod] = useState<CurrentMethod>("sunat_web");
 
-  // Calculations based on typical business hours and clerical time
-  // SUNAT web portal takes ~3 mins per voucher with delays and typing
-  // BREICORP takes ~20 seconds
-  const minutesSavedPerDoc = currentMethod === "sunat_web" ? 2.5 : currentMethod === "manual" ? 4 : 1.5;
-  const monthlyDocs = salesPerDay * 26; // 26 working days
-  const hoursSavedMonthly = Math.round((monthlyDocs * minutesSavedPerDoc) / 60);
-
-  // Illustrative valuation only. It is not a promise of savings.
-  const averageHourlyCost = 10;
-  const laborSavings = hoursSavedMonthly * averageHourlyCost;
-  const totalEstimatedMonthlySavings = laborSavings;
+  const {
+    minutesSavedPerTransaction,
+    monthlyTransactions,
+    transactionHoursSaved,
+    administrativeHoursSaved,
+    totalHoursSaved,
+    estimatedTimeValue,
+  } = calculateOperationalSavings({ salesPerDay, users: employees, currentMethod });
 
   return (
     <section className="defer-render py-20 bg-slate-900 text-white border-b border-slate-800 relative overflow-hidden">
@@ -35,7 +51,7 @@ export function RoiCalculator() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-950 border border-orange-700/60 text-orange-300 text-xs font-bold uppercase tracking-wider">
-            <Calculator className="w-3.5 h-3.5" />
+            <Calculator className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Calculadora de Impacto Operativo</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -110,12 +126,13 @@ export function RoiCalculator() {
                 step="5"
                 value={salesPerDay}
                 onChange={(e) => setSalesPerDay(Number(e.target.value))}
+                aria-valuenow={salesPerDay}
                 aria-valuetext={`${salesPerDay} comprobantes por día`}
                 className="w-full h-11 bg-transparent cursor-pointer accent-orange-500"
               />
               <div className="flex justify-between text-[11px] text-slate-300">
                 <span>10 ventas/día</span>
-                <span>~{monthlyDocs} al mes</span>
+                <span>~{monthlyTransactions} al mes</span>
                 <span>250+ ventas/día</span>
               </div>
             </div>
@@ -136,6 +153,7 @@ export function RoiCalculator() {
                 step="1"
                 value={employees}
                 onChange={(e) => setEmployees(Number(e.target.value))}
+                aria-valuenow={employees}
                 aria-valuetext={`${employees} ${employees === 1 ? "persona" : "personas"}`}
                 className="w-full h-11 bg-transparent cursor-pointer accent-emerald-500"
               />
@@ -154,49 +172,93 @@ export function RoiCalculator() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+              <div className="min-h-32 bg-slate-950/80 p-4 rounded-xl border border-slate-800">
                 <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
-                  <Clock className="w-4 h-4 text-cyan-400" />
-                  <span>Tiempo recuperado</span>
+                  <Clock className="w-4 h-4 text-cyan-400" aria-hidden="true" />
+                  <span>Tiempo recuperado por operaciones</span>
                 </div>
-                <div className="text-3xl font-black text-cyan-300">
-                  ~{hoursSavedMonthly} hrs
+                <div className="text-3xl font-black tabular-nums text-cyan-300">
+                  ~{hoursFormatter.format(transactionHoursSaved)} hrs
                 </div>
                 <div className="text-[11px] text-slate-300 mt-1">
-                  Equivale a {Math.round((hoursSavedMonthly / 8) * 10) / 10} días laborales al mes
+                  {monthlyTransactions} operaciones × {minutesSavedPerTransaction} min
                 </div>
               </div>
 
-              <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+              <div className="min-h-32 bg-slate-950/80 p-4 rounded-xl border border-slate-800">
                 <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
-                  <Coins className="w-4 h-4 text-emerald-400" />
-                  <span>Valor referencial del tiempo</span>
+                  <Users className="w-4 h-4 text-emerald-400" aria-hidden="true" />
+                  <span>Tiempo administrativo recuperado</span>
                 </div>
-                <div className="text-3xl font-black text-emerald-400">
-                  S/ {totalEstimatedMonthlySavings}
+                <div className="text-3xl font-black tabular-nums text-emerald-300">
+                  ~{hoursFormatter.format(administrativeHoursSaved)} hrs
                 </div>
                 <div className="text-[11px] text-slate-300 mt-1">
-                  Calculado con una hora referencial de S/ {averageHourlyCost}
+                  {employees} {employees === 1 ? "usuario" : "usuarios"} × {ADMIN_MINUTES_SAVED_PER_USER_PER_DAY} min/día
+                </div>
+              </div>
+
+              <div className="min-h-32 bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
+                  <TimerReset className="w-4 h-4 text-orange-400" aria-hidden="true" />
+                  <span>Tiempo total estimado</span>
+                </div>
+                <div className="text-3xl font-black tabular-nums text-orange-300">
+                  ~{hoursFormatter.format(totalHoursSaved)} hrs
+                </div>
+                <div className="text-[11px] text-slate-300 mt-1">
+                  Aproximadamente {hoursFormatter.format(totalHoursSaved / 8)} jornadas de 8 horas
+                </div>
+              </div>
+
+              <div className="min-h-32 bg-slate-950/80 p-4 rounded-xl border border-slate-800">
+                <div className="flex items-center gap-2 text-slate-300 text-xs mb-1">
+                  <Coins className="w-4 h-4 text-emerald-400" aria-hidden="true" />
+                  <span>Valor referencial del tiempo</span>
+                </div>
+                <div className="text-3xl font-black tabular-nums text-emerald-400">
+                  S/ {currencyFormatter.format(estimatedTimeValue)}
+                </div>
+                <div className="text-[11px] text-slate-300 mt-1">
+                  Calculado con una hora referencial de S/ {REFERENCE_HOURLY_VALUE}
                 </div>
               </div>
             </div>
+
+            <p className="rounded-xl border border-amber-800/60 bg-amber-950/30 px-4 py-3 text-xs leading-5 text-amber-100">
+              Supuesto administrativo: cada usuario recupera aproximadamente {ADMIN_MINUTES_SAVED_PER_USER_PER_DAY} minutos diarios en tareas repetitivas. Es una referencia editable, no un dato demostrado por BREICORP.
+            </p>
 
             <div className="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Elimina las filas y esperas molestas de clientes en caja</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
+                <span>Las operaciones se calculan por volumen, sin multiplicarlas por usuarios</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Reduce pasos de digitación bajo los supuestos seleccionados</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
+                <span>El componente administrativo cambia únicamente con el tamaño del equipo</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Compara el ahorro estimado con planes desde S/ 50 al mes</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" aria-hidden="true" />
+                <span>El valor monetario representa tiempo estimado, no dinero garantizado</span>
               </div>
             </div>
 
-            <p className="text-[11px] leading-5 text-slate-300">Estimación ilustrativa basada en 26 días laborables y tiempos configurados para cada método. Los resultados reales dependen del proceso, volumen, adopción y configuración de cada empresa.</p>
+            <details className="group rounded-xl border border-slate-700 bg-slate-950/60">
+              <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm font-bold text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+                <span>¿Cómo se calcula esta estimación?</span>
+                <ChevronDown className="h-4 w-4 shrink-0 text-orange-300 transition-transform group-open:rotate-180" aria-hidden="true" />
+              </summary>
+              <div className="space-y-3 border-t border-slate-800 px-4 py-4 text-xs leading-5 text-slate-300">
+                <ul className="list-disc space-y-1.5 pl-5">
+                  <li>Se utilizan {OPERATING_DAYS_PER_MONTH} días operativos mensuales como referencia.</li>
+                  <li>El método seleccionado estima {minutesSavedPerTransaction} minutos ahorrados por operación.</li>
+                  <li>El equipo utiliza un supuesto de {ADMIN_MINUTES_SAVED_PER_USER_PER_DAY} minutos administrativos por usuario y día.</li>
+                  <li>El tiempo total se valoriza referencialmente en S/ {REFERENCE_HOURLY_VALUE} por hora.</li>
+                </ul>
+                <p>Estos valores son referenciales y pueden variar según los procesos, volumen y organización de cada empresa.</p>
+              </div>
+            </details>
 
             <div className="pt-2">
               <Link
@@ -204,7 +266,7 @@ export function RoiCalculator() {
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-orange-700 hover:bg-orange-800 text-white font-bold text-sm shadow-md transition-colors"
               >
                 <span>Comenzar a ahorrar con BREICORP</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
             </div>
           </div>

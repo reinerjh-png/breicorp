@@ -48,8 +48,9 @@ export const company = {
   verifiedRegions: ["Perú"],
   appLinks: {
     playStore:
-      "https://play.google.com/store/apps/details?id=com.breicorp.app",
-    appStore: "", // [VERIFICAR_APP_STORE] — confirmar si existe
+      "https://play.google.com/store/apps/details?id=com.peru.facturacion",
+    appStore:
+      "https://apps.apple.com/pe/app/breicorp/id6781440931?l=en-GB",
     webApp: "https://app.breicorp.com",
   },
   legalLinks: {

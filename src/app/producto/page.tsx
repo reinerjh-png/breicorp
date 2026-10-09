@@ -1,8 +1,9 @@
 ﻿import Link from "next/link";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
-import { createPageMetadata } from "@/config/company";
+import { company, createPageMetadata } from "@/config/company";
 import {
+  Apple,
   Receipt,
   Boxes,
   Truck,
@@ -15,6 +16,8 @@ import {
   Cloud,
   Cpu,
   Lock,
+  Play,
+  ExternalLink,
 } from "lucide-react";
 
 export const metadata = createPageMetadata({
@@ -111,16 +114,16 @@ export default function ProductPage() {
       title: "App Móvil de Preventa y Despacho",
       icon: Smartphone,
       description:
-        "Lleva la fuerza de ventas al terreno. Tus vendedores en ruta pueden cotizar, vender y emitir comprobantes desde su smartphone.",
+        "Lleva la operación al campo con la app móvil de BREICORP, disponible para Android y iPhone/iPad.",
       features: [
-        "Disponible para celulares y tablets Android",
+        "Disponible para dispositivos Android y iPhone/iPad",
         "Consulta de stock disponible en almacén central en tiempo real",
         "Registro de pedidos y preventa con sincronización automática a tienda",
         "Impresión de tickets vía Bluetooth en impresoras portátiles",
         "Trabajo ágil con conexión móvil 4G/5G",
       ],
       link: "/contacto",
-      linkText: "Solicitar acceso a la app móvil",
+      linkText: "Solicitar demostración de la app móvil",
     },
   ];
 
@@ -170,15 +173,51 @@ export default function ProductPage() {
                     ))}
                   </div>
 
-                  <div className="pt-4">
-                    <Link
-                      href={m.link}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-slate-800 transition-colors"
-                    >
-                      <span>{m.linkText}</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
+                  {m.id === "movilidad" ? (
+                    <div className="space-y-3 pt-4">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                        <a
+                          href={company.appLinks.playStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Descargar app BREICORP para Android en Google Play"
+                          className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:w-auto"
+                        >
+                          <Play className="h-5 w-5 fill-current" aria-hidden="true" />
+                          <span>Descargar en Google Play</span>
+                          <ExternalLink className="h-3.5 w-3.5 text-slate-300" aria-hidden="true" />
+                        </a>
+                        <a
+                          href={company.appLinks.appStore}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Descargar app BREICORP para iOS en App Store"
+                          className="inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-slate-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:w-auto"
+                        >
+                          <Apple className="h-5 w-5" aria-hidden="true" />
+                          <span>Descargar en App Store</span>
+                          <ExternalLink className="h-3.5 w-3.5 text-slate-300" aria-hidden="true" />
+                        </a>
+                      </div>
+                      <Link
+                        href={m.link}
+                        className="inline-flex min-h-11 items-center gap-2 rounded-lg px-1 text-sm font-bold text-orange-700 transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+                      >
+                        <span>{m.linkText}</span>
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  ) : (
+                    <div className="pt-4">
+                      <Link
+                        href={m.link}
+                        className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-slate-800 transition-colors"
+                      >
+                        <span>{m.linkText}</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  )}
                 </div>
 
                 <div className={`lg:col-span-5 ${isReversed ? "lg:order-1" : ""}`}>

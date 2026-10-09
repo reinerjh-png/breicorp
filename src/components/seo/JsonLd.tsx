@@ -43,6 +43,7 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
       name: "BREICORP ERP Cloud",
       operatingSystem: "Web Browser, Android, iOS",
       applicationCategory: "BusinessApplication",
+      downloadUrl: [company.appLinks.playStore, company.appLinks.appStore],
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "PEN",
