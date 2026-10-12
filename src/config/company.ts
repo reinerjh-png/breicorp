@@ -29,13 +29,10 @@ export const company = {
   foundationYear: 2017,
   domain: "breicorp.com.pe",
   appDomain: "app.breicorp.com",
-  socialNetworks: {
-    facebook: "https://www.facebook.com/breicorp",
-    // [VERIFICAR_RED_SOCIAL] — confirmar URLs oficiales
-    instagram: "",
-    linkedin: "",
-    youtube: "",
-    tiktok: "",
+  socialLinks: {
+    facebook: "https://www.facebook.com/people/BREICORP/61550315578244/",
+    instagram: "https://www.instagram.com/breicorp.pe/",
+    tiktok: "https://www.tiktok.com/@breicorp_pe",
   },
   businessHours: "Lunes a viernes: 8:00 a.m. — 6:00 p.m.",
   /**

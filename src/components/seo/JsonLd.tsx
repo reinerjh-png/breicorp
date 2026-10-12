@@ -32,9 +32,7 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
         areaServed: "PE",
         availableLanguage: ["Spanish"],
       },
-      sameAs: [
-        company.socialNetworks.facebook,
-      ].filter(Boolean),
+      sameAs: Object.values(company.socialLinks).filter(Boolean),
     };
   } else if (type === "SoftwareApplication") {
     schema = {

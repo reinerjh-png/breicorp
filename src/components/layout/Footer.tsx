@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import { company, getWhatsAppUrl } from "@/config/company";
+import { SocialLinks } from "@/components/shared/SocialLinks";
 import {
   ShieldCheck,
   Phone,
@@ -223,6 +224,13 @@ export function Footer() {
                   <span>Chatear por WhatsApp</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
+              </div>
+
+              <div className="border-t border-slate-800 pt-4">
+                <p className="mb-2.5 text-xs font-bold uppercase tracking-wider text-slate-200">
+                  Síguenos
+                </p>
+                <SocialLinks tone="dark" />
               </div>
             </div>
           </div>

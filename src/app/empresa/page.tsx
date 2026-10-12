@@ -1,5 +1,6 @@
 ﻿import { PageHeader } from "@/components/shared/PageHeader";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { SocialLinks } from "@/components/shared/SocialLinks";
 import { company, createPageMetadata } from "@/config/company";
 
 export const metadata = createPageMetadata({
@@ -85,6 +86,16 @@ export default function EmpresaPage() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="flex flex-col gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-2xl space-y-1.5">
+              <h2 className="text-xl font-bold text-slate-950">Conecta con BREICORP</h2>
+              <p className="text-sm leading-relaxed text-slate-600">
+                Encuéntranos en nuestras redes oficiales y conoce las novedades de la plataforma.
+              </p>
+            </div>
+            <SocialLinks showLabels />
           </div>
         </div>
       </section>
