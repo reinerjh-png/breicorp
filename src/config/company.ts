@@ -99,6 +99,13 @@ export const siteMetadata = {
   twitterHandle: "", // [VERIFICAR_TWITTER]
 };
 
+export const canonicalHost = company.domain;
+
+/** Compara un Host HTTP, con o sin puerto, con el dominio canónico. */
+export function isCanonicalProductionHost(host: string | null | undefined) {
+  return host?.split(":", 1)[0].toLowerCase() === canonicalHost;
+}
+
 import type { Metadata } from "next";
 
 /**
@@ -108,7 +115,9 @@ import type { Metadata } from "next";
  * Vercel por accidente. Al publicar el dominio oficial se debe configurar
  * SITE_ENV=production en el entorno de producción.
  */
-export const isProductionSite = process.env.SITE_ENV === "production";
+export const isProductionSite =
+  process.env.VERCEL_ENV === "production" ||
+  process.env.SITE_ENV === "production";
 
 export const robotsPolicy = isProductionSite
   ? {

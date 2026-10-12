@@ -1,8 +1,12 @@
 import { MetadataRoute } from "next";
-import { isProductionSite, siteMetadata } from "@/config/company";
+import { headers } from "next/headers";
+import { isCanonicalProductionHost, siteMetadata } from "@/config/company";
 
-export default function robots(): MetadataRoute.Robots {
-  if (!isProductionSite) {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const requestHeaders = await headers();
+  const host = requestHeaders.get("host") ?? requestHeaders.get("x-forwarded-host");
+
+  if (!isCanonicalProductionHost(host)) {
     return {
       rules: {
         userAgent: "*",

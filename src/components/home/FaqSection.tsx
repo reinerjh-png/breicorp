@@ -56,7 +56,10 @@ export function FaqSection() {
   };
 
   return (
-    <section className="defer-render py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
+    <section
+      id="preguntas-frecuentes"
+      className="defer-render scroll-mt-24 py-20 bg-slate-50 text-slate-900 border-b border-slate-200"
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

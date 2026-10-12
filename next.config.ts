@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { seoRedirects } from "./src/config/seoRedirects";
 
 const nextConfig: NextConfig = {
   images: {
@@ -6,18 +7,12 @@ const nextConfig: NextConfig = {
     deviceSizes: [360, 390, 430, 768, 1024, 1280, 1440, 1920],
   },
   async redirects() {
-    return [
-      // Preserve old URLs — map to new structure
-      { source: "/app-movil", destination: "/producto", permanent: true },
-      {
-        source: "/facturacion-electronica-peru",
-        destination: "/facturacion-electronica",
-        permanent: true,
-      },
-    ];
+    return [...seoRedirects];
   },
   async headers() {
-    const isProductionSite = process.env.SITE_ENV === "production";
+    const isProductionBuild =
+      process.env.VERCEL_ENV === "production" ||
+      process.env.SITE_ENV === "production";
     const productionCsp = [
       "default-src 'self'",
       "base-uri 'self'",
@@ -44,18 +39,10 @@ const nextConfig: NextConfig = {
             value:
               "camera=(), microphone=(), geolocation=(), interest-cohort=()",
           },
-          ...(isProductionSite
+          ...(isProductionBuild
             ? [
                 { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
                 { key: "Content-Security-Policy", value: productionCsp },
-              ]
-            : []),
-          ...(!isProductionSite
-            ? [
-                {
-                  key: "X-Robots-Tag",
-                  value: "noindex, nofollow, noarchive",
-                },
               ]
             : []),
         ],

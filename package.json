@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit --incremental false",
-    "test:operational-savings": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/operational-savings.test.mjs"
+    "test:operational-savings": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/operational-savings.test.mjs",
+    "test:seo-redirects": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test tests/seo-redirects.test.mjs",
+    "qa:seo-redirects": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/qa-seo-redirects.mjs",
+    "qa:seo-hosts": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/qa-seo-hosts.mjs"
   },
   "dependencies": {
     "next": "^15.1.0",
