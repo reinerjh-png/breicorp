@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { siteMetadata } from "@/config/company";
 
@@ -7,9 +8,10 @@ interface PageHeaderProps {
   description: string;
   breadcrumbs: Array<{ label: string; href?: string }>;
   path?: string;
+  actions?: ReactNode;
 }
 
-export function PageHeader({ badge, title, description, breadcrumbs, path }: PageHeaderProps) {
+export function PageHeader({ badge, title, description, breadcrumbs, path, actions }: PageHeaderProps) {
   const breadcrumbSchema = path ? {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -34,6 +36,7 @@ export function PageHeader({ badge, title, description, breadcrumbs, path }: Pag
           {badge && <div className="inline-flex items-center gap-2 rounded-full border border-slate-700/60 bg-slate-950 px-3 py-1 text-xs font-semibold text-orange-300"><span>{badge}</span></div>}
           <h1 className="text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">{title}</h1>
           <p className="pt-1 text-base font-normal leading-relaxed text-slate-300 sm:text-lg">{description}</p>
+          {actions ? <div className="flex flex-col gap-3 pt-4 sm:flex-row">{actions}</div> : null}
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/software-ventas-inventario",
     "/guias-remision-electronicas",
     "/software-empresarial",
+    "/software-empresarial-tingo-maria",
     "/software-empresas-peru",
     "/software-mypes",
     "/software-distribuidoras",

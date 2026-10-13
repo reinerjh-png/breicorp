@@ -9,12 +9,21 @@
  * documental antes de publicar en producción.
  */
 
+const headquarters = {
+  streetAddress: "Av. Tito Jaime 642",
+  addressLocality: "Tingo María",
+  addressRegion: "Huánuco",
+  addressCountry: "PE",
+  countryName: "Perú",
+} as const;
+
 export const company = {
   companyName: "BREICORP",
   legalName: "BREICORP E.I.R.L.",
   ruc: "20615859312",
   partidaElectronica: "N.° 11084023",
-  address: "Av. Tito Jaime 642, Tingo María — Huánuco",
+  address: `${headquarters.streetAddress}, ${headquarters.addressLocality} — ${headquarters.addressRegion}, ${headquarters.countryName}`,
+  location: headquarters,
   country: "Perú",
   countryCode: "PE",
   phone: "+51 948 261 382",
@@ -33,6 +42,7 @@ export const company = {
     facebook: "https://www.facebook.com/people/BREICORP/61550315578244/",
     instagram: "https://www.instagram.com/breicorp.pe/",
     tiktok: "https://www.tiktok.com/@breicorp_pe",
+    linkedin: "https://www.linkedin.com/in/breicorp-finanzas-per%C3%BA-327473249/",
   },
   businessHours: "Lunes a viernes: 8:00 a.m. — 6:00 p.m.",
   /**

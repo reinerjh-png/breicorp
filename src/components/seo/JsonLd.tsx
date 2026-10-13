@@ -1,7 +1,7 @@
 import { company, siteMetadata } from "@/config/company";
 
 interface JsonLdProps {
-  type?: "Organization" | "SoftwareApplication" | "FAQPage" | "BreadcrumbList";
+  type?: "Organization" | "LocalBusiness" | "SoftwareApplication" | "FAQPage" | "BreadcrumbList";
   data?: Record<string, unknown>;
 }
 
@@ -12,6 +12,7 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
     schema = {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": `${siteMetadata.siteUrl}/#organization`,
       name: company.legalName,
       alternateName: company.companyName,
       url: siteMetadata.siteUrl,
@@ -22,8 +23,10 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
       taxID: company.ruc,
       address: {
         "@type": "PostalAddress",
-        streetAddress: company.address,
-        addressCountry: "PE",
+        streetAddress: company.location.streetAddress,
+        addressLocality: company.location.addressLocality,
+        addressRegion: company.location.addressRegion,
+        addressCountry: company.location.addressCountry,
       },
       contactPoint: {
         "@type": "ContactPoint",
@@ -31,6 +34,25 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
         contactType: "sales and customer service",
         areaServed: "PE",
         availableLanguage: ["Spanish"],
+      },
+      sameAs: Object.values(company.socialLinks).filter(Boolean),
+    };
+  } else if (type === "LocalBusiness") {
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": `${siteMetadata.siteUrl}/#organization`,
+      name: company.legalName,
+      alternateName: company.companyName,
+      url: siteMetadata.siteUrl,
+      telephone: company.phone,
+      email: company.contactEmail,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: company.location.streetAddress,
+        addressLocality: company.location.addressLocality,
+        addressRegion: company.location.addressRegion,
+        addressCountry: company.location.addressCountry,
       },
       sameAs: Object.values(company.socialLinks).filter(Boolean),
     };
