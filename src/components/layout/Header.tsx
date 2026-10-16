@@ -143,7 +143,7 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Navegación principal">
+            <nav className="hidden xl:flex items-center gap-1" aria-label="Navegación principal">
               {mainNav.map((item, index) => {
                 const hasChildren = Boolean(item.children && item.children.length > 0);
                 const isActive = pathname === item.href || (hasChildren && item.children?.some(c => pathname === c.href));
@@ -251,7 +251,7 @@ export function Header() {
             </nav>
 
             {/* Desktop Action CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-3">
               <Link
                 href="/demo"
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
@@ -270,7 +270,7 @@ export function Header() {
             </div>
 
             {/* Mobile menu trigger */}
-            <div className="flex items-center gap-2 lg:hidden">
+            <div className="flex items-center gap-2 xl:hidden">
               <Link
                 href="/contacto"
                 className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-white bg-orange-700 hover:bg-orange-800 rounded-lg shadow-sm"
@@ -295,7 +295,7 @@ export function Header() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div ref={mobileMenuRef} id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Navegación móvil" className="lg:hidden border-t border-slate-200 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto px-4 pt-3 pb-8 shadow-xl">
+          <div ref={mobileMenuRef} id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Navegación móvil" className="xl:hidden border-t border-slate-200 bg-white max-h-[calc(100vh-5rem)] overflow-y-auto px-4 pt-3 pb-8 shadow-xl">
             <div className="space-y-3">
               {mainNav.map((item) => (
                 <div key={item.label} className="border-b border-slate-100 pb-2">

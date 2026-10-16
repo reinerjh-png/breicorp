@@ -73,6 +73,42 @@ export const mainNav: NavItem[] = [
     ],
   },
   {
+    label: "Servicios",
+    href: "/servicios-empresariales",
+    children: [
+      {
+        label: "Servicios empresariales",
+        href: "/servicios-empresariales",
+        description: "Portafolio profesional para MYPE",
+      },
+      {
+        label: "Finanzas",
+        href: "/asesoria-financiera",
+        description: "Asesoría, análisis y planificación financiera",
+      },
+      {
+        label: "Consultoría",
+        href: "/consultoria-empresarial",
+        description: "Procesos, organización e indicadores",
+      },
+      {
+        label: "Legal",
+        href: "/asesoria-legal-empresas",
+        description: "Orientación legal para empresas",
+      },
+      {
+        label: "Contabilidad",
+        href: "/contabilidad-empresas",
+        description: "Organización contable y reportes",
+      },
+      {
+        label: "Crear empresa",
+        href: "/creacion-de-empresas",
+        description: "Constitución y formalización",
+      },
+    ],
+  },
+  {
     label: "Empresas",
     href: "/software-empresas-peru",
     children: [

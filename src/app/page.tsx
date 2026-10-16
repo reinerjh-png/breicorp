@@ -8,6 +8,7 @@ import { SecurityFeature } from "@/components/home/SecurityFeature";
 import { PricingSection } from "@/components/home/PricingSection";
 import { FaqSection } from "@/components/home/FaqSection";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { BusinessServicesPreview } from "@/components/home/BusinessServicesPreview";
 
 export default function HomePage() {
   return (
@@ -21,6 +22,7 @@ export default function HomePage() {
       <SecurityFeature />
       <PricingSection />
       <FaqSection />
+      <BusinessServicesPreview />
       <CtaBanner />
     </>
   );

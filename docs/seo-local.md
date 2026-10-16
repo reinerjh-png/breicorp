@@ -12,7 +12,8 @@ Documento interno para coordinar la presencia local de BREICORP en Tingo María.
 - [ ] Usar como sitio web `https://breicorp.com.pe` o una URL de campaña autorizada que conserve el mismo dominio.
 - [ ] Confirmar los horarios reales de atención antes de publicarlos o modificarlos.
 - [ ] Redactar una descripción clara de la empresa, sin promociones, enlaces, keyword stuffing ni afirmaciones no verificadas.
-- [ ] Añadir solo servicios confirmados: software empresarial, facturación electrónica, ventas, inventario, Kardex y automatización de procesos según el alcance real.
+- [ ] Añadir solo servicios confirmados: software empresarial, facturación electrónica, ventas, inventario, Kardex, automatización de procesos, asesoría financiera, análisis financiero, educación financiera, planificación financiera, consultoría empresarial, orientación legal, contabilidad y creación de empresas según el alcance real.
+- [ ] Incorporar los servicios profesionales en la sección de servicios de Google Business Profile donde corresponda, sin asumir ni modificar categorías hasta revisar el catálogo vigente y la actividad principal real.
 - [ ] Incorporar fotografías propias y actuales de la sede, el equipo y el producto cuando exista autorización para publicarlas.
 - [ ] Mantener publicaciones útiles sobre producto, implementaciones, capacitaciones y novedades; evitar publicaciones repetitivas creadas solo para posicionar palabras clave.
 - [ ] Revisar y responder preguntas frecuentes con información comprobable. No crear preguntas simulando ser un cliente.
@@ -65,8 +66,11 @@ Estas ideas quedan documentadas, pero no deben publicarse hasta contar con autor
 3. Software para MYPE en Tingo María.
 4. Cómo digitalizar ventas e inventarios en Tingo María.
 5. Sistema POS para negocios en Tingo María.
+6. Cómo ordenar el flujo de caja de una MYPE de Tingo María.
+7. Qué revisar antes de formalizar un negocio en Tingo María.
+8. Indicadores básicos para gestionar una empresa local.
 
-Cada contenido futuro debe responder una necesidad distinta, aportar experiencia comprobable y enlazar de forma natural con la landing local. No crear páginas repetidas cambiando únicamente el nombre de la ciudad.
+Cada contenido futuro debe responder una necesidad distinta, aportar experiencia comprobable y enlazar de forma natural con la landing local tecnológica o con `/servicios-empresariales-tingo-maria`, según su intención. No crear páginas repetidas cambiando únicamente el nombre de la ciudad.
 
 ## Medición y mantenimiento
 

@@ -1,7 +1,7 @@
 import { company, siteMetadata } from "@/config/company";
 
 interface JsonLdProps {
-  type?: "Organization" | "LocalBusiness" | "SoftwareApplication" | "FAQPage" | "BreadcrumbList";
+  type?: "Organization" | "LocalBusiness" | "SoftwareApplication" | "Service" | "FAQPage" | "BreadcrumbList";
   data?: Record<string, unknown>;
 }
 
@@ -18,7 +18,7 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
       url: siteMetadata.siteUrl,
       logo: `${siteMetadata.siteUrl}/logo-breicorp.webp`,
       description:
-        "Software empresarial, facturación electrónica SUNAT, control de inventarios y automatización para empresas en Perú.",
+        "Software empresarial, automatización y servicios profesionales en finanzas, consultoría, contabilidad y gestión para empresas en Perú.",
       foundingDate: `${company.foundationYear}`,
       taxID: company.ruc,
       address: {
@@ -77,6 +77,16 @@ export function JsonLd({ type = "Organization", data }: JsonLdProps) {
         "Punto de venta multi-caja y multi-almacén",
         "Reportes gerenciales y de rentabilidad en tiempo real",
       ],
+    };
+  } else if (type === "Service") {
+    schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      provider: {
+        "@type": "Organization",
+        "@id": `${siteMetadata.siteUrl}/#organization`,
+        name: company.legalName,
+      },
     };
   }
 

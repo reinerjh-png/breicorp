@@ -1,0 +1,15 @@
+
+> breicorp-web@1.0.0 dev
+> next dev -p 3015
+
+   ▲ Next.js 15.5.27
+   - Local:        http://localhost:3015
+   - Network:      http://192.168.100.8:3015
+
+ ✓ Starting...
+ ✓ Ready in 2.5s
+ ✓ Compiled /middleware in 344ms (116 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 3.6s (845 modules)
+ GET / 200 in 4975ms
+ GET / 200 in 563ms

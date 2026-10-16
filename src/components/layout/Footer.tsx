@@ -20,7 +20,7 @@ export function Footer() {
     <footer className="bg-slate-950 text-slate-300 pt-16 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8 pb-12 border-b border-slate-800">
           {/* Col 1: Identity & Legal Data */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
@@ -44,8 +44,8 @@ export function Footer() {
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Plataforma empresarial en la nube para automatizar ventas, inventario,
-              facturación electrónica SUNAT y logística en empresas peruanas en crecimiento.
+              Tecnología y servicios profesionales para ayudar a empresas peruanas a
+              digitalizar, ordenar y gestionar su operación.
             </p>
 
             {/* Legal Identification */}
@@ -132,7 +132,21 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Segmentos & Casos */}
+          {/* Col 3: Servicios empresariales */}
+          <div>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-200">
+              <Link href="/servicios-empresariales" className="transition-colors hover:text-orange-300">Servicios empresariales</Link>
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/asesoria-financiera" className="transition-colors hover:text-white">Asesoría financiera</Link></li>
+              <li><Link href="/consultoria-empresarial" className="transition-colors hover:text-white">Consultoría empresarial</Link></li>
+              <li><Link href="/asesoria-legal-empresas" className="transition-colors hover:text-white">Asesoría legal</Link></li>
+              <li><Link href="/contabilidad-empresas" className="transition-colors hover:text-white">Contabilidad</Link></li>
+              <li><Link href="/creacion-de-empresas" className="transition-colors hover:text-white">Creación de empresas</Link></li>
+            </ul>
+          </div>
+
+          {/* Col 4: Segmentos & Casos */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">
               Sectores
@@ -180,7 +194,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Contacto Oficial & Canales */}
+          {/* Col 5: Contacto Oficial & Canales */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">
               Atención y Soporte

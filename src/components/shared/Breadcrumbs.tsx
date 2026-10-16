@@ -1,6 +1,5 @@
 ﻿import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
-import { siteMetadata } from "@/config/company";
 
 interface BreadcrumbItem {
   label: string;
@@ -8,32 +7,8 @@ interface BreadcrumbItem {
 }
 
 export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
-  // BreadcrumbList JSON-LD
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Inicio",
-        item: siteMetadata.siteUrl,
-      },
-      ...items.map((item, index) => ({
-        "@type": "ListItem",
-        position: index + 2,
-        name: item.label,
-        item: item.href ? `${siteMetadata.siteUrl}${item.href}` : undefined,
-      })),
-    ],
-  };
-
   return (
     <nav aria-label="Migas de pan" className="mb-4">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
       <ol className="flex items-center gap-1.5 text-xs text-slate-400 flex-wrap">
         <li>
           <Link
