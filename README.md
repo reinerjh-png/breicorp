@@ -352,3 +352,5 @@ Tingo María, Huánuco, Perú
 ---
 
 Construido para comunicar con claridad la propuesta tecnológica de BREICORP y acompañar su evolución hacia producción.
+
+<!-- Verificación de integración GitHub-Vercel después del cambio de usuario -->
